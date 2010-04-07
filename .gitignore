@@ -1,0 +1,3 @@
+config/database.php
+*.tmproj
+tmp/*
