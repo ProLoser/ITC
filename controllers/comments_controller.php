@@ -16,7 +16,11 @@ class CommentsController extends AppController {
 		$this->set('comment', $this->Comment->read(null, $id));
 	}
 
-	function add() {
+	function add($id = null) {
+		if (!$id && empty($this->data)) {
+			$this->Session->setFlash(sprintf(__('Invalid %s', true), 'review'));
+			$this->redirect(array('action' => 'index'));
+		}
 		if (!empty($this->data)) {
 			$this->Comment->create();
 			if ($this->Comment->save($this->data)) {
