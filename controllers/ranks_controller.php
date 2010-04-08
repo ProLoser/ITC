@@ -4,11 +4,15 @@ class RanksController extends AppController {
 	var $name = 'Ranks';
 
 	function index() {
+		$this->set('ranks', $this->Rank->find('all'));
+	}
+
+	function admin_index() {
 		$this->Rank->recursive = 0;
 		$this->set('ranks', $this->paginate());
 	}
 
-	function view($id = null) {
+	function admin_view($id = null) {
 		if (!$id) {
 			$this->Session->setFlash(sprintf(__('Invalid %s', true), 'rank'));
 			$this->redirect(array('action' => 'index'));
@@ -16,7 +20,7 @@ class RanksController extends AppController {
 		$this->set('rank', $this->Rank->read(null, $id));
 	}
 
-	function add() {
+	function admin_add() {
 		if (!empty($this->data)) {
 			$this->Rank->create();
 			if ($this->Rank->save($this->data)) {
@@ -28,7 +32,7 @@ class RanksController extends AppController {
 		}
 	}
 
-	function edit($id = null) {
+	function admin_edit($id = null) {
 		if (!$id && empty($this->data)) {
 			$this->Session->setFlash(sprintf(__('Invalid %s', true), 'rank'));
 			$this->redirect(array('action' => 'index'));
@@ -46,7 +50,7 @@ class RanksController extends AppController {
 		}
 	}
 
-	function delete($id = null) {
+	function admin_delete($id = null) {
 		if (!$id) {
 			$this->Session->setFlash(sprintf(__('Invalid id for %s', true), 'rank'));
 			$this->redirect(array('action'=>'index'));

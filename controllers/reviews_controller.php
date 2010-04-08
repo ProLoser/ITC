@@ -19,6 +19,7 @@ class ReviewsController extends AppController {
 	function add() {
 		if (!empty($this->data)) {
 			$this->Review->create();
+			$this->data['Review']['user_id'] = $this->Auth->user('id');
 			if ($this->Review->save($this->data)) {
 				$this->Session->setFlash(sprintf(__('The %s has been saved', true), 'review'));
 				$this->redirect(array('action' => 'index'));
@@ -28,7 +29,8 @@ class ReviewsController extends AppController {
 		}
 		$users = $this->Review->User->find('list');
 		$tags = $this->Review->Tag->find('list');
-		$this->set(compact('users', 'tags'));
+		$visibilities = $this->Review->visibilities;
+		$this->set(compact('users', 'tags', 'visibilities'));
 	}
 
 	function edit($id = null) {
@@ -37,6 +39,7 @@ class ReviewsController extends AppController {
 			$this->redirect(array('action' => 'index'));
 		}
 		if (!empty($this->data)) {
+			$this->data['Review']['user_id'] = $this->Auth->user('id');
 			if ($this->Review->save($this->data)) {
 				$this->Session->setFlash(sprintf(__('The %s has been saved', true), 'review'));
 				$this->redirect(array('action' => 'index'));
@@ -49,7 +52,8 @@ class ReviewsController extends AppController {
 		}
 		$users = $this->Review->User->find('list');
 		$tags = $this->Review->Tag->find('list');
-		$this->set(compact('users', 'tags'));
+		$visibilities = $this->Review->visibilities;
+		$this->set(compact('users', 'tags', 'visibilities'));
 	}
 
 	function delete($id = null) {

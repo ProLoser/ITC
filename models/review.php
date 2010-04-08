@@ -1,6 +1,13 @@
 <?php
 class Review extends AppModel {
 	var $name = 'Review';
+	var $order = 'Created DESC';
+	
+	// Used for populating the droplist on the form
+	var $visibilities = array(
+		'Public' => 'Public',
+		'Private' => 'Private',
+	);
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
 	var $belongsTo = array(

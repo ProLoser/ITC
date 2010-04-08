@@ -93,5 +93,12 @@ class User extends AppModel {
 		)
 	);
 
+	function grantPoints($event, $userId) {
+		//@TODO Should point event use the key as the primary key?
+		$data['Point']['user_id'] = $userId;
+		$data['Point']['point_event_id'] = $event;
+		return $this->Point->save($data);
+	}
+	
 }
 ?>

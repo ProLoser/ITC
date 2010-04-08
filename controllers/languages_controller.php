@@ -3,12 +3,12 @@ class LanguagesController extends AppController {
 
 	var $name = 'Languages';
 
-	function index() {
+	function admin_index() {
 		$this->Language->recursive = 0;
 		$this->set('languages', $this->paginate());
 	}
 
-	function view($id = null) {
+	function admin_view($id = null) {
 		if (!$id) {
 			$this->Session->setFlash(sprintf(__('Invalid %s', true), 'language'));
 			$this->redirect(array('action' => 'index'));
@@ -16,7 +16,7 @@ class LanguagesController extends AppController {
 		$this->set('language', $this->Language->read(null, $id));
 	}
 
-	function add() {
+	function admin_add() {
 		if (!empty($this->data)) {
 			$this->Language->create();
 			if ($this->Language->save($this->data)) {
@@ -28,7 +28,7 @@ class LanguagesController extends AppController {
 		}
 	}
 
-	function edit($id = null) {
+	function admin_edit($id = null) {
 		if (!$id && empty($this->data)) {
 			$this->Session->setFlash(sprintf(__('Invalid %s', true), 'language'));
 			$this->redirect(array('action' => 'index'));
@@ -46,7 +46,7 @@ class LanguagesController extends AppController {
 		}
 	}
 
-	function delete($id = null) {
+	function admin_delete($id = null) {
 		if (!$id) {
 			$this->Session->setFlash(sprintf(__('Invalid id for %s', true), 'language'));
 			$this->redirect(array('action'=>'index'));
