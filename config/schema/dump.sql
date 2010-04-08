@@ -55,7 +55,7 @@ CREATE TABLE IF NOT EXISTS `languages` (
 CREATE TABLE IF NOT EXISTS `points` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
-  `point_event_id` int(11) NOT NULL,
+  `point_event_id` varchar(30) NOT NULL,
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL,
   PRIMARY KEY (`id`),
@@ -70,11 +70,10 @@ CREATE TABLE IF NOT EXISTS `points` (
 --
 
 CREATE TABLE IF NOT EXISTS `point_events` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` varchar(30) NOT NULL,
   `name` varchar(100) NOT NULL,
   `description` mediumtext,
   `points` int(11) NOT NULL,
-  `key` varchar(10) NOT NULL,
   `foreign_model` varchar(30) DEFAULT NULL,
   `foreign_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
@@ -190,7 +189,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `email` varchar(100) NOT NULL,
   `avatar` varchar(100) DEFAULT NULL,
   `websites` varchar(255) DEFAULT NULL,
-  `point_count` int(11) NOT NULL DEFAULT '0',
+  `points` int(11) NOT NULL DEFAULT '0',
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL,
   `status` varchar(10) DEFAULT NULL,
