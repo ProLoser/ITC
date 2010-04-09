@@ -2,9 +2,21 @@
 class ReviewsController extends AppController {
 
 	var $name = 'Reviews';
+	
+	function beforeFilter() {
+		parent::beforeFilter();
+		$this->Auth->deny(array('mine'));
+	}
 
 	function index() {
 		$this->Review->recursive = 0;
+		$this->set('reviews', $this->paginate());
+	}
+	
+	function mine() {
+		$this->Review->recursive = 0;
+		// This approach is only used for paginate(), not Model->find()
+		$this->paginate['conditions']['Review.user_id'] = $this->Auth->user('id');
 		$this->set('reviews', $this->paginate());
 	}
 

@@ -6,6 +6,14 @@ class RanksController extends AppController {
 	function index() {
 		$this->set('ranks', $this->Rank->find('all'));
 	}
+	
+	function view($id = null) {
+		if (!$id) {
+			$this->Session->setFlash(sprintf(__('Invalid %s', true), 'rank'));
+			$this->redirect(array('action' => 'index'));
+		}
+		$this->set('rank', $this->Rank->read(null, $id));
+	}
 
 	function admin_index() {
 		$this->Rank->recursive = 0;
