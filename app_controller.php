@@ -8,11 +8,6 @@ class AppController extends Controller {
 	
 	function beforeFilter() {
 		$this->__configureAuth();
-		// Configure System Permission
-		if ($this->_prefix() && $this->Auth->user('id') !== 0) {
-			$this->Session->setFlash('You must be a system administrator');
-			$this->redirect('/');
-		}
 	}
 	
 	function beforeRender() {		
@@ -43,11 +38,11 @@ class AppController extends Controller {
 	 * @return void
 	 * @access private
 	 */
-	function __configureAuth() {		
-		$this->Auth->allow();
-		if ($this->_prefix('admin') || $this->_prefix('system')) {
+	function __configureAuth() {	
+		if ($this->_prefix()) {
 			$this->Auth->deny();
-		} else {			
+		} else {				
+			$this->Auth->allow();
 			$this->Auth->deny(array('add', 'edit', 'delete'));
 		}
 
