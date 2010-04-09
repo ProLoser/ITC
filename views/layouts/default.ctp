@@ -38,21 +38,20 @@
 		<div id="header">
 			<h1>Controllers (Tables)</h1>
 			<ul>
-				<li><?php echo $this->Html->link('Comments', array('controller' => 'comments'))?></li>
-				<li><?php echo $this->Html->link('Languages', array('controller' => 'languages'))?></li>
-				<li><?php echo $this->Html->link('Points', array('controller' => 'points'))?></li>
-				<li><?php echo $this->Html->link('Point Events', array('controller' => 'point_events'))?></li>
-				<li><?php echo $this->Html->link('Ranks', array('controller' => 'ranks'))?></li>
+				<li><?php echo $this->Html->link('Points', array('controller' => 'point_events', 'action' => 'index'))?></li>
+				<li><?php echo $this->Html->link('Ranks', array('controller' => 'ranks', 'action' => 'index'))?></li>
 				<li><?php echo $this->Html->link('Reviews', array('controller' => 'reviews'))?></li>
-				<li><?php echo $this->Html->link('Sources (Files)', array('controller' => 'sources'))?></li>
-				<li><?php echo $this->Html->link('Subscriptions', array('controller' => 'subscriptions'))?></li>
-				<li><?php echo $this->Html->link('Tags', array('controller' => 'tags'))?></li>
+				<li><?php echo $this->Html->link('Sources', array('controller' => 'sources'))?></li>
+				<li><?php echo $this->Html->link('Subscriptions', array('controller' => 'subscriptions'))?></li><li><?php echo $this->Html->link('Tags', array('controller' => 'tags'))?></li>
 				<li><?php echo $this->Html->link('Users', array('controller' => 'users'))?></li>
-				<li><?php echo $this->Html->link('Votes', array('controller' => 'votes'))?></li>
+			<?php if ($this->Session->read('Auth.User')): ?>
+				<li><?php echo $this->Html->link('My Points', array('controller' => 'points'))?></li>
+			<?php endif; ?>
 			</ul>
 		</div>
 		<div id="content">
 			<?php echo $this->Session->flash(); ?>
+			<?php echo $this->Session->flash('auth'); ?>
 
 			<?php echo $content_for_layout; ?>
 

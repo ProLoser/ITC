@@ -16,7 +16,20 @@ class PointEventsController extends AppController {
 		$this->set('pointEvent', $this->PointEvent->read(null, $id));
 	}
 
-	function add() {
+	function admin_index() {
+		$this->PointEvent->recursive = 0;
+		$this->set('pointEvents', $this->paginate());
+	}
+
+	function admin_view($id = null) {
+		if (!$id) {
+			$this->Session->setFlash(sprintf(__('Invalid %s', true), 'point event'));
+			$this->redirect(array('action' => 'index'));
+		}
+		$this->set('pointEvent', $this->PointEvent->read(null, $id));
+	}
+
+	function admin_add() {
 		if (!empty($this->data)) {
 			$this->PointEvent->create();
 			if ($this->PointEvent->save($this->data)) {
@@ -28,7 +41,7 @@ class PointEventsController extends AppController {
 		}
 	}
 
-	function edit($id = null) {
+	function admin_edit($id = null) {
 		if (!$id && empty($this->data)) {
 			$this->Session->setFlash(sprintf(__('Invalid %s', true), 'point event'));
 			$this->redirect(array('action' => 'index'));
@@ -46,7 +59,7 @@ class PointEventsController extends AppController {
 		}
 	}
 
-	function delete($id = null) {
+	function admin_delete($id = null) {
 		if (!$id) {
 			$this->Session->setFlash(sprintf(__('Invalid id for %s', true), 'point event'));
 			$this->redirect(array('action'=>'index'));

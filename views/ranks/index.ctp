@@ -9,12 +9,12 @@
 			$class = ' class="altrow"';
 		}
 	?>
-	<dt<?php echo $class;?>>
-		<?php echo $rank['Rank']['title']; ?>
-		<?php echo $rank['Rank']['points']; ?>
-	</dt>
-	<dd>
-		<?php echo $rank['Rank']['description']; ?>
-	</dd>
-<?php endforeach; ?>
+		<dt<?php echo $class;?>>
+			<?php echo $this->Html->link($rank['Rank']['title'], array('action' => 'view', $rank['Rank']['id'])); ?>
+			<?php echo $rank['Rank']['points']; ?>
+		</dt>
+		<dd>
+			<?php echo $rank['Rank']['description']; ?>
+		</dd>
+	<?php endforeach; ?>
 	</dl>
