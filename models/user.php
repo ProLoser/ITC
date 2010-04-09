@@ -102,7 +102,7 @@ class User extends AppModel {
 	
 	function beforeSave() {
 		// Sets the default rank if creating a new user
-		if (!isset($this->data['User']['id'] && !isset($this->data['User']['rank_id'])) {
+		if (!isset($this->data['User']['id']) && !isset($this->data['User']['rank_id'])) {
 			$this->data['User']['rank_id'] = $this->Rank->field('id'); // rank order by points asc
 		}
 	}
