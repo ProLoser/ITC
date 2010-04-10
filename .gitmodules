@@ -1,3 +1,6 @@
 [submodule "plugins/welcome"]
 	path = plugins/welcome
 	url = git://github.com/kankurou/CakePHP-Welcome.git
+[submodule "plugins/geshi"]
+	path = plugins/geshi
+	url = git://github.com/jaimeh/cakephp_geshi.git
