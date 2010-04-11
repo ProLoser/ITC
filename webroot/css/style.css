@@ -2,7 +2,6 @@
 
 a {text-decoration: none;outline: 0px;}
 
-a:active {position:relative; top:1px;}
 
 .light-blue {
 	color: #5f8298;
@@ -112,12 +111,39 @@ ul#user-navigation li a {
 }
 
 
+ul#filter-posts {
+	position: relative;
+	float: right;
+	margin-right: 40px;
+	margin-bottom: 20px;
+
+}
+
+ul#filter-posts li {
+	display: inline;
+	color: #000000;
+}
+
+
+ul#filter-posts li a {
+	color: #215D84;
+	
+}
+
+
+ul#filter-posts li a.current {
+	color: #000000;
+	text-decoration: underline;
+	
+}
+
+
 							/*navigation for the main links, doesn't include the User Navigation */
 
 ul#main-navigation {
 	position: absolute;
 	top: -32px;
-	left: 110px;     	
+	left: 120px;     	
 	
 }
 
@@ -150,9 +176,37 @@ ul#main-navigation li a.current, ul#main-navigation li a:hover {
 
 
 
+ul#review-nav {
+	position: relative;
+	float: right;
+	margin-right: 40px;
+	margin-top: 20px;
+}
 
+ul#review-nav li {
+	display: block;
+	float: left;
+	border: 1px solid #215D84;
+	width: 25px;
+	height: 28px;
+	padding-top: 12px;
+	text-align: center;
+	margin-right: 2px;
+	
+}
 
+ul#review-nav li a {
+	color: #215D84;
+	font-size: 1.3em;
+	font-weight: normal;
+	margin-left: 2px;
+	
+}
 
+ul#review-nav li:hover, ul#review-nav li:hover a, ul#review-nav li.current a, ul#review-nav li.current {
+	background-color: #215D84;
+	color:#ffffff;
+}
 											/* content */
 
 div#content {
@@ -294,6 +348,8 @@ div#main-content {
 
 }
 
+
+
 ul.user-info {
 	color:#215d84;
 	font-size: .9em;
@@ -384,6 +440,7 @@ div#side-bar {
 #side-bar ul li a {
 	font-size: 1.2em;
 	line-height: 1.4em;
+	color:#215D84;
 
 }
 
