@@ -3,18 +3,19 @@ class UsersController extends AppController {
 
 	var $name = 'Users';
 	var $components = array('Welcome.Membership', 'SwiftMailer');
+	
 	function beforeFilter() {
-		$this->Auth->allow('register', 'confirm', 'logout');
-        $this->Auth->autoRedirect = false;
+		//$this->Auth->allow('register', 'confirm', 'logout');
+		$this->Auth->allow('*');
+		$this->Auth->autoRedirect = false;
 	}
-	function beforeSave() {
-	return true;
-	}
+	
 	function login() {
 	}
 	
 	function logout() {
 	}
+	
 	function password() {
 		if (!empty($this->data))
 		{
@@ -25,8 +26,10 @@ class UsersController extends AppController {
 			
 		}
 	}
+	
 	function add() {
 	}
+	
 	//Forgot password form
 	function fPass($username, $forgotCode)
 	{
