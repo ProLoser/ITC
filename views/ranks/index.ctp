@@ -18,3 +18,4 @@
 		</dd>
 	<?php endforeach; ?>
 	</dl>
+</div>

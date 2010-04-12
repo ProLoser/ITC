@@ -35,22 +35,21 @@
 </head>
 <body>
 	<div id="wrapper">
-
-		<?php echo $this->element('layouts/header-reviews');?>
-
-		<div id="content">
-
-			<?php echo $this->element('layouts/main-navigation')?>
-			
-			<?php echo $this->element('layouts/main-content')?>
-
-			<?php echo $this->element('layouts/side-bar');?>
-			
-		</div><!-- content -->
-		
-		<?php echo $this->element('layouts/footer');?>
-
-	</div><!-- wrapper -->
+		<div id="header">
+			<?php echo $this->element('layouts/header-bar');?>
+			<h1>ProCode a web based community here to review develper code...</h1>
+			<?php echo $this->Session->flash(); ?>
+			<?php echo $this->Session->flash('auth'); ?>
+			<div id="tabs"><?php echo $this->element('layouts/navigation')?></div>
+		</div>
+		<div id="body">
+			<div id="sidebar"><?php echo $this->element('layouts/sidebar');?></div>
+			<div id="content"><?php echo $content_for_layout; ?></div>
+		</div>		
+		<div id="footer">
+			<?php echo $this->element('layouts/footer');?>
+		</div>
+	</div>
 	<?php echo $this->element('sql_dump'); ?>
 </body>
 </html>
