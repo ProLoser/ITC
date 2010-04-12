@@ -14,60 +14,43 @@ class UsersController extends AppController {
 	}
 	
 	function logout() {
+		$this->Auth->logout();
+		$this->Session->setFlash('You have succesfully logged out.');
+		$this->redirect(array('action' => 'login'));
 	}
 	
 	function password() {
-		if (!empty($this->data))
-		{
-			
-		}
-		else
-		{
-			
-		}
 	}
 	
 	function add() {
 	}
 	
 	//Forgot password form
-	function fPass($username, $forgotCode)
-	{
-		if($forgotCode == Security::hash(date('Ymd') . $username, null, true))
-		{
-			if(!empty($this->data))
-			{
+	function fPass($username, $forgotCode) {
+		if($forgotCode == Security::hash(date('Ymd') . $username, null, true)) {
+			if(!empty($this->data)) {
 				if($this->data['User']['password'] == $this->data['User']['confirm_password']){
 					$this->data['User']['password'] = '\'' . Security::hash($username . $this->data['User']['password'], null, true) . '\''; //BUG, needs explicit quotations or it will generate an SQL error.
-					if($this->User->updateAll(array('User.password' => $this->data['User']['password']), array('User.username' => $username)))
-					{
+					if($this->User->updateAll(array('User.password' => $this->data['User']['password']), array('User.username' => $username))) {
 						$this->Session->setFlash(sprintf(__('The %s has been saved', true), 'user'));
 						$this->redirect(array('action' => 'index'));
-					}
-					else 
-					{
+					} else {
 						$this->Session->setFlash('Unable to update password.');
 					}
-				}
-				else
-				{
+				} else {
 					$this->Session->setFlash('Invalid. Try again');
 				}
 			}
-		}
-		else
-		{
+		} else {
 			$this->Session->setFlash('Link has expired, please request another password link');
 			$this->redirect(array('controller' => 'users', 'action' => 'index'));
 		}
-			
 	}
+	
 	//Send reset password confirmation
 	function reset() {
-		if (!empty($this->data))
-		{
-			if($this->User->find('count', array('conditions' => array('User.email' => $this->data['User']['email']))) == 1)
-			{
+		if (!empty($this->data)) {
+			if($this->User->find('count', array('conditions' => array('User.email' => $this->data['User']['email']))) == 1) {
 				$this->data = $this->User->find(array('User.email' => $this->data['User']['email']));
 				$this->set('name', $this->data['User']['username']);
 				$this->set('forgot_code', $this->data['User']['username'] . '/' .
@@ -75,35 +58,12 @@ class UsersController extends AppController {
 				$this->__sendPassMail($this->data['User']['email']);
 				$this->Session->setFlash('Instructions has been sent to the email you have provided');
 				$this->data['User']['email'] = null;
-			}
-			else
-			{
+			} else {
 				$this->Session->setFlash('The email you have provided has not been found. Try again.');
 			}
 		}
-
-		
 	}
-	function __sendPassMail($email) {
-		$this->SwiftMailer->smtpType = 'tls';
-		$this->SwiftMailer->smtpHost = 'smtp.gmail.com';
-		$this->SwiftMailer->smtpPort = 465;
-		$this->SwiftMailer->smtpUsername = 'itccompetition@gmail.com';
-		$this->SwiftMailer->smtpPassword = 'competition';
-
-		$this->SwiftMailer->sendAs = 'html';
-		$this->SwiftMailer->from = 'itccompetition@gmail.com';
-		$this->SwiftMailer->fromName = 'ProCode';
-		$this->SwiftMailer->to = $email;
-		try {
-			if(!$this->SwiftMailer->send('user_forgot', 'Reset Password')) {
-				$this->log("Error sending email");
-			}
-		}
-		catch(Exception $e) {
-  			$this->log("Failed to send email: ".$e->getMessage());
-		}
-	}
+	
 	function index() {
 		$this->User->recursive = 0;
 		$this->set('users', $this->paginate());
@@ -128,9 +88,7 @@ class UsersController extends AppController {
 					$this->Session->setFlash(sprintf(__('The %s could not be saved. Please, try again.', true), 'user'));
 					$this->data['User']['password'] =$this->data['User']['confirm_password'];
 				}
-			}
-			else
-			{
+			} else {
 				$this->Session->setFlash('Passwords do not match');
 				$this->data['User']['password'] = null;
 				$this->data['User']['confirm_password'] = null;
@@ -224,5 +182,27 @@ class UsersController extends AppController {
 		$this->Session->setFlash(sprintf(__('%s was not deleted', true), 'User'));
 		$this->redirect(array('action' => 'index'));
 	}
+	
+	
+	function __sendPassMail($email) {
+		$this->SwiftMailer->smtpType = 'tls';
+		$this->SwiftMailer->smtpHost = 'smtp.gmail.com';
+		$this->SwiftMailer->smtpPort = 465;
+		$this->SwiftMailer->smtpUsername = 'itccompetition@gmail.com';
+		$this->SwiftMailer->smtpPassword = 'competition';
+
+		$this->SwiftMailer->sendAs = 'html';
+		$this->SwiftMailer->from = 'itccompetition@gmail.com';
+		$this->SwiftMailer->fromName = 'ProCode';
+		$this->SwiftMailer->to = $email;
+		try {
+			if(!$this->SwiftMailer->send('user_forgot', 'Reset Password')) {
+				$this->log("Error sending email");
+			}
+		} catch(Exception $e) {
+  			$this->log("Failed to send email: ".$e->getMessage());
+		}
+	}
+	
 }
 ?>

@@ -1,5 +1,5 @@
-<div id="side-bar">
-	<h3>Popular <span class="light-blue">Tags</span></h3>
+<div id="sidebar">
+	<h3>Popular <span>Tags</span></h3>
 	<ul>
 		<li><a href="#">CSS</a></li>
 		<li><a href="#">Java</a></li>
@@ -9,7 +9,7 @@
 		<li><a href="#">CSS</a></li>
 		<li><a href="#">CSS</a></li>
 	</ul>
-	<h3>Popular <span class="light-blue">Useds</span></h3>
+	<h3>Popular <span>Useds</span></h3>
 	<ul>
 		<li><a href="#">Redjoker88</a></li>
 		<li><a href="#">Proloser</a></li>
@@ -19,6 +19,6 @@
 		<li><a href="#">CSS</a></li>
 		<li><a href="#">CSS</a></li>
 	</ul>
-	<p class="ad-space">Ad Space Available</p>
-	<p class="ad-space">Ad Space Available</p>
-</div><!-- side-bar -->
+	<p class="adbox">Ad Space Available</p>
+	<p class="adbox">Ad Space Available</p>
+</div>
