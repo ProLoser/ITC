@@ -1,5 +1,5 @@
 <div class="sources form">
-<?php echo $this->Form->create('Source');?>
+<?php echo $this->Form->create('Source', array('type' => 'file'));?>
 	<fieldset>
  		<legend><?php printf(__('Add %s', true), __('Source', true)); ?></legend>
 	<?php
@@ -7,7 +7,7 @@
 		echo $this->Form->input('language_id');
 		echo $this->Form->input('content');
 		echo $this->Form->input('description');
-		echo $this->Form->input('file_name');
+		echo $this->Form->input('source', array('type' => 'file'));
 		echo $this->Form->input('visibility');
 	?>
 	</fieldset>

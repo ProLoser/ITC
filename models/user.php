@@ -2,6 +2,48 @@
 class User extends AppModel {
 	var $name = 'User';
 	var $validate = array(
+		'username'   => array(
+			'alphaNumeric' => array(
+				'rule' => 'alphaNumeric',
+				'required' => true,
+				'message' => 'Alpha-numeric names only."'
+			),
+			'unique' => array(
+				'rule' => 'isUnique',
+				'message' => 'Username already taken. Try again.'
+			)
+		),
+			
+		'password' => array(
+			'rule' => array('minLength', 6),
+			'allowEmpty' => false,
+			'message' => 'Password must be at the minimum 6 characters long.'
+		),
+		
+		'confirm_password' => array(
+			'rule' => array('minLength', 6),
+			'allowEmpty' => false,
+			'message' => 'Password must be at the minimum 6 characters long.'
+		),
+		
+		'email' => array(
+			'emailValid' => array(
+				'rule' => 'email', 
+				'message' => 'Invalid e-mail.',
+				'allowEmpty' => false
+			),
+			'unique' => array(
+				'rule' => 'isUnique',
+				'message' => 'Email already in use. Try again.'
+			)
+		),
+		
+		'date_of_birth' => array(
+			'rule' => 'date',
+			'message' => 'Enter a valid date',
+			'allowEmpty' => false
+		),
+		
 		'role' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
@@ -19,9 +61,6 @@ class User extends AppModel {
 		'Rank' => array(
 			'className' => 'Rank',
 			'foreignKey' => 'rank_id',
-			'conditions' => '',
-			'fields' => '',
-			'order' => ''
 		)
 	);
 
@@ -30,66 +69,37 @@ class User extends AppModel {
 			'className' => 'Comment',
 			'foreignKey' => 'user_id',
 			'dependent' => false,
-			'conditions' => '',
-			'fields' => '',
-			'order' => '',
-			'limit' => '',
-			'offset' => '',
-			'exclusive' => '',
-			'finderQuery' => '',
-			'counterQuery' => ''
 		),
 		'Point' => array(
 			'className' => 'Point',
 			'foreignKey' => 'user_id',
 			'dependent' => false,
-			'conditions' => '',
-			'fields' => '',
-			'order' => '',
-			'limit' => '',
-			'offset' => '',
-			'exclusive' => '',
-			'finderQuery' => '',
-			'counterQuery' => ''
 		),
 		'Review' => array(
 			'className' => 'Review',
 			'foreignKey' => 'user_id',
 			'dependent' => false,
-			'conditions' => '',
-			'fields' => '',
-			'order' => '',
-			'limit' => '',
-			'offset' => '',
-			'exclusive' => '',
-			'finderQuery' => '',
-			'counterQuery' => ''
 		),
 		'Subscription' => array(
 			'className' => 'Subscription',
 			'foreignKey' => 'user_id',
 			'dependent' => false,
-			'conditions' => '',
-			'fields' => '',
-			'order' => '',
-			'limit' => '',
-			'offset' => '',
-			'exclusive' => '',
-			'finderQuery' => '',
-			'counterQuery' => ''
 		),
 		'Vote' => array(
 			'className' => 'Vote',
 			'foreignKey' => 'user_id',
 			'dependent' => false,
-			'conditions' => '',
-			'fields' => '',
-			'order' => '',
-			'limit' => '',
-			'offset' => '',
-			'exclusive' => '',
-			'finderQuery' => '',
-			'counterQuery' => ''
+		)
+	);
+
+	var $actsAs = array(
+		'UploadPack.Upload' => array(
+			'avatar' => array(
+				'styles' => array(
+					'small' => '40x40',
+					'medium' => '120x120',
+				)
+			)
 		)
 	);
 
@@ -105,6 +115,7 @@ class User extends AppModel {
 		if (!isset($this->data['User']['id']) && !isset($this->data['User']['rank_id'])) {
 			$this->data['User']['rank_id'] = $this->Rank->field('id'); // rank order by points asc
 		}
+		return true;
 	}
 	
 }

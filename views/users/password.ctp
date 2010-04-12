@@ -5,7 +5,7 @@
 <div class="users form">
 <?php echo $this->Form->create('User');?>
 	<fieldset>
- 		<legend><?php __('Update Password', true); ?></legend>
+ 		<legend><?php echo $this->title_for_layout = __('Update Password', true)?></legend>
 	<?php
 		echo $this->Form->input('old_password', array('type' => 'password'));
 		echo $this->Form->input('password', array('type' => 'password'));

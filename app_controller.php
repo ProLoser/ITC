@@ -4,6 +4,12 @@ class AppController extends Controller {
 	var $components = array(
 		'Auth', 
 		'Session',
+		
+	);
+	
+	var $helpers = array(
+		'UploadPack.Upload',
+		'Session'
 	);
 	
 	function beforeFilter() {

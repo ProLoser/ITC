@@ -28,7 +28,10 @@
 		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Avatar'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $user['User']['avatar']; ?>
+			<?php echo $user['User']['avatar_file_name']; ?>
+			<?php echo $this->Upload->image($user, 'User.avatar', 'small');
+			//echo $this->Html->image('/upload/users/' . $user['User']['id'] . '/' . substr($user['User']['avatar_file_name'], 0, -4) . '_small.png' ); ?>
+			
 			&nbsp;
 		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Websites'); ?></dt>

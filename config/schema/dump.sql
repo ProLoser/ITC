@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 08, 2010 at 07:48 AM
--- Server version: 5.1.36
--- PHP Version: 5.3.0
+-- Generation Time: Apr 11, 2010 at 07:03 PM
+-- Server version: 5.1.37
+-- PHP Version: 5.2.11
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 
@@ -19,7 +19,7 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 -- Table structure for table `comments`
 --
 
-CREATE TABLE IF NOT EXISTS `comments` (
+CREATE TABLE `comments` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
   `source_id` int(11) NOT NULL,
@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS `comments` (
 -- Table structure for table `languages`
 --
 
-CREATE TABLE IF NOT EXISTS `languages` (
+CREATE TABLE `languages` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(30) NOT NULL,
   PRIMARY KEY (`id`)
@@ -52,7 +52,7 @@ CREATE TABLE IF NOT EXISTS `languages` (
 -- Table structure for table `points`
 --
 
-CREATE TABLE IF NOT EXISTS `points` (
+CREATE TABLE `points` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
   `point_event_id` varchar(30) NOT NULL,
@@ -69,7 +69,7 @@ CREATE TABLE IF NOT EXISTS `points` (
 -- Table structure for table `point_events`
 --
 
-CREATE TABLE IF NOT EXISTS `point_events` (
+CREATE TABLE `point_events` (
   `id` varchar(30) NOT NULL,
   `name` varchar(100) NOT NULL,
   `description` mediumtext,
@@ -77,7 +77,7 @@ CREATE TABLE IF NOT EXISTS `point_events` (
   `foreign_model` varchar(30) DEFAULT NULL,
   `foreign_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -85,7 +85,7 @@ CREATE TABLE IF NOT EXISTS `point_events` (
 -- Table structure for table `ranks`
 --
 
-CREATE TABLE IF NOT EXISTS `ranks` (
+CREATE TABLE `ranks` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(100) NOT NULL,
   `description` mediumtext,
@@ -99,7 +99,7 @@ CREATE TABLE IF NOT EXISTS `ranks` (
 -- Table structure for table `reviews`
 --
 
-CREATE TABLE IF NOT EXISTS `reviews` (
+CREATE TABLE `reviews` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
   `name` varchar(100) NOT NULL,
@@ -114,7 +114,7 @@ CREATE TABLE IF NOT EXISTS `reviews` (
 -- Table structure for table `reviews_tags`
 --
 
-CREATE TABLE IF NOT EXISTS `reviews_tags` (
+CREATE TABLE `reviews_tags` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `tag_id` int(11) NOT NULL,
   `review_id` int(11) NOT NULL,
@@ -129,7 +129,7 @@ CREATE TABLE IF NOT EXISTS `reviews_tags` (
 -- Table structure for table `sources`
 --
 
-CREATE TABLE IF NOT EXISTS `sources` (
+CREATE TABLE `sources` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `review_id` int(11) NOT NULL,
   `language_id` int(11) NOT NULL,
@@ -137,7 +137,8 @@ CREATE TABLE IF NOT EXISTS `sources` (
   `modified` datetime NOT NULL,
   `content` blob NOT NULL,
   `description` mediumtext,
-  `file_name` varchar(255) NOT NULL,
+  `source_file_name` varchar(255) NOT NULL,
+  `source_file_size` int(11) NOT NULL,
   `visibility` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `review_id` (`review_id`),
@@ -150,7 +151,7 @@ CREATE TABLE IF NOT EXISTS `sources` (
 -- Table structure for table `subscriptions`
 --
 
-CREATE TABLE IF NOT EXISTS `subscriptions` (
+CREATE TABLE `subscriptions` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
   `foreign_id` int(11) NOT NULL,
@@ -168,7 +169,7 @@ CREATE TABLE IF NOT EXISTS `subscriptions` (
 -- Table structure for table `tags`
 --
 
-CREATE TABLE IF NOT EXISTS `tags` (
+CREATE TABLE `tags` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(25) NOT NULL,
   `created` datetime NOT NULL,
@@ -181,13 +182,13 @@ CREATE TABLE IF NOT EXISTS `tags` (
 -- Table structure for table `users`
 --
 
-CREATE TABLE IF NOT EXISTS `users` (
+CREATE TABLE `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(100) NOT NULL,
   `password` varchar(40) NOT NULL,
   `name` varchar(100) DEFAULT NULL,
   `email` varchar(100) NOT NULL,
-  `avatar` varchar(100) DEFAULT NULL,
+  `avatar_file_name` varchar(255) DEFAULT NULL,
   `websites` varchar(255) DEFAULT NULL,
   `points` int(11) NOT NULL DEFAULT '0',
   `created` datetime NOT NULL,
@@ -198,7 +199,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `role` varchar(10) NOT NULL DEFAULT 'User',
   PRIMARY KEY (`id`),
   KEY `rank_id` (`rank_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
 
 -- --------------------------------------------------------
 
@@ -206,7 +207,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 -- Table structure for table `votes`
 --
 
-CREATE TABLE IF NOT EXISTS `votes` (
+CREATE TABLE `votes` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `comment_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
