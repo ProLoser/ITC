@@ -28,43 +28,29 @@
 	<?php
 		echo $this->Html->meta('icon');
 
-		echo $this->Html->css('cake.generic');
+		echo $this->Html->css('style');
 
 		echo $scripts_for_layout;
 	?>
 </head>
 <body>
-	<div id="container">
-		<div id="header">
-			<h1>Controllers (Tables)</h1>
-			<ul>
-				<li><?php echo $this->Html->link('Points', array('controller' => 'point_events', 'action' => 'index'))?></li>
-				<li><?php echo $this->Html->link('Ranks', array('controller' => 'ranks', 'action' => 'index'))?></li>
-				<li><?php echo $this->Html->link('Reviews', array('controller' => 'reviews'))?></li>
-				<li><?php echo $this->Html->link('Sources', array('controller' => 'sources'))?></li>
-				<li><?php echo $this->Html->link('Subscriptions', array('controller' => 'subscriptions'))?></li><li><?php echo $this->Html->link('Tags', array('controller' => 'tags'))?></li>
-				<li><?php echo $this->Html->link('Users', array('controller' => 'users'))?></li>
-			<?php if ($this->Session->read('Auth.User')): ?>
-				<li><?php echo $this->Html->link('My Points', array('controller' => 'points'))?></li>
-			<?php endif; ?>
-			</ul>
-		</div>
+	<div id="wrapper">
+
+		<?php echo $this->element('layouts/header-reviews');?>
+
 		<div id="content">
-			<?php echo $this->Session->flash(); ?>
-			<?php echo $this->Session->flash('auth'); ?>
 
-			<?php echo $content_for_layout; ?>
+			<?php echo $this->element('layouts/main-navigation')?>
+			
+			<?php echo $this->element('layouts/main-content')?>
 
-		</div>
-		<div id="footer">
-			<?php echo $this->Html->link(
-					$this->Html->image('cake.power.gif', array('alt'=> __('CakePHP: the rapid development php framework', true), 'border' => '0')),
-					'http://www.cakephp.org/',
-					array('target' => '_blank', 'escape' => false)
-				);
-			?>
-		</div>
-	</div>
+			<?php echo $this->element('layouts/side-bar');?>
+			
+		</div><!-- content -->
+		
+		<?php echo $this->element('layouts/footer');?>
+
+	</div><!-- wrapper -->
 	<?php echo $this->element('sql_dump'); ?>
 </body>
 </html>
