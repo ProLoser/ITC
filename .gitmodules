@@ -4,3 +4,6 @@
 [submodule "plugins/geshi"]
 	path = plugins/geshi
 	url = git://github.com/jaimeh/cakephp_geshi.git
+[submodule "plugins/upload"]
+	path = plugins/upload
+	url = git://github.com/josegonzalez/uploadpack.git
