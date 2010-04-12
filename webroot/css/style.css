@@ -1,0 +1,451 @@
+* {padding: 0px;margin: 0px;}
+
+a {text-decoration: none;outline: 0px;}
+
+a:active {position:relative; top:1px;}
+
+.light-blue {
+	color: #5f8298;
+}
+
+body {
+	font-family: Helvetica, Trebuchet MS, sans-serif;
+	font-size: 14px;
+	line-height: 18px;
+	font-weight:normal;
+	color: #000000;
+}
+
+ 
+h1 {
+	color: #215D84;
+	font-size: 2em;
+	line-height: 1.2em;
+	font-weight: normal;
+}
+
+h3 {
+	color: #215D84;
+	font-size: 1.5em;
+	line-height: 1.3em;
+	margin-top: 1.5em;
+	border-bottom: 1px solid #215d84;
+	
+}
+
+
+div#wrapper{
+	color: #ffffff;
+	width: 960px;
+	margin: auto;
+
+}
+
+div#top-nav {
+	position: relative;
+	width: 960px;
+	height: 44px;
+	background-color: #215d84;
+	background-image: url(../img/procode_small.jpg);
+	background-position: top left;
+	background-repeat: no-repeat;
+
+}
+
+h1#procode {
+	display: block;
+	width: 400px;
+	height: 150px;
+	background-image: url(../img/procode.jpg);
+	background-repeat: no-repeat;
+	text-indent: -9999px;
+	position: absolute;
+	top: 82px;
+	left: 110px;
+
+}
+
+div#header {
+	position: relative;
+	float: left;
+	height: 170px;
+	border-bottom: 1px solid #215d84;
+
+}
+
+div#header-reviews {
+	height: 311px;
+	position: relative;
+	border-bottom: 1px solid #215d84;
+
+}
+
+											/* user navigation */
+
+ul#user-navigation {
+	position: absolute;
+	right: 240px;
+	top:15px;
+	
+}
+
+ul#user-navigation li {
+	margin:10px 20px 5px 0;
+	display: inline;
+}
+
+ul#user-navigation li a {
+	color:#ffffff;
+	font-size:1em;
+}
+
+
+#top-nav form {
+	position: absolute;
+	right: 20px;
+	top:10px;
+
+}
+
+#top-nav form input {
+	height:20px;
+}
+
+
+							/*navigation for the main links, doesn't include the User Navigation */
+
+ul#main-navigation {
+	position: absolute;
+	top: -32px;
+	left: 110px;     	
+	
+}
+
+ul#main-navigation li {
+	float:left;
+	text-align: center;
+	list-style: none;
+
+}
+
+ul#main-navigation li a {
+	display:block;
+	width: 128px;
+	height: 18px;
+	padding: 7px 0 5px 0;
+	margin-right: 10px;
+	color: #215d84;
+	background-color: #ffffff;
+	font-size:1em;
+	border: 1px solid #215d84;
+	border-bottom: none;
+
+}
+
+ul#main-navigation li a.current, ul#main-navigation li a:hover {
+	color: #ffffff;
+	background-color: #215d84;
+
+}
+
+
+
+
+
+
+											/* content */
+
+div#content {
+	position: relative;
+	float: left;
+	width: 960px;
+	min-height: 500px;
+	height: auto !important;
+	height: 500px;
+
+}
+
+
+div#main-content {
+	position: relative;
+	float: left;
+	width:710px;
+	min-height: 500px;
+	height: auto !important;
+	height: 500px;
+	padding-top: 40px;
+}
+
+.post {
+	position:relative;
+	float:left;
+	width:674px;
+	height:130px;
+	margin-bottom: 20px;
+
+}
+
+
+.post-numbers, .reviews-number, .votes-number, .number-of-reviews, .reviews, .votes, .number-of-votes {
+	color: #ffffff;
+	display: block;
+	position: relative;
+	float: left;
+	text-align: center;
+
+}
+
+.post-numbers {
+	margin-left:20px;
+	margin-right: 5px;
+	width:74px;
+	height: 125px;
+	background-color: #5F8298;
+	-moz-box-shadow: #bbbbbb 4px 4px 4px;
+	-webkit-box-shadow: #bbbbbb 4px 4px 4px;
+      box-shadow: #bbbbbb 4px 4px 4px;
+
+	
+}
+
+.reviews-number {
+	margin: 7px 7px 0 7px;
+	display: block;
+	height: 55px;
+	width: 60px;
+
+}
+
+.votes-number {
+	margin: 0 7px 7px 7px;
+	display: block;
+	height: 55px;
+	width: 60px;
+	background-color: #215d84;
+
+}
+
+.number-of-reviews {
+	font-size: 2.7em;
+	line-height: 1.1em;
+	width: 60px;
+	font-weight: bold;
+}
+
+.reviews {
+	font-size: 1em;
+	line-height: 1em;
+	width: 60px;
+	margin-top: -3px;
+	font-weight: normal;
+}
+
+.votes {
+	font-size: 1em;
+	line-height: 1em;
+	width: 60px;
+	margin-top: 3px;
+	font-weight: normal;
+}
+
+.number-of-votes {
+	font-size: 2.7em;
+	line-height: 1em;
+	width: 60px;
+	font-weight: bold;
+
+}
+
+
+
+
+.post-content {
+	position: relative;
+	float: left;
+	width: 575px;
+	height: 130px;
+}
+
+.post-subject {
+	margin-left: 30px;
+	color: #215D84;
+	font-size: 1.5em;
+	line-height: 1.2em;
+	width: 518px;
+	text-decoration: underline;
+	
+}
+
+.post-summary {
+	margin-left: 30px;
+	margin-top: 5px;
+	color:  #000000;
+	line-height:1.2em;
+	width: 518px;
+
+}
+
+.tags {
+	color: #215d84;
+	font-size: .9em;
+	position: absolute;
+	bottom: 10px;
+	left: 30px;
+
+}
+
+ul.user-info {
+	color:#215d84;
+	font-size: .9em;
+	position: absolute;
+	right: 30px;
+	bottom: 10px;
+
+}
+
+ul.user-info li {
+	color: #000000;
+	display: inline;
+
+}
+
+ul.user-info li a {
+	color: #215d84;
+
+}
+
+
+
+.unanswered {
+	background-image: url(../img/post_unanswered.jpg);
+}
+
+.answered {
+	background-image: url(../img/post_answered.jpg);
+}
+
+
+
+.post-content h1 {
+	color: #215D84;
+	font-size: 1.5em;
+	text-decoration: underline;
+	margin-bottom: 5px;
+
+}
+
+.post-content p {
+	width:518px;
+	height: 54px;
+	overflow: hidden;
+	color: #000000;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+											/* sidebar */
+
+
+
+div#side-bar {
+	position: relative;
+	float: left;
+	margin-bottom: 50px;
+	width:240px;
+	min-height: 500px;
+	height: auto !important;
+	height: 500px;
+
+}
+
+#side-bar ul {
+	margin-top: 1em;
+	margin-bottom: 1em;
+
+
+}
+
+#side-bar ul li {
+	display: inline;
+	margin-right: 5px;
+
+}
+
+#side-bar ul li a {
+	font-size: 1.2em;
+	line-height: 1.4em;
+
+}
+
+p.ad-space {
+	color: #ffffff;
+	text-align: center;
+	width: 230px;
+	height: 290px;
+	padding-top: 100px;
+	border: 5px solid #bdbdbd;
+	background-color: #dddddd;
+	display: block;
+	float: left;
+	margin-bottom: 10px;
+	
+}
+
+
+
+											/* footer */
+
+div#footer {
+	position: relative;
+	float: left;
+	width: 960px;
+	height: 200px;
+	border-top: 1px solid #215d84;
+	background-image: url(../img/cake_logo.jpg);
+	background-position: bottom right;
+	background-repeat: no-repeat;
+
+}
+
+#footer ul {
+	margin-top:30px;
+
+}
+
+#footer ul li{
+	float:left;
+	margin-left:10px;
+	width:170px;
+
+}
+
+#footer ul li h4 a{
+	color:#215D84;
+	font-weight:bold;
+	font-size:1.1em;
+
+}
+
+#footer ul li ul {
+	margin-top:10px;
+	margin-left:-10px;
+
+}
+
+
+#footer ul li ul li a {
+	color:#215D84;
+	font-size:1em;
+	font-weight:normal;
+
+}
