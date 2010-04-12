@@ -61,9 +61,6 @@ class User extends AppModel {
 		'Rank' => array(
 			'className' => 'Rank',
 			'foreignKey' => 'rank_id',
-			'conditions' => '',
-			'fields' => '',
-			'order' => ''
 		)
 	);
 
@@ -72,66 +69,37 @@ class User extends AppModel {
 			'className' => 'Comment',
 			'foreignKey' => 'user_id',
 			'dependent' => false,
-			'conditions' => '',
-			'fields' => '',
-			'order' => '',
-			'limit' => '',
-			'offset' => '',
-			'exclusive' => '',
-			'finderQuery' => '',
-			'counterQuery' => ''
 		),
 		'Point' => array(
 			'className' => 'Point',
 			'foreignKey' => 'user_id',
 			'dependent' => false,
-			'conditions' => '',
-			'fields' => '',
-			'order' => '',
-			'limit' => '',
-			'offset' => '',
-			'exclusive' => '',
-			'finderQuery' => '',
-			'counterQuery' => ''
 		),
 		'Review' => array(
 			'className' => 'Review',
 			'foreignKey' => 'user_id',
 			'dependent' => false,
-			'conditions' => '',
-			'fields' => '',
-			'order' => '',
-			'limit' => '',
-			'offset' => '',
-			'exclusive' => '',
-			'finderQuery' => '',
-			'counterQuery' => ''
 		),
 		'Subscription' => array(
 			'className' => 'Subscription',
 			'foreignKey' => 'user_id',
 			'dependent' => false,
-			'conditions' => '',
-			'fields' => '',
-			'order' => '',
-			'limit' => '',
-			'offset' => '',
-			'exclusive' => '',
-			'finderQuery' => '',
-			'counterQuery' => ''
 		),
 		'Vote' => array(
 			'className' => 'Vote',
 			'foreignKey' => 'user_id',
 			'dependent' => false,
-			'conditions' => '',
-			'fields' => '',
-			'order' => '',
-			'limit' => '',
-			'offset' => '',
-			'exclusive' => '',
-			'finderQuery' => '',
-			'counterQuery' => ''
+		)
+	);
+
+	var $actsAs = array(
+		'UploadPack.Upload' => array(
+			'avatar' => array(
+				'styles' => array(
+					'small' => '40x40',
+					'medium' => '120x120',
+				)
+			)
 		)
 	);
 

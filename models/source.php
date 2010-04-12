@@ -36,5 +36,16 @@ class Source extends AppModel {
 		)
 	);
 
+	var $actsAs = array(
+		'UploadPack.Upload' => array(
+			'source_file_name' => array(
+				'styles' => array(
+					'small' => '40x40',
+					'medium' => '120x120',
+				)
+			)
+		)
+	);
+
 }
 ?>
