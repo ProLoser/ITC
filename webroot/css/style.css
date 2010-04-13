@@ -1,3 +1,7 @@
+                                                                     
+                                                                     
+                                                                     
+                                             
 /*** General Settings ***/
 * {padding: 0; margin: 0;}
 body {
@@ -47,12 +51,13 @@ a:hover { text-decoration: underline; }
 }
 #header #bar {
 	height: 44px;
-	background: #215d84 url(../img/procode_small.jpg) top left  no-repeat;
+	background: #215d84 url(../img/procode_small.jpg) no-repeat;
+background-position:25px 0;
 	overflow: auto;
 }
 #header #bar ul {
 	float: right;
-	margin: 10px;
+	margin: 13px 10px 10px 10px;
 }
 #header #bar ul li {
 	margin:10px 20px 5px 0;
@@ -60,7 +65,7 @@ a:hover { text-decoration: underline; }
 }
 #header #bar ul li a {
 	color:#ffffff;
-	font-size:1em;
+	font-size:.9em;
 }
 #header #bar form {
 	float: right;
@@ -70,7 +75,7 @@ a:hover { text-decoration: underline; }
 	height:20px;
 }
 #header h1 {
-	margin: 20px;
+	margin: 10px 0 10px 46px;
 	width: 400px;
 	height: 125px;
 	background: url(../img/procode.jpg) no-repeat;
@@ -123,6 +128,86 @@ a:hover { text-decoration: underline; }
 	margin-right: 240px;
 	color: #000;
 }
+
+#content form {
+margin-left:54px;
+width:500px;
+
+}
+
+#content form fieldset {
+border:none;
+
+}
+
+#content form fieldset legend {
+color:black;
+font-weight:bold;
+font-size:1.5em;
+margin-bottom:1em;
+
+}
+
+#content form label {
+color:#215D84;
+padding-right:5px;
+display:inline-block;
+width:141px;
+}
+
+#content form input {
+height:20px;
+margin:5px 5px 10px 5px;
+border:#5f8298 1px solid;
+}
+
+#content form input:hover {
+border: #215D84 1px solid;
+
+}
+
+#content form select{
+border:1px solid #5f8298;
+margin-left:5px;
+}
+
+#content form select:hover{
+border:1px solid #215b84;
+
+}
+
+#content form a {
+color:#215D84;
+font-size: .7em;
+margin-left:1em;
+}
+
+#content .submit input {
+background-color:#215D84;
+color:white;
+width:100px;
+font-size:.9em;
+margin: 2em 0 0 0;
+padding-bottom:3px
+
+}
+
+#content .actions ul {
+list-style:none;
+margin: 1em 0 0 54px;
+}
+
+#content .actions ul li {
+margin-top:.2em;
+}
+
+#content .actions ul li a {
+color:#215b84;
+font-size:.9em;
+}
+
+
+
 
 /* sidebar */
 #sidebar {
@@ -179,6 +264,10 @@ a:hover { text-decoration: underline; }
 	font-weight:normal;
 }
 
+#footer a img {
+border:0px;
+}
+
 
 /*** Common Elements ***/
 /* Filters */
@@ -229,7 +318,7 @@ ul.filters li a.current {
 }
 
 /* Reviews */
-.post-numbers, .reviews-number, .votes-number, .number-of-reviews, .reviews1, .votes1, .number-of-votes {
+.post-numbers, .reviews-number, .votes-number, .number-of-reviews, .reviews, .votes, .number-of-votes {
 	color: #ffffff;
 	display: block;
 	position: relative;
@@ -265,14 +354,14 @@ ul.filters li a.current {
 	width: 60px;
 	font-weight: bold;
 }
-.reviews1 {
+.reviews {
 	font-size: 1em;
 	line-height: 1em;
 	width: 60px;
 	margin-top: -3px;
 	font-weight: normal;
 }
-.votes1 {
+.votes {
 	font-size: 1em;
 	line-height: 1em;
 	width: 60px;
@@ -286,7 +375,7 @@ ul.filters li a.current {
 	font-weight: bold;
 }
 /* Posts */
-.post1 {
+.post {
 	position:relative;
 	float:left;
 	width:674px;
@@ -326,7 +415,7 @@ ul.filters li a.current {
 	line-height:1.2em;
 	width: 518px;
 }
-.tags1 {
+.tags {
 	color: #215d84;
 	font-size: .9em;
 	position: absolute;
