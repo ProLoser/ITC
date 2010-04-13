@@ -4,12 +4,6 @@ class UsersController extends AppController {
 	var $name = 'Users';
 	var $components = array('Welcome.Membership', 'SwiftMailer');
 	
-	function beforeFilter() {
-		//$this->Auth->allow('register', 'confirm', 'logout');
-		$this->Auth->allow('*');
-		$this->Auth->autoRedirect = false;
-	}
-	
 	function login() {
 	}
 	

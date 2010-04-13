@@ -39,6 +39,8 @@ class PointEventsController extends AppController {
 				$this->Session->setFlash(sprintf(__('The %s could not be saved. Please, try again.', true), 'point event'));
 			}
 		}
+		$foreignModels = $this->PointEvent->foreignModels;
+		$this->set(compact('foreignModels'));
 	}
 
 	function admin_edit($id = null) {
@@ -57,6 +59,8 @@ class PointEventsController extends AppController {
 		if (empty($this->data)) {
 			$this->data = $this->PointEvent->read(null, $id);
 		}
+		$foreignModels = $this->PointEvent->foreignModels;
+		$this->set(compact('foreignModels'));
 	}
 
 	function admin_delete($id = null) {

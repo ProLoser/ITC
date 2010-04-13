@@ -102,20 +102,28 @@ class User extends AppModel {
 			)
 		)
 	);
+	
+	function afterSave($created) {
+		if ($created) {
+			$this->grantPoints('user-register', $this->id);
+		}
+	}
 
-	function grantPoints($event, $userId) {
+	/**
+	 * Function for granting a user points via a point event
+	 * Requires that you pass a string id key for the point event and the target user's id. Foreign_id optional
+	 *
+	 * @param $event string The PointEvent.id key that the user is being given points for
+	 * @param $userId int The currently logged-in user's id to be associated with the record
+	 * @param $foreignId int The primary id of the related model-record that earned the points
+	 */
+	function grantPoints($event, $userId, $foreignId = null) {
 		//@TODO Should point event use the key as the primary key?
 		$data['Point']['user_id'] = $userId;
 		$data['Point']['point_event_id'] = $event;
+		if ($foreignId)
+			$data['Point']['foreign_id'] = $foreignId;
 		return $this->Point->save($data);
-	}
-	
-	function beforeSave() {
-		// Sets the default rank if creating a new user
-		if (!isset($this->data['User']['id']) && !isset($this->data['User']['rank_id'])) {
-			$this->data['User']['rank_id'] = $this->Rank->field('id'); // rank order by points asc
-		}
-		return true;
 	}
 	
 }
