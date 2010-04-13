@@ -6,9 +6,7 @@
 			<th><?php echo $this->Paginator->sort('name');?></th>
 			<th><?php echo $this->Paginator->sort('description');?></th>
 			<th><?php echo $this->Paginator->sort('points');?></th>
-			<th><?php echo $this->Paginator->sort('key');?></th>
 			<th><?php echo $this->Paginator->sort('foreign_model');?></th>
-			<th><?php echo $this->Paginator->sort('foreign_id');?></th>
 			<th class="actions"><?php __('Actions');?></th>
 	</tr>
 	<?php
@@ -24,9 +22,7 @@
 		<td><?php echo $pointEvent['PointEvent']['name']; ?>&nbsp;</td>
 		<td><?php echo $pointEvent['PointEvent']['description']; ?>&nbsp;</td>
 		<td><?php echo $pointEvent['PointEvent']['points']; ?>&nbsp;</td>
-		<td><?php echo $pointEvent['PointEvent']['key']; ?>&nbsp;</td>
 		<td><?php echo $pointEvent['PointEvent']['foreign_model']; ?>&nbsp;</td>
-		<td><?php echo $pointEvent['PointEvent']['foreign_id']; ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View', true), array('action' => 'view', $pointEvent['PointEvent']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit', true), array('action' => 'edit', $pointEvent['PointEvent']['id'])); ?>
@@ -53,7 +49,5 @@
 	<h3><?php __('Actions'); ?></h3>
 	<ul>
 		<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('Point Event', true)), array('action' => 'add')); ?></li>
-		<li><?php echo $this->Html->link(sprintf(__('List %s', true), __('Points', true)), array('controller' => 'points', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('Point', true)), array('controller' => 'points', 'action' => 'add')); ?> </li>
 	</ul>
 </div>
