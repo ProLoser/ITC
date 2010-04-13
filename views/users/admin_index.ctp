@@ -4,8 +4,19 @@
 	<tr>
 			<th><?php echo $this->Paginator->sort('id');?></th>
 			<th><?php echo $this->Paginator->sort('username');?></th>
+			<th><?php echo $this->Paginator->sort('password');?></th>
+			<th><?php echo $this->Paginator->sort('name');?></th>
+			<th><?php echo $this->Paginator->sort('email');?></th>
+			<th><?php echo $this->Paginator->sort('avatar_file_name');?></th>
+			<th><?php echo $this->Paginator->sort('websites');?></th>
 			<th><?php echo $this->Paginator->sort('points');?></th>
+			<th><?php echo $this->Paginator->sort('created');?></th>
+			<th><?php echo $this->Paginator->sort('modified');?></th>
+			<th><?php echo $this->Paginator->sort('status');?></th>
 			<th><?php echo $this->Paginator->sort('rank_id');?></th>
+			<th><?php echo $this->Paginator->sort('date_of_birth');?></th>
+			<th><?php echo $this->Paginator->sort('role');?></th>
+			<th class="actions"><?php __('Actions');?></th>
 	</tr>
 	<?php
 	$i = 0;
@@ -17,10 +28,25 @@
 	?>
 	<tr<?php echo $class;?>>
 		<td><?php echo $user['User']['id']; ?>&nbsp;</td>
-		<td><?php echo $this->Html->link($user['User']['username'], array('action' => 'view', $user['User']['id'])); ?>&nbsp;</td>
+		<td><?php echo $user['User']['username']; ?>&nbsp;</td>
+		<td><?php echo $user['User']['password']; ?>&nbsp;</td>
+		<td><?php echo $user['User']['name']; ?>&nbsp;</td>
+		<td><?php echo $user['User']['email']; ?>&nbsp;</td>
+		<td><?php echo $user['User']['avatar_file_name']; ?>&nbsp;</td>
+		<td><?php echo $user['User']['websites']; ?>&nbsp;</td>
 		<td><?php echo $user['User']['points']; ?>&nbsp;</td>
+		<td><?php echo $user['User']['created']; ?>&nbsp;</td>
+		<td><?php echo $user['User']['modified']; ?>&nbsp;</td>
+		<td><?php echo $user['User']['status']; ?>&nbsp;</td>
 		<td>
 			<?php echo $this->Html->link($user['Rank']['title'], array('controller' => 'ranks', 'action' => 'view', $user['Rank']['id'])); ?>
+		</td>
+		<td><?php echo $user['User']['date_of_birth']; ?>&nbsp;</td>
+		<td><?php echo $user['User']['role']; ?>&nbsp;</td>
+		<td class="actions">
+			<?php echo $this->Html->link(__('View', true), array('action' => 'view', $user['User']['id'])); ?>
+			<?php echo $this->Html->link(__('Edit', true), array('action' => 'edit', $user['User']['id'])); ?>
+			<?php echo $this->Html->link(__('Delete', true), array('action' => 'delete', $user['User']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $user['User']['id'])); ?>
 		</td>
 	</tr>
 <?php endforeach; ?>

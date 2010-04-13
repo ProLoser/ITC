@@ -1,48 +1,28 @@
-<div class="users index">
-	<h2><?php __('Users');?></h2>
-	<table cellpadding="0" cellspacing="0">
-	<tr>
-			<th><?php echo $this->Paginator->sort('id');?></th>
-			<th><?php echo $this->Paginator->sort('username');?></th>
-			<th><?php echo $this->Paginator->sort('points');?></th>
-			<th><?php echo $this->Paginator->sort('rank_id');?></th>
-	</tr>
+<div class="users form">
+<?php echo $this->Form->create('User');?>
+	<fieldset>
+ 		<legend><?php printf(__('Admin Add %s', true), __('User', true)); ?></legend>
 	<?php
-	$i = 0;
-	foreach ($users as $user):
-		$class = null;
-		if ($i++ % 2 == 0) {
-			$class = ' class="altrow"';
-		}
+		echo $this->Form->input('username');
+		echo $this->Form->input('password');
+		echo $this->Form->input('name');
+		echo $this->Form->input('email');
+		echo $this->Form->input('avatar_file_name');
+		echo $this->Form->input('websites');
+		echo $this->Form->input('points');
+		echo $this->Form->input('status');
+		echo $this->Form->input('rank_id');
+		echo $this->Form->input('date_of_birth');
+		echo $this->Form->input('role');
 	?>
-	<tr<?php echo $class;?>>
-		<td><?php echo $user['User']['id']; ?>&nbsp;</td>
-		<td><?php echo $this->Html->link($user['User']['username'], array('action' => 'view', $user['User']['id'])); ?>&nbsp;</td>
-		<td><?php echo $user['User']['points']; ?>&nbsp;</td>
-		<td>
-			<?php echo $this->Html->link($user['Rank']['title'], array('controller' => 'ranks', 'action' => 'view', $user['Rank']['id'])); ?>
-		</td>
-	</tr>
-<?php endforeach; ?>
-	</table>
-	<p>
-	<?php
-	echo $this->Paginator->counter(array(
-	'format' => __('Page %page% of %pages%, showing %current% records out of %count% total, starting on record %start%, ending on %end%', true)
-	));
-	?>	</p>
-
-	<div class="paging">
-		<?php echo $this->Paginator->prev('<< '.__('previous', true), array(), null, array('class'=>'disabled'));?>
-	 | 	<?php echo $this->Paginator->numbers();?>
- |
-		<?php echo $this->Paginator->next(__('next', true).' >>', array(), null, array('class' => 'disabled'));?>
-	</div>
+	</fieldset>
+<?php echo $this->Form->end(__('Submit', true));?>
 </div>
 <div class="actions">
 	<h3><?php __('Actions'); ?></h3>
 	<ul>
-		<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('User', true)), array('action' => 'add')); ?></li>
+
+		<li><?php echo $this->Html->link(sprintf(__('List %s', true), __('Users', true)), array('action' => 'index'));?></li>
 		<li><?php echo $this->Html->link(sprintf(__('List %s', true), __('Ranks', true)), array('controller' => 'ranks', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('Rank', true)), array('controller' => 'ranks', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(sprintf(__('List %s', true), __('Comments', true)), array('controller' => 'comments', 'action' => 'index')); ?> </li>
