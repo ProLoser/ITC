@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 11, 2010 at 07:03 PM
--- Server version: 5.1.37
--- PHP Version: 5.2.11
+-- Generation Time: Apr 13, 2010 at 10:52 AM
+-- Server version: 5.1.36
+-- PHP Version: 5.3.0
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 
@@ -19,7 +19,7 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 -- Table structure for table `comments`
 --
 
-CREATE TABLE `comments` (
+CREATE TABLE IF NOT EXISTS `comments` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
   `source_id` int(11) NOT NULL,
@@ -40,7 +40,7 @@ CREATE TABLE `comments` (
 -- Table structure for table `languages`
 --
 
-CREATE TABLE `languages` (
+CREATE TABLE IF NOT EXISTS `languages` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(30) NOT NULL,
   PRIMARY KEY (`id`)
@@ -52,12 +52,13 @@ CREATE TABLE `languages` (
 -- Table structure for table `points`
 --
 
-CREATE TABLE `points` (
+CREATE TABLE IF NOT EXISTS `points` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
   `point_event_id` varchar(30) NOT NULL,
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL,
+  `foreign_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`),
   KEY `point_event_id` (`point_event_id`)
@@ -69,13 +70,12 @@ CREATE TABLE `points` (
 -- Table structure for table `point_events`
 --
 
-CREATE TABLE `point_events` (
+CREATE TABLE IF NOT EXISTS `point_events` (
   `id` varchar(30) NOT NULL,
   `name` varchar(100) NOT NULL,
   `description` mediumtext,
   `points` int(11) NOT NULL,
   `foreign_model` varchar(30) DEFAULT NULL,
-  `foreign_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
@@ -85,7 +85,7 @@ CREATE TABLE `point_events` (
 -- Table structure for table `ranks`
 --
 
-CREATE TABLE `ranks` (
+CREATE TABLE IF NOT EXISTS `ranks` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(100) NOT NULL,
   `description` mediumtext,
@@ -99,7 +99,7 @@ CREATE TABLE `ranks` (
 -- Table structure for table `reviews`
 --
 
-CREATE TABLE `reviews` (
+CREATE TABLE IF NOT EXISTS `reviews` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
   `name` varchar(100) NOT NULL,
@@ -114,7 +114,7 @@ CREATE TABLE `reviews` (
 -- Table structure for table `reviews_tags`
 --
 
-CREATE TABLE `reviews_tags` (
+CREATE TABLE IF NOT EXISTS `reviews_tags` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `tag_id` int(11) NOT NULL,
   `review_id` int(11) NOT NULL,
@@ -129,7 +129,7 @@ CREATE TABLE `reviews_tags` (
 -- Table structure for table `sources`
 --
 
-CREATE TABLE `sources` (
+CREATE TABLE IF NOT EXISTS `sources` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `review_id` int(11) NOT NULL,
   `language_id` int(11) NOT NULL,
@@ -151,7 +151,7 @@ CREATE TABLE `sources` (
 -- Table structure for table `subscriptions`
 --
 
-CREATE TABLE `subscriptions` (
+CREATE TABLE IF NOT EXISTS `subscriptions` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
   `foreign_id` int(11) NOT NULL,
@@ -169,7 +169,7 @@ CREATE TABLE `subscriptions` (
 -- Table structure for table `tags`
 --
 
-CREATE TABLE `tags` (
+CREATE TABLE IF NOT EXISTS `tags` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(25) NOT NULL,
   `created` datetime NOT NULL,
@@ -182,7 +182,7 @@ CREATE TABLE `tags` (
 -- Table structure for table `users`
 --
 
-CREATE TABLE `users` (
+CREATE TABLE IF NOT EXISTS `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(100) NOT NULL,
   `password` varchar(40) NOT NULL,
@@ -199,7 +199,7 @@ CREATE TABLE `users` (
   `role` varchar(10) NOT NULL DEFAULT 'User',
   PRIMARY KEY (`id`),
   KEY `rank_id` (`rank_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
 
 -- --------------------------------------------------------
 
@@ -207,7 +207,7 @@ CREATE TABLE `users` (
 -- Table structure for table `votes`
 --
 
-CREATE TABLE `votes` (
+CREATE TABLE IF NOT EXISTS `votes` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `comment_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
