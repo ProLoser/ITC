@@ -229,7 +229,7 @@ ul.filters li a.current {
 }
 
 /* Reviews */
-.post-numbers, .reviews-number, .votes-number, .number-of-reviews, .reviews, .votes, .number-of-votes {
+.post-numbers, .reviews-number, .votes-number, .number-of-reviews, .reviews1, .votes1, .number-of-votes {
 	color: #ffffff;
 	display: block;
 	position: relative;
@@ -265,14 +265,14 @@ ul.filters li a.current {
 	width: 60px;
 	font-weight: bold;
 }
-.reviews {
+.reviews1 {
 	font-size: 1em;
 	line-height: 1em;
 	width: 60px;
 	margin-top: -3px;
 	font-weight: normal;
 }
-.votes {
+.votes1 {
 	font-size: 1em;
 	line-height: 1em;
 	width: 60px;
@@ -286,7 +286,7 @@ ul.filters li a.current {
 	font-weight: bold;
 }
 /* Posts */
-.post {
+.post1 {
 	position:relative;
 	float:left;
 	width:674px;
@@ -326,7 +326,7 @@ ul.filters li a.current {
 	line-height:1.2em;
 	width: 518px;
 }
-.tags {
+.tags1 {
 	color: #215d84;
 	font-size: .9em;
 	position: absolute;
