@@ -54,6 +54,12 @@ class Review extends AppModel {
 			'insertQuery' => ''
 		)
 	);
+	
+	function afterSave($created) {
+		if ($created) {
+			$this->User->grantPoints('create-review', $this->data['Review']['user_id'], $this->id);
+		}
+	}
 
 }
 ?>

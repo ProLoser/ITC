@@ -21,7 +21,17 @@ class PointEvent extends AppModel {
 			),
 		),
 	);
-	//The Associations below have been created with all possible keys, those that are not needed can be removed
+	
+	var $foreignModels = array(
+		'Comment' => 'Comment',
+		'Rank' => 'Rank',
+		'Review' => 'Review',
+		'Source' => 'Source',
+		'Subscription' => 'Subscription',
+		'Tag' => 'Tag',
+		'User' => 'User',
+		'Vote' => 'Vote',
+	);
 
 	var $hasMany = array(
 		'Point' => array(

@@ -22,17 +22,17 @@ class Point extends AppModel {
 	
 	// Updates the related user field with updated points and ranks
 	function afterSave($created) {
-		debug($this->data);
+		
 		// Update the user's Points
 		$pointEvent = $this->PointEvent->find('first', array(
 			'conditions' => array('PointEvent.id' => $this->data['Point']['point_event_id']),
 			'fields' => array('PointEvent.points'),
 		));
-		$points = $this->field('points', array('User.id' => $this->data['Point']['user_id']));
+		$points = $this->User->field('points', array('User.id' => $this->data['Point']['user_id']));
 		$data['User']['points'] = $points + $pointEvent['PointEvent']['points'];
 		
 		// Update the user's Rank
-		$data['User']['rank_id'] = $this->Rank->field('id', array('Rank.points >=' => $points));
+		$data['User']['rank_id'] = $this->User->Rank->field('id', array('Rank.points >=' => $data['User']['points']));
 		
 		// Save updates
 		$this->User->id = $this->data['Point']['user_id'];
