@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 14, 2010 at 09:14 AM
+-- Generation Time: Apr 14, 2010 at 09:43 AM
 -- Server version: 5.1.36
 -- PHP Version: 5.3.0
 
@@ -142,10 +142,25 @@ CREATE TABLE IF NOT EXISTS `sources` (
   `description` mediumtext,
   `source_file_name` varchar(255) NOT NULL,
   `source_file_size` int(11) NOT NULL,
-  `visibility` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `review_id` (`review_id`),
   KEY `language_id` (`language_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sources_revs`
+--
+
+CREATE TABLE IF NOT EXISTS `sources_revs` (
+  `version_id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL,
+  `version_created` datetime NOT NULL,
+  `content` blob NOT NULL,
+  `source_file_name` varchar(255) NOT NULL,
+  `source_file_size` int(11) NOT NULL,
+  PRIMARY KEY (`version_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------

@@ -44,7 +44,8 @@ class Source extends AppModel {
 					'medium' => '120x120',
 				)
 			)
-		)
+		),
+		'Revision',
 	);
 
 }
