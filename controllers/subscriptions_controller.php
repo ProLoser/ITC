@@ -23,14 +23,12 @@ class SubscriptionsController extends AppController {
 		$this->set('subscription', $this->Subscription->read(null, $id));
 	}
 
-	function add($id = null) {
-		if (!$id && empty($this->data)) {
-			$this->Session->setFlash(sprintf(__('Invalid %s', true), 'review'));
+	function add($model = null, $id = null) {
+		if (!$id || !$model) {
+			$this->Session->setFlash(sprintf(__('Invalid %s', true), 'model'));
 			$this->redirect(array('action' => 'index'));
-		}
-		if (!empty($this->data)) {
-			$this->Subscription->create();
-			if ($this->Subscription->save($this->data)) {
+		} else {
+			if ($this->Subscription->subscribe($this->Auth->user('id'), $model, $id)) {
 				$this->Session->setFlash(sprintf(__('The %s has been saved', true), 'subscription'));
 				$this->redirect(array('action' => 'index'));
 			} else {
