@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 14, 2010 at 09:46 AM
+-- Generation Time: Apr 14, 2010 at 10:11 AM
 -- Server version: 5.1.36
 -- PHP Version: 5.3.0
 
@@ -175,7 +175,7 @@ CREATE TABLE IF NOT EXISTS `subscriptions` (
   `user_id` int(11) NOT NULL,
   `foreign_id` int(11) NOT NULL,
   `foreign_model` varchar(20) NOT NULL,
-  `status` varchar(10) DEFAULT NULL,
+  `pending` tinyint(1) NOT NULL DEFAULT '0',
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL,
   PRIMARY KEY (`id`),
