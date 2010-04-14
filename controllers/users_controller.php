@@ -113,6 +113,7 @@ class UsersController extends AppController {
 	function delete() {
 		if ($this->User->delete($this->Auth->user('id'))) {
 			$this->Session->setFlash(sprintf(__('%s deleted', true), 'User'));
+			$this->logout();
 			$this->redirect(array('action'=>'index'));
 		}
 		$this->Session->setFlash(sprintf(__('%s was not deleted', true), 'User'));

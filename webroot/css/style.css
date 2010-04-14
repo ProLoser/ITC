@@ -126,9 +126,8 @@ a:hover { text-decoration: underline; }
 
 /* Content */
 #content {
-	width:710px;
 	margin-top: 40px;
-	margin-right: 240px;
+	margin-right: 260px;
 	color: #000;
 }
 
@@ -342,7 +341,6 @@ margin-right:1em;
 
 .ranks dl dd {
 display:block;
-width:550px;
 margin-bottom:2em;
 font-size:1em;
 }
