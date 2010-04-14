@@ -69,6 +69,8 @@ class UsersController extends AppController {
 			$this->redirect(array('action' => 'index'));
 		}
 		$this->set('user', $this->User->read(null, $id));
+		$this->helpers[] = 'Time';
+		$this->helpers[] = 'UploadPack.Upload';
 	}
 
 	function register() {

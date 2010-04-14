@@ -11,11 +11,6 @@
 			<?php echo $user['User']['username']; ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Password'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $user['User']['password']; ?>
-			&nbsp;
-		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Name'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $user['User']['name']; ?>
@@ -41,9 +36,9 @@
 			<?php echo $user['User']['points']; ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Created'); ?></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('User Since:'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $user['User']['created']; ?>
+			<?php echo $this->Time->timeAgoInWords($user['User']['created']); ?>
 			&nbsp;
 		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Modified'); ?></dt>
@@ -76,7 +71,7 @@
 <div class="actions">
 	<h3><?php __('Actions'); ?></h3>
 	<ul>
-	<?php debug($this->Session->read()); if ($this->Session->read('Auth.User') && $this->Session->read('Auth.User.id') != $user['User']['id']): ?>
+	<?php if ($this->Session->read('Auth.User') && $this->Session->read('Auth.User.id') != $user['User']['id']): ?>
 		<li><?php echo $this->Html->link(__('Subscribe', true), array('controller' => 'subscriptions', 'action' => 'add', 'User', $user['User']['id'])); ?> </li>
 	<?php endif; ?>
 	</ul>

@@ -37,17 +37,14 @@ a:hover { text-decoration: underline; }
 /*** Layout ***/
 #wrapper{
 	color: #ffffff;
-	width: 960px;
-	margin: 0 auto;
+	min-width: 955px;
 }
 
 /* Header */
 #header {
-	border-bottom: 1px solid #215d84;
 }
 #header #bar {
-	background: #215d84 url(../img/procode_small.jpg) no-repeat;
-background-position:25px 0;
+	background: #215d84;
 	overflow: auto;
 }
 #header #bar ul {
@@ -62,12 +59,19 @@ background-position:25px 0;
 	color:#ffffff;
 	font-size:1em;
 }
+/* Search Box */
 #header #bar form {
 	float: right;
 	margin: 10px;
 }
-#header #bar form input {
+#header #bar form div {
+	display: inline;
+}
+#header #bar form .input input {
 	height:18px;
+}
+#header #bar form .submit input {
+	padding: 2px 5px;
 }
 
 #header h1 {
@@ -115,6 +119,9 @@ background-position:25px 0;
 /* Mid-section Wrapper */
 #body {
 	overflow: auto;
+	border-top: 1px solid #215d84;
+	border-bottom: 1px solid #215d84;
+	padding: 0 50px;
 }
 
 /* Content */
@@ -231,8 +238,8 @@ font-size:.9em;
 #footer {
 	height: 200px;
 	color:#215D84;
-	border-top: 1px solid #215d84;
-	padding-top:20px;
+	width: 960px;
+	margin: 20px auto;
 }
 #footer a { 
 	color:#215D84;

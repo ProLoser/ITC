@@ -11,4 +11,5 @@
 		<li><?php echo $this->Html->link('Sign Up', array('controller' => 'users', 'action' => 'register')); ?></li>
 	<?php endif; ?>
 	</ul>
+	<?php echo $this->Html->image('procode_small.jpg', array('url' => '/')); ?>
 </div>
