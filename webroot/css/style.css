@@ -320,32 +320,23 @@ ul.filters li a.current {
 }
 
 /* Ranks */
-
-.ranks dl {
-margin:2em 0 5em 0;
+.ranks dl, .faq dl {
+	margin:2em 0 5em 0;
 }
-
-.ranks dl dt {
-font-size:2em;
-color:#000000;
-margin-bottom:10px;
-
+.ranks dl dt, .faq dl dt {
+	font-size:2em;
+	color:#000000;
+	margin-bottom:10px;
 }
-
-.ranks dl dt a {
-color:#215b84;
-margin-right:1em;
-
+.ranks dl dt a, .faq dl dt a {
+	color:#215b84;
+	margin-right:1em;
 }
-
-
-.ranks dl dd {
-display:block;
-margin-bottom:2em;
-font-size:1em;
+.ranks dl dd, .faq dl dd {
+	display:block;
+	margin-bottom:2em;
+	font-size:1em;
 }
-
-
 
 /* Reviews */
 .post-numbers, .reviews-number, .votes-number, .number-of-reviews, .reviews1, .votes1, .number-of-votes {
