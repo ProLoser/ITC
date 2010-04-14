@@ -16,9 +16,6 @@ class UsersController extends AppController {
 	function password() {
 	}
 	
-	function add() {
-	}
-	
 	//Send reset password confirmation
 	function reset() {
 		if (!empty($this->data)) {

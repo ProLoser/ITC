@@ -39,10 +39,8 @@ class ReviewsController extends AppController {
 				$this->Session->setFlash(sprintf(__('The %s could not be saved. Please, try again.', true), 'review'));
 			}
 		}
-		$users = $this->Review->User->find('list');
-		$tags = $this->Review->Tag->find('list');
 		$visibilities = $this->Review->visibilities;
-		$this->set(compact('users', 'tags', 'visibilities'));
+		$this->set(compact('visibilities'));
 	}
 
 	function edit($id = null) {
@@ -62,10 +60,8 @@ class ReviewsController extends AppController {
 		if (empty($this->data)) {
 			$this->data = $this->Review->read(null, $id);
 		}
-		$users = $this->Review->User->find('list');
-		$tags = $this->Review->Tag->find('list');
 		$visibilities = $this->Review->visibilities;
-		$this->set(compact('users', 'tags', 'visibilities'));
+		$this->set(compact('visibilities'));
 	}
 
 	function delete($id = null) {
