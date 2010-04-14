@@ -46,6 +46,7 @@ class UsersController extends AppController {
 			$this->Session->setFlash(sprintf(__('Invalid %s', true), 'user'));
 			$this->redirect(array('action' => 'index'));
 		}
+		$this->User->recursive = 0;
 		$this->set('user', $this->User->read(null, $id));
 		$this->helpers[] = 'Time';
 		$this->helpers[] = 'UploadPack.Upload';
@@ -69,8 +70,6 @@ class UsersController extends AppController {
 				$this->data['User']['confirm_password'] = null;
 			}
 		}
-		$ranks = $this->User->Rank->find('list');
-		$this->set(compact('ranks'));
 	}
 
 	function settings() {
@@ -85,8 +84,6 @@ class UsersController extends AppController {
 		if (empty($this->data)) {
 			$this->data = $this->User->read(null, $this->Auth->user('id'));
 		}
-		$ranks = $this->User->Rank->find('list');
-		$this->set(compact('ranks'));
 	}
 
 	function delete() {
@@ -124,8 +121,8 @@ class UsersController extends AppController {
 				$this->Session->setFlash(sprintf(__('The %s could not be saved. Please, try again.', true), 'user'));
 			}
 		}
-		$ranks = $this->User->Rank->find('list');
-		$this->set(compact('ranks'));
+		$roles = $this->User->roles;
+		$this->set(compact('roles'));
 	}
 
 	function admin_edit($id = null) {
@@ -144,8 +141,8 @@ class UsersController extends AppController {
 		if (empty($this->data)) {
 			$this->data = $this->User->read(null, $id);
 		}
-		$ranks = $this->User->Rank->find('list');
-		$this->set(compact('ranks'));
+		$roles = $this->User->roles;
+		$this->set(compact('roles'));
 	}
 
 	function admin_delete($id = null) {

@@ -12,7 +12,7 @@
 		echo $this->Form->input('confirm_password', array('type' => 'password'));	
 		echo $this->Form->input('name');
 		echo $this->Form->input('avatar', array('type' => 'file'));
-		echo $this->Form->input('websites');
+		echo $this->Form->input('website');
 		echo $this->Form->input('date_of_birth', array('minYear' => 1900, 'maxYear' => date('Y')));
 	?>
 	</fieldset>

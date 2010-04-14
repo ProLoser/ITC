@@ -31,9 +31,9 @@
 			<?php echo $user['User']['avatar_file_name']; ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Websites'); ?></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Website'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $user['User']['websites']; ?>
+			<?php echo $user['User']['website']; ?>
 			&nbsp;
 		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Points'); ?></dt>

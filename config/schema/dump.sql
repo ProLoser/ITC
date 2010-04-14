@@ -1,16 +1,16 @@
 -- phpMyAdmin SQL Dump
--- version 2.11.9.4
+-- version 3.2.0.1
 -- http://www.phpmyadmin.net
 --
--- Host: mysql.artengineered.net
--- Generation Time: Apr 14, 2010 at 01:00 AM
--- Server version: 5.0.89
--- PHP Version: 5.2.13
+-- Host: localhost
+-- Generation Time: Apr 14, 2010 at 09:14 AM
+-- Server version: 5.1.36
+-- PHP Version: 5.3.0
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 
 --
--- Database: `procoder`
+-- Database: `itc`
 --
 
 -- --------------------------------------------------------
@@ -20,7 +20,7 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 --
 
 CREATE TABLE IF NOT EXISTS `comments` (
-  `id` int(11) NOT NULL auto_increment,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
   `source_id` int(11) NOT NULL,
   `line_start` int(11) NOT NULL,
@@ -28,8 +28,8 @@ CREATE TABLE IF NOT EXISTS `comments` (
   `content` mediumtext NOT NULL,
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL,
-  `vote_count` int(11) default NULL,
-  PRIMARY KEY  (`id`),
+  `vote_count` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`),
   KEY `file_id` (`source_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
@@ -41,10 +41,10 @@ CREATE TABLE IF NOT EXISTS `comments` (
 --
 
 CREATE TABLE IF NOT EXISTS `languages` (
-  `id` int(11) NOT NULL auto_increment,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(30) NOT NULL,
-  PRIMARY KEY  (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
 -- --------------------------------------------------------
 
@@ -53,15 +53,16 @@ CREATE TABLE IF NOT EXISTS `languages` (
 --
 
 CREATE TABLE IF NOT EXISTS `points` (
-  `id` int(11) NOT NULL auto_increment,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
   `point_event_id` varchar(30) NOT NULL,
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL,
-  PRIMARY KEY  (`id`),
+  `foreign_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`),
   KEY `point_event_id` (`point_event_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
 -- --------------------------------------------------------
 
@@ -74,10 +75,9 @@ CREATE TABLE IF NOT EXISTS `point_events` (
   `name` varchar(100) NOT NULL,
   `description` mediumtext,
   `points` int(11) NOT NULL,
-  `foreign_model` varchar(30) default NULL,
-  `foreign_id` int(11) NOT NULL,
-  PRIMARY KEY  (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `foreign_model` varchar(30) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -86,12 +86,12 @@ CREATE TABLE IF NOT EXISTS `point_events` (
 --
 
 CREATE TABLE IF NOT EXISTS `ranks` (
-  `id` int(11) NOT NULL auto_increment,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(100) NOT NULL,
   `description` mediumtext,
   `points` int(11) NOT NULL,
-  PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=16 ;
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 -- --------------------------------------------------------
 
@@ -100,16 +100,16 @@ CREATE TABLE IF NOT EXISTS `ranks` (
 --
 
 CREATE TABLE IF NOT EXISTS `reviews` (
-  `id` int(11) NOT NULL auto_increment,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
   `name` varchar(100) NOT NULL,
-  `visibility` varchar(10) default NULL,
+  `visibility` varchar(10) DEFAULT NULL,
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL,
-  `closed` tinyint(1) NOT NULL default '0',
-  PRIMARY KEY  (`id`),
+  `closed` tinyint(1) NOT NULL,
+  PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -118,10 +118,10 @@ CREATE TABLE IF NOT EXISTS `reviews` (
 --
 
 CREATE TABLE IF NOT EXISTS `reviews_tags` (
-  `id` int(11) NOT NULL auto_increment,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `tag_id` int(11) NOT NULL,
   `review_id` int(11) NOT NULL,
-  PRIMARY KEY  (`id`),
+  PRIMARY KEY (`id`),
   KEY `tag_id` (`tag_id`),
   KEY `review_id` (`review_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
@@ -133,7 +133,7 @@ CREATE TABLE IF NOT EXISTS `reviews_tags` (
 --
 
 CREATE TABLE IF NOT EXISTS `sources` (
-  `id` int(11) NOT NULL auto_increment,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `review_id` int(11) NOT NULL,
   `language_id` int(11) NOT NULL,
   `created` datetime NOT NULL,
@@ -142,11 +142,11 @@ CREATE TABLE IF NOT EXISTS `sources` (
   `description` mediumtext,
   `source_file_name` varchar(255) NOT NULL,
   `source_file_size` int(11) NOT NULL,
-  `visibility` varchar(10) default NULL,
-  PRIMARY KEY  (`id`),
+  `visibility` varchar(10) DEFAULT NULL,
+  PRIMARY KEY (`id`),
   KEY `review_id` (`review_id`),
   KEY `language_id` (`language_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -155,14 +155,14 @@ CREATE TABLE IF NOT EXISTS `sources` (
 --
 
 CREATE TABLE IF NOT EXISTS `subscriptions` (
-  `id` int(11) NOT NULL auto_increment,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
   `foreign_id` int(11) NOT NULL,
   `foreign_model` varchar(20) NOT NULL,
-  `status` varchar(10) default NULL,
+  `status` varchar(10) DEFAULT NULL,
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL,
-  PRIMARY KEY  (`id`),
+  PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
@@ -173,10 +173,10 @@ CREATE TABLE IF NOT EXISTS `subscriptions` (
 --
 
 CREATE TABLE IF NOT EXISTS `tags` (
-  `id` int(11) NOT NULL auto_increment,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(25) NOT NULL,
   `created` datetime NOT NULL,
-  PRIMARY KEY  (`id`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -186,21 +186,21 @@ CREATE TABLE IF NOT EXISTS `tags` (
 --
 
 CREATE TABLE IF NOT EXISTS `users` (
-  `id` int(11) NOT NULL auto_increment,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(100) NOT NULL,
   `password` varchar(40) NOT NULL,
-  `name` varchar(100) default NULL,
+  `name` varchar(100) DEFAULT NULL,
   `email` varchar(100) NOT NULL,
-  `avatar_file_name` varchar(255) default NULL,
-  `websites` varchar(255) default NULL,
-  `points` int(11) NOT NULL default '0',
+  `avatar_file_name` varchar(255) DEFAULT NULL,
+  `website` varchar(255) DEFAULT NULL,
+  `points` int(11) NOT NULL DEFAULT '0',
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL,
-  `status` varchar(10) default NULL,
+  `status` varchar(10) DEFAULT NULL,
   `rank_id` int(11) NOT NULL,
-  `date_of_birth` date default NULL,
-  `role` varchar(10) NOT NULL default 'User',
-  PRIMARY KEY  (`id`),
+  `date_of_birth` date DEFAULT NULL,
+  `role` varchar(10) NOT NULL DEFAULT 'User',
+  PRIMARY KEY (`id`),
   KEY `rank_id` (`rank_id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=16 ;
 
@@ -211,13 +211,13 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 CREATE TABLE IF NOT EXISTS `votes` (
-  `id` int(11) NOT NULL auto_increment,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `comment_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
-  `direction` binary(1) default NULL,
+  `direction` binary(1) DEFAULT NULL,
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL,
-  PRIMARY KEY  (`id`),
+  PRIMARY KEY (`id`),
   KEY `comment_id` (`comment_id`),
   KEY `user_id` (`user_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
