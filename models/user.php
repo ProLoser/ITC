@@ -13,26 +13,13 @@ class User extends AppModel {
 				'message' => 'Username already taken. Try again.'
 			)
 		),
-			
-		'password' => array(
-			'rule' => array('minLength', 6),
-			'allowEmpty' => false,
-			'message' => 'Password must be at the minimum 6 characters long.'
-		),
-		
-		'confirm_password' => array(
-			'rule' => array('minLength', 6),
-			'allowEmpty' => false,
-			'message' => 'Password must be at the minimum 6 characters long.'
-		),
 		
 		'email' => array(
-			'emailValid' => array(
+			'email' => array(
 				'rule' => 'email', 
 				'message' => 'Invalid e-mail.',
-				'allowEmpty' => false
 			),
-			'unique' => array(
+			'isUnique' => array(
 				'rule' => 'isUnique',
 				'message' => 'Email already in use. Try again.'
 			)
@@ -41,7 +28,6 @@ class User extends AppModel {
 		'date_of_birth' => array(
 			'rule' => 'date',
 			'message' => 'Enter a valid date',
-			'allowEmpty' => false
 		),
 		
 		'role' => array(

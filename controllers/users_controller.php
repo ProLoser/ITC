@@ -56,8 +56,9 @@ class UsersController extends AppController {
 			$this->User->create();
 			if($this->data['User']['password'] == Security::hash($this->data['User']['confirm_password'], null, true)) {
 				if ($this->User->save($this->data)) {
-					$this->Session->setFlash(sprintf(__('The %s has been saved', true), 'user'));
-					$this->redirect(array('action' => 'index'));
+					$this->Session->setFlash(__('Thank you for registering', true));
+					$this->Auth->login($this->data);
+					$this->redirect(array('action' => '/'));
 				} else {
 					$this->Session->setFlash(sprintf(__('The %s could not be saved. Please, try again.', true), 'user'));
 					$this->data['User']['password'] =$this->data['User']['confirm_password'];
@@ -92,7 +93,7 @@ class UsersController extends AppController {
 		if (!empty($this->data) && $this->data['confirm'] == 'Yes') {
 			$this->User->delete($this->Auth->user('id'));
 			$this->Session->setFlash('Your account was closed');
-			$this->logout();
+			$this->Auth->logout();
 			$this->redirect('/');
 		} elseif (!empty($this->data) && $this->data['confirm'] == 'No') {
 			$this->Session->setFlash('You made the right decision...');
