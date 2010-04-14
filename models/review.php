@@ -1,7 +1,7 @@
 <?php
 class Review extends AppModel {
 	var $name = 'Review';
-	var $order = 'Created DESC';
+	var $order = 'Review.created DESC';
 	
 	// Used for populating the droplist on the form
 	var $visibilities = array(
