@@ -3,7 +3,6 @@
 	<table cellpadding="0" cellspacing="0">
 	<tr>
 			<th><?php echo $this->Paginator->sort('id');?></th>
-			<th><?php echo $this->Paginator->sort('user_id');?></th>
 			<th><?php echo $this->Paginator->sort('name');?></th>
 			<th><?php echo $this->Paginator->sort('visibility');?></th>
 			<th class="actions"><?php __('Actions');?></th>
@@ -18,16 +17,12 @@
 	?>
 	<tr<?php echo $class;?>>
 		<td><?php echo $review['Review']['id']; ?>&nbsp;</td>
-		<td>
-			<?php echo $this->Html->link($review['User']['name'], array('controller' => 'users', 'action' => 'view', $review['User']['id'])); ?>
-		</td>
 		<td><?php echo $review['Review']['name']; ?>&nbsp;</td>
 		<td><?php echo $review['Review']['visibility']; ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View', true), array('action' => 'view', $review['Review']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit', true), array('action' => 'edit', $review['Review']['id'])); ?>
 			<?php echo $this->Html->link(__('Delete', true), array('action' => 'delete', $review['Review']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $review['Review']['id'])); ?>
-			<?php echo $this->Html->link(__('Subscribe', true), array('controller' => 'subscriptions', 'action' => 'add', $review['Review']['id'])); ?>
 		</td>
 	</tr>
 <?php endforeach; ?>
@@ -50,6 +45,5 @@
 	<h3><?php __('Actions'); ?></h3>
 	<ul>
 		<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('Review', true)), array('action' => 'add')); ?></li>
-		<li><?php echo $this->Html->link(sprintf(__('My %s', true), __('Reviews', true)), array('action' => 'mine')); ?></li>
 	</ul>
 </div>

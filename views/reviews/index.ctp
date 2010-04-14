@@ -5,8 +5,7 @@
 			<th><?php echo $this->Paginator->sort('id');?></th>
 			<th><?php echo $this->Paginator->sort('user_id');?></th>
 			<th><?php echo $this->Paginator->sort('name');?></th>
-			<th><?php echo $this->Paginator->sort('visibility');?></th>
-			<th class="actions"><?php __('Actions');?></th>
+			<th class="actions"><?php __('Subscribe');?></th>
 	</tr>
 	<?php
 	$i = 0;
@@ -21,12 +20,8 @@
 		<td>
 			<?php echo $this->Html->link($review['User']['name'], array('controller' => 'users', 'action' => 'view', $review['User']['id'])); ?>
 		</td>
-		<td><?php echo $review['Review']['name']; ?>&nbsp;</td>
-		<td><?php echo $review['Review']['visibility']; ?>&nbsp;</td>
+		<td><?php echo $this->Html->link($review['Review']['name'], array('action' => 'view', $review['Review']['id'])); ?>&nbsp;</td>
 		<td class="actions">
-			<?php echo $this->Html->link(__('View', true), array('action' => 'view', $review['Review']['id'])); ?>
-			<?php echo $this->Html->link(__('Edit', true), array('action' => 'edit', $review['Review']['id'])); ?>
-			<?php echo $this->Html->link(__('Delete', true), array('action' => 'delete', $review['Review']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $review['Review']['id'])); ?>
 			<?php echo $this->Html->link(__('Subscribe', true), array('controller' => 'subscriptions', 'action' => 'add', $review['Review']['id'])); ?>
 		</td>
 	</tr>
@@ -42,8 +37,7 @@
 	<div class="paging">
 		<?php echo $this->Paginator->prev('<< '.__('previous', true), array(), null, array('class'=>'disabled'));?>
 	 | 	<?php echo $this->Paginator->numbers();?>
- |
-		<?php echo $this->Paginator->next(__('next', true).' >>', array(), null, array('class' => 'disabled'));?>
+	 |	<?php echo $this->Paginator->next(__('next', true).' >>', array(), null, array('class' => 'disabled'));?>
 	</div>
 </div>
 <div class="actions">

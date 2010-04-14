@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 14, 2010 at 09:43 AM
+-- Generation Time: Apr 14, 2010 at 09:46 AM
 -- Server version: 5.1.36
 -- PHP Version: 5.3.0
 
@@ -107,6 +107,7 @@ CREATE TABLE IF NOT EXISTS `reviews` (
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL,
   `closed` tinyint(1) NOT NULL,
+  `description` text NOT NULL,
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;

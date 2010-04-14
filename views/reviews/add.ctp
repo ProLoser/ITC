@@ -4,6 +4,7 @@
 	<?php
 		echo $this->Form->input('name');
 		echo $this->Form->input('visibility');
+		echo $this->Form->input('description');
 	?>
 <?php echo $this->Form->end(__('Submit', true));?>
 </div>

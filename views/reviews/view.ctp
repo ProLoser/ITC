@@ -21,6 +21,11 @@
 			<?php echo $review['Review']['visibility']; ?>
 			&nbsp;
 		</dd>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Description'); ?></dt>
+		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+			<?php echo $review['Review']['description']; ?>
+			&nbsp;
+		</dd>
 	</dl>
 </div>
 <div class="actions">
