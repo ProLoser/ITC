@@ -16,7 +16,7 @@ class Subscription extends AppModel {
 	var $foreignModels = array(
 		'User',
 		'Review',
-	)
+	);
 	
 	function subscribe($userId, $model, $foreignId) {
 		if (in_array($model, $this->foreignModels)) {
