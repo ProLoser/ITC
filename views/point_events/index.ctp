@@ -2,14 +2,10 @@
 	<h2><?php __('Point Events');?></h2>
 	<table cellpadding="0" cellspacing="0">
 	<tr>
-			<th><?php echo $this->Paginator->sort('id');?></th>
 			<th><?php echo $this->Paginator->sort('name');?></th>
 			<th><?php echo $this->Paginator->sort('description');?></th>
 			<th><?php echo $this->Paginator->sort('points');?></th>
-			<th><?php echo $this->Paginator->sort('key');?></th>
 			<th><?php echo $this->Paginator->sort('foreign_model');?></th>
-			<th><?php echo $this->Paginator->sort('foreign_id');?></th>
-			<th class="actions"><?php __('Actions');?></th>
 	</tr>
 	<?php
 	$i = 0;
@@ -20,18 +16,10 @@
 		}
 	?>
 	<tr<?php echo $class;?>>
-		<td><?php echo $pointEvent['PointEvent']['id']; ?>&nbsp;</td>
 		<td><?php echo $pointEvent['PointEvent']['name']; ?>&nbsp;</td>
-		<td><?php echo $pointEvent['PointEvent']['description']; ?>&nbsp;</td>
+		<td><?php echo $this->Html->link($pointEvent['PointEvent']['description'], array('action' => 'view', $pointEvent['PointEvent']['id'])); ?>&nbsp;</td>
 		<td><?php echo $pointEvent['PointEvent']['points']; ?>&nbsp;</td>
-		<td><?php echo $pointEvent['PointEvent']['key']; ?>&nbsp;</td>
 		<td><?php echo $pointEvent['PointEvent']['foreign_model']; ?>&nbsp;</td>
-		<td><?php echo $pointEvent['PointEvent']['foreign_id']; ?>&nbsp;</td>
-		<td class="actions">
-			<?php echo $this->Html->link(__('View', true), array('action' => 'view', $pointEvent['PointEvent']['id'])); ?>
-			<?php echo $this->Html->link(__('Edit', true), array('action' => 'edit', $pointEvent['PointEvent']['id'])); ?>
-			<?php echo $this->Html->link(__('Delete', true), array('action' => 'delete', $pointEvent['PointEvent']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $pointEvent['PointEvent']['id'])); ?>
-		</td>
 	</tr>
 <?php endforeach; ?>
 	</table>

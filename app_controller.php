@@ -45,18 +45,22 @@ class AppController extends Controller {
 	 * @return void
 	 * @access private
 	 */
-	function __configureAuth() {	
-		if ($this->_prefix()) {
-			$this->Auth->deny();
-		} else {				
-			$this->Auth->allow();
-			$this->Auth->deny(array('add', 'edit', 'delete'));
-		}
-
+	function __configureAuth() {
 		$this->Auth->fields = array('username' => 'username', 'password' => 'password');
 		$this->Auth->loginAction = array('plugin' => null, 'admin' => false, 'controller' => 'users', 'action' => 'login');
 		$this->Auth->logoutRedirect = '/';
 		$this->Auth->loginRedirect = '/';
+		
+		if ($this->_prefix()) {
+			$this->Auth->deny();
+			if ($this->Auth->user('role') != 'Admin') {
+				$this->Session->setFlash('You must be an Admin to access this area');
+				$this->redirect($this->Auth->loginAction);
+			}
+		} else {				
+			$this->Auth->allow();
+			$this->Auth->deny(array('add', 'edit', 'delete'));
+		}
 	}
 }
 ?>

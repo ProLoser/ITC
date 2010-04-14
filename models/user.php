@@ -100,7 +100,8 @@ class User extends AppModel {
 					'medium' => '120x120',
 				)
 			)
-		)
+		),
+		'Welcome.Membership',
 	);
 	
 	function afterSave($created) {
