@@ -19,28 +19,6 @@ class UsersController extends AppController {
 	function add() {
 	}
 	
-	//Forgot password form
-	function fPass($username, $forgotCode) {
-		if($forgotCode == Security::hash(date('Ymd') . $username, null, true)) {
-			if(!empty($this->data)) {
-				if($this->data['User']['password'] == $this->data['User']['confirm_password']){
-					$this->data['User']['password'] = '\'' . Security::hash($username . $this->data['User']['password'], null, true) . '\''; //BUG, needs explicit quotations or it will generate an SQL error.
-					if($this->User->updateAll(array('User.password' => $this->data['User']['password']), array('User.username' => $username))) {
-						$this->Session->setFlash(sprintf(__('The %s has been saved', true), 'user'));
-						$this->redirect(array('action' => 'index'));
-					} else {
-						$this->Session->setFlash('Unable to update password.');
-					}
-				} else {
-					$this->Session->setFlash('Invalid. Try again');
-				}
-			}
-		} else {
-			$this->Session->setFlash('Link has expired, please request another password link');
-			$this->redirect(array('controller' => 'users', 'action' => 'index'));
-		}
-	}
-	
 	//Send reset password confirmation
 	function reset() {
 		if (!empty($this->data)) {
@@ -111,13 +89,15 @@ class UsersController extends AppController {
 	}
 
 	function delete() {
-		if ($this->User->delete($this->Auth->user('id'))) {
-			$this->Session->setFlash(sprintf(__('%s deleted', true), 'User'));
+		if (!empty($this->data) && $this->data['confirm'] == 'Yes') {
+			$this->User->delete($this->Auth->user('id'));
+			$this->Session->setFlash('Your account was closed');
 			$this->logout();
-			$this->redirect(array('action'=>'index'));
+			$this->redirect('/');
+		} elseif (!empty($this->data) && $this->data['confirm'] == 'No') {
+			$this->Session->setFlash('You made the right decision...');
+			$this->redirect(array('action' => 'settings'));
 		}
-		$this->Session->setFlash(sprintf(__('%s was not deleted', true), 'User'));
-		$this->redirect(array('action' => 'index'));
 	}
 
 	function admin_index() {
