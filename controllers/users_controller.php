@@ -111,7 +111,7 @@ class UsersController extends AppController {
 		$this->set('user', $this->User->read(null, $id));
 	}
 
-	function admin_add() {
+	/*function admin_add() {
 		if (!empty($this->data)) {
 			$this->User->create();
 			if ($this->User->save($this->data)) {
@@ -123,7 +123,7 @@ class UsersController extends AppController {
 		}
 		$roles = $this->User->roles;
 		$this->set(compact('roles'));
-	}
+	}*/
 
 	function admin_edit($id = null) {
 		if (!$id && empty($this->data)) {

@@ -26,9 +26,9 @@
 			<?php echo $user['User']['avatar_file_name']; ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Websites'); ?></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Website'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $user['User']['websites']; ?>
+			<?php echo $user['User']['website']; ?>
 			&nbsp;
 		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Points'); ?></dt>
@@ -119,12 +119,6 @@
 	<?php endforeach; ?>
 	</table>
 <?php endif; ?>
-
-	<div class="actions">
-		<ul>
-			<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('Comment', true)), array('controller' => 'comments', 'action' => 'add'));?> </li>
-		</ul>
-	</div>
 </div>
 <div class="related">
 	<h3><?php printf(__('Related %s', true), __('Points', true));?></h3>
@@ -163,12 +157,6 @@
 	<?php endforeach; ?>
 	</table>
 <?php endif; ?>
-
-	<div class="actions">
-		<ul>
-			<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('Point', true)), array('controller' => 'points', 'action' => 'add'));?> </li>
-		</ul>
-	</div>
 </div>
 <div class="related">
 	<h3><?php printf(__('Related %s', true), __('Reviews', true));?></h3>
@@ -203,12 +191,6 @@
 	<?php endforeach; ?>
 	</table>
 <?php endif; ?>
-
-	<div class="actions">
-		<ul>
-			<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('Review', true)), array('controller' => 'reviews', 'action' => 'add'));?> </li>
-		</ul>
-	</div>
 </div>
 <div class="related">
 	<h3><?php printf(__('Related %s', true), __('Subscriptions', true));?></h3>
@@ -249,12 +231,6 @@
 	<?php endforeach; ?>
 	</table>
 <?php endif; ?>
-
-	<div class="actions">
-		<ul>
-			<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('Subscription', true)), array('controller' => 'subscriptions', 'action' => 'add'));?> </li>
-		</ul>
-	</div>
 </div>
 <div class="related">
 	<h3><?php printf(__('Related %s', true), __('Votes', true));?></h3>
@@ -293,10 +269,4 @@
 	<?php endforeach; ?>
 	</table>
 <?php endif; ?>
-
-	<div class="actions">
-		<ul>
-			<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('Vote', true)), array('controller' => 'votes', 'action' => 'add'));?> </li>
-		</ul>
-	</div>
 </div>
