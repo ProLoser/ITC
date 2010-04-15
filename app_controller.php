@@ -4,7 +4,6 @@ class AppController extends Controller {
 	var $components = array(
 		'Auth', 
 		'Session',
-		
 	);
 	
 	var $helpers = array(
@@ -15,6 +14,8 @@ class AppController extends Controller {
 	
 	function beforeFilter() {
 		$this->__configureAuth();
+		App::import('Model', 'User');
+		User::store($this->Auth->user());
 	}
 	
 	function beforeRender() {		

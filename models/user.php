@@ -99,7 +99,38 @@ class User extends AppModel {
 			$this->grantPoints('user-register', $this->id);
 		}
 	}
-
+	
+	function &getInstance($user=null) {
+		static $instance = array();
+		if ($user) {
+			$instance[0] =& $user;
+		}
+		if (!$instance) {
+			trigger_error(__("User not set.", true), E_USER_WARNING);
+			return false;
+		}
+		return $instance[0];
+	}
+	
+	function store($user) {
+		User::getInstance($user);
+	}
+	
+	function get($path) {
+		$_user =& User::getInstance();
+		$path = str_replace('.', '/', $path);
+		if (strpos($path, 'User') !== 0) {
+			$path = sprintf('User/%s', $path);
+		}
+		if (strpos($path, '/') !== 0) {
+			$path = sprintf('/%s', $path);
+		}
+		$value = Set::extract($path, $_user);
+		if (!$value) {
+			return false;
+			}
+		return $value[0];
+	}
 	/**
 	 * Function for granting a user points via a point event
 	 * Requires that you pass a string id key for the point event and the target user's id. Foreign_id optional
