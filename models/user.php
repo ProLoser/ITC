@@ -1,6 +1,7 @@
 <?php
 class User extends AppModel {
 	var $name = 'User';
+	var $order = 'User.username ASC';
 	var $validate = array(
 		'username'   => array(
 			'alphaNumeric' => array(
@@ -22,6 +23,10 @@ class User extends AppModel {
 			'isUnique' => array(
 				'rule' => 'isUnique',
 				'message' => 'Email already in use. Try again.'
+			),
+			'notEmpty' => array(
+				'rule' => 'notEmpty',
+				'message' => 'Email cannot be blank.'
 			)
 		),
 		
@@ -31,8 +36,8 @@ class User extends AppModel {
 		),
 		
 		'role' => array(
-			'notempty' => array(
-				'rule' => array('notempty'),
+			'notEmpty' => array(
+				'rule' => array('notEmpty'),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,

@@ -2,7 +2,24 @@
 class Review extends AppModel {
 	var $name = 'Review';
 	var $order = 'Review.created DESC';
-	
+	var $validate = array(
+		'name' => array(
+			'alphaNumeric' => array(
+				'rule' => 'alphaNumeric', 
+				'message' => 'Alpha-numeric characters only.',
+			),
+			'notEmpty' => array(
+				'rule' => 'notEmpty',
+				'message' => 'Please enter a name.'
+			)
+		),
+		'description' => array(
+			'notEmpty' => array(
+				'rule' => 'notEmpty',
+				'message' => 'Please enter a description.'
+			)
+		),
+	);
 	// Used for populating the droplist on the form
 	var $visibilities = array(
 		'Public' => 'Public',

@@ -1,6 +1,7 @@
 <?php
 class PointEvent extends AppModel {
 	var $name = 'PointEvent';
+	var $order = 'PointEvent.name ASC';
 	var $validation = array(
 		'id' => array(
 			'isUnique' => array(
