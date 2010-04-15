@@ -72,6 +72,7 @@ CREATE TABLE IF NOT EXISTS `points` (
   `point_event_id` varchar(30) NOT NULL,
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL,
+  `foreign_id` int(11) NULL,
   PRIMARY KEY  (`id`),
   KEY `user_id` (`user_id`),
   KEY `point_event_id` (`point_event_id`)
@@ -89,7 +90,6 @@ CREATE TABLE IF NOT EXISTS `point_events` (
   `description` mediumtext,
   `points` int(11) NOT NULL,
   `foreign_model` varchar(30) default NULL,
-  `foreign_id` int(11) NOT NULL,
   PRIMARY KEY  (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
