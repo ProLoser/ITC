@@ -25,6 +25,7 @@ class ReviewsController extends AppController {
 			$this->Session->setFlash(sprintf(__('Invalid %s', true), 'review'));
 			$this->redirect(array('action' => 'index'));
 		}
+		$this->Review->recursive = 0;
 		$this->set('review', $this->Review->read(null, $id));
 	}
 

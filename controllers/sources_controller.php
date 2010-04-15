@@ -27,8 +27,7 @@ class SourcesController extends AppController {
 			}
 		}
 		$reviews = $this->Source->Review->find('list');
-		$languages = $this->Source->Language->find('list');
-		$this->set(compact('reviews', 'languages'));
+		$this->set(compact('reviews'));
 	}
 
 	function edit($id = null) {
@@ -47,9 +46,6 @@ class SourcesController extends AppController {
 		if (empty($this->data)) {
 			$this->data = $this->Source->read(null, $id);
 		}
-		$reviews = $this->Source->Review->find('list');
-		$languages = $this->Source->Language->find('list');
-		$this->set(compact('reviews', 'languages'));
 	}
 
 	function delete($id = null) {
