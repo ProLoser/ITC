@@ -37,16 +37,28 @@ class Source extends AppModel {
 	);
 
 	var $actsAs = array(
-		'UploadPack.Upload' => array(
+		/*'UploadPack.Upload' => array(
 			'source_file_name' => array(
 				'styles' => array(
 					'small' => '40x40',
 					'medium' => '120x120',
 				)
 			)
-		),
+		),*/
 		'Revision',
 	);
 
+	// Stores the content of the uploaded file into the blob field.
+	function beforeSave() {
+		if ($this->data['Source']['source']) {
+			// @TODO Need to do the CakePHP approach to file management (see the file class)
+			$file = new File($this->data['Source']['source']['tmp_name']);
+			$this->data['Source']['content'] = $file->read();
+		}
+
+		return true;
+	}
+
 }
 ?>
+

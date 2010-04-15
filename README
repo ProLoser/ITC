@@ -1,1 +1,24 @@
-Create your own copy of config/database.php and use the SQL dump found under config/schema/dump.sql
+h3. Installation instructions
+
+# <code>git clone <your github repo></code>
+# <code>git submodule init</code>
+# <code>git submodule update</code>
+# Generate your database in phpmyadmin by running the <code>config/schema/dump.sql</code>
+# Copy <code>config/database.php.default</code> to <cod>config/database.php</code>
+# Configure your <code>config/database.php</code> to your sql database
+# Make your <code>tmp</code> and <code>webroot</code> directory writeable
+## <code>chmod 777 -R tmp</code>
+## <code>chmod 777 -R webroot</code>
+
+You're done!
+
+h3. YOU SHOULD ONLY MERGE FROM DEAN!!! DO NOT MERGE FROM EACH OTHER
+
+How to update your copy:
+
+# *ONLY RUN ONCE THE FIRST TIME YOU INSTALL:*
+## git remote add dean git://github.com/ProLoser/ITC.git
+# git pull dean master
+# git commit
+# git push
+
