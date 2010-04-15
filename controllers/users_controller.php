@@ -122,6 +122,26 @@ class UsersController extends AppController {
 		$this->set('user', $this->User->read(null, $id));
 	}
 
+	function admin_set($id = null, $flag = null, $value = null) {
+		if (!$id || !$flag || !$value) {
+			$this->Session->setFlash('Invalid flag');
+			$this->redirect(array('action' => 'index'));
+		}
+		if ($this->User->read(null, $id)) {
+			$this->User->set($flag, $value);
+			if ($this->User->save($this->data)) {
+				$this->Session->setFlash('The user\'s ' . $flag . ' was set to ' . $value);
+				$this->redirect(array('action' => 'index'));
+			} else {
+				$this->Session->setFlash('There was an error trying to flag the user');
+				$this->redirect(array('action' => 'index'));
+			}
+		} else {
+				$this->Session->setFlash('The user could not be found');
+				$this->redirect(array('action' => 'index'));
+		}
+	}
+
 	/*function admin_add() {
 		if (!empty($this->data)) {
 			$this->User->create();

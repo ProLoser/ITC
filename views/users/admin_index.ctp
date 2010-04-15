@@ -1,4 +1,4 @@
-<div class="users index">
+<div class="users">
 	<h2><?php __('Users');?></h2>
 	<table cellpadding="0" cellspacing="0">
 	<tr>
@@ -29,6 +29,20 @@
 		<td><?php echo $user['User']['role']; ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View', true), array('action' => 'view', $user['User']['id'])); ?>
+			<?php 
+				if ($user['User']['status'] == 'Banned') {
+					echo $this->Html->link('Unban', array('action' => 'set', $user['User']['id'], 'status', 'Active'));
+				} else {
+					echo $this->Html->link('Ban', array('action' => 'set', $user['User']['id'], 'status', 'Banned'));
+				}
+			?>
+			<?php 
+				if ($user['User']['role'] == 'User') {
+					echo $this->Html->link('Grant Admin', array('action' => 'set', $user['User']['id'], 'role', 'Admin'));
+				} else {
+					echo $this->Html->link('Revoke Admin', array('action' => 'set', $user['User']['id'], 'role', 'User'));
+				}
+			?>
 			<?php echo $this->Html->link(__('Edit', true), array('action' => 'edit', $user['User']['id'])); ?>
 			<?php echo $this->Html->link(__('Delete', true), array('action' => 'delete', $user['User']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $user['User']['id'])); ?>
 		</td>

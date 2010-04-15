@@ -38,12 +38,10 @@
 		<div id="header">
 			<h1><?php echo $this->Html->link('ProCode', '/'); ?> - <?php echo $this->Html->link('Admin Panel', '/admin'); ?>: <?php echo $title_for_layout; ?></h1>
 			<ul>
-				<li><?php echo $this->Html->link('Users', array('controller' => 'users'))?></li>
-				<li><?php echo $this->Html->link('Reviews', array('controller' => 'reviews'))?></li>
-				<li><?php echo $this->Html->link('Languages', array('controller' => 'languages'))?></li>
-				<li><?php echo $this->Html->link('Tags', array('controller' => 'tags'))?></li>
-				<li><?php echo $this->Html->link('Ranks', array('controller' => 'ranks'))?></li>
-				<li><?php echo $this->Html->link('Point Events', array('controller' => 'point_events'))?></li>
+				<li><?php echo $this->Html->link('Users', array('controller' => 'users', 'action' => 'index'))?></li>
+				<li><?php echo $this->Html->link('Languages', array('controller' => 'languages', 'action' => 'index'))?></li>
+				<li><?php echo $this->Html->link('Ranks', array('controller' => 'ranks', 'action' => 'index'))?></li>
+				<li><?php echo $this->Html->link('Point Events', array('controller' => 'point_events', 'action' => 'index'))?></li>
 			</ul>
 		</div>
 		<div id="content">
