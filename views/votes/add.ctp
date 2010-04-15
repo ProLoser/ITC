@@ -1,13 +1,11 @@
 <div class="votes form">
+<h3><?php printf(__('Add %s', true), __('Vote', true)); ?></h3>
 <?php echo $this->Form->create('Vote');?>
-	<fieldset>
- 		<legend><?php printf(__('Add %s', true), __('Vote', true)); ?></legend>
 	<?php
 		echo $this->Form->input('comment_id');
 		echo $this->Form->input('user_id');
 		echo $this->Form->input('direction');
 	?>
-	</fieldset>
 <?php echo $this->Form->end(__('Submit', true));?>
 </div>
 <div class="actions">

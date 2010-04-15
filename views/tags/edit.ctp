@@ -1,13 +1,11 @@
 <div class="tags form">
+<h3><?php printf(__('Edit %s', true), __('Tag', true)); ?></h3>
 <?php echo $this->Form->create('Tag');?>
-	<fieldset>
- 		<legend><?php printf(__('Edit %s', true), __('Tag', true)); ?></legend>
 	<?php
 		echo $this->Form->input('id');
 		echo $this->Form->input('name');
 		echo $this->Form->input('Review');
 	?>
-	</fieldset>
 <?php echo $this->Form->end(__('Submit', true));?>
 </div>
 <div class="actions">

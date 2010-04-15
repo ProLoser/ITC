@@ -1,4 +1,4 @@
-<h2>Sweet, "ITC" got Baked by CakePHP!</h2>
+<h3>Sweet, "ITC" got Baked by CakePHP!</h3>
 
 <?php
 if (Configure::read() > 0):

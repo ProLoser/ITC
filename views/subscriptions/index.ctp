@@ -1,5 +1,5 @@
 <div class="subscriptions index">
-	<h2><?php __('Subscriptions');?></h2>
+	<h3><?php __('Subscriptions');?></h3>
 	<table cellpadding="0" cellspacing="0">
 	<tr>
 			<th><?php echo $this->Paginator->sort('id');?></th>

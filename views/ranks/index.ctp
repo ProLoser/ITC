@@ -1,5 +1,5 @@
 <div class="ranks index">
-	<h2><?php __('Ranks');?></h2>
+	<h3><?php __('Ranks');?></h3>
 	<dl>
 	<?php
 	$i = 0;

@@ -1,5 +1,5 @@
 <div class="points index">
-	<h2><?php __('Points');?></h2>
+	<h3><?php __('Points');?></h3>
 	<table cellpadding="0" cellspacing="0">
 	<tr>
 			<th><?php echo $this->Paginator->sort('id');?></th>

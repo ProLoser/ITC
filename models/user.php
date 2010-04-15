@@ -128,7 +128,7 @@ class User extends AppModel {
 		$value = Set::extract($path, $_user);
 		if (!$value) {
 			return false;
-			}
+		}
 		return $value[0];
 	}
 	/**

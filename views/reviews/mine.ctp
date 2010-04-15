@@ -1,5 +1,5 @@
 <div class="reviews index">
-	<h2><?php __('Reviews');?></h2>
+	<h3><?php __('Reviews');?></h3>
 	<table cellpadding="0" cellspacing="0">
 	<tr>
 			<th><?php echo $this->Paginator->sort('id');?></th>

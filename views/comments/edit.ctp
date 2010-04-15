@@ -1,7 +1,6 @@
 <div class="comments form">
+<h3><?php printf(__('Edit %s', true), __('Comment', true)); ?></h3>
 <?php echo $this->Form->create('Comment');?>
-	<fieldset>
- 		<legend><?php printf(__('Edit %s', true), __('Comment', true)); ?></legend>
 	<?php
 		echo $this->Form->input('id');
 		echo $this->Form->input('user_id');
@@ -11,7 +10,6 @@
 		echo $this->Form->input('content');
 		echo $this->Form->input('vote_count');
 	?>
-	</fieldset>
 <?php echo $this->Form->end(__('Submit', true));?>
 </div>
 <div class="actions">

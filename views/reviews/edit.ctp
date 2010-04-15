@@ -1,14 +1,12 @@
 <div class="reviews form">
+<h3><?php printf(__('Edit %s', true), __('Review', true)); ?></h3>
 <?php echo $this->Form->create('Review');?>
-	<fieldset>
- 		<legend><?php printf(__('Edit %s', true), __('Review', true)); ?></legend>
 	<?php
 		echo $this->Form->input('id');
 		echo $this->Form->input('name');
 		echo $this->Form->input('visibility');
 		echo $this->Form->input('description');
 	?>
-	</fieldset>
 <?php echo $this->Form->end(__('Submit', true));?>
 </div>
 <div class="actions">

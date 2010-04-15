@@ -1,5 +1,5 @@
 <div class="sources index">
-	<h2><?php __('Sources');?></h2>
+	<h3><?php __('Sources');?></h3>
 	<table cellpadding="0" cellspacing="0">
 	<tr>
 			<th><?php echo $this->Paginator->sort('id');?></th>

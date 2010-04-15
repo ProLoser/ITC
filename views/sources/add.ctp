@@ -1,7 +1,6 @@
 <div class="sources form">
+<h3><?php printf(__('Add %s', true), __('Source', true)); ?></h3>
 <?php echo $this->Form->create('Source', array('type' => 'file'));?>
-	<fieldset>
- 		<legend><?php printf(__('Add %s', true), __('Source', true)); ?></legend>
 	<?php
 		echo $this->Form->input('review_id');
 		echo $this->Form->input('language_id');
@@ -10,7 +9,6 @@
 		echo $this->Form->input('source', array('type' => 'file'));
 		echo $this->Form->input('visibility');
 	?>
-	</fieldset>
 <?php echo $this->Form->end(__('Submit', true));?>
 </div>
 <div class="actions">
