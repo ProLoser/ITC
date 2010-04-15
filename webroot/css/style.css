@@ -28,6 +28,7 @@ h3 {
 }
 a {text-decoration: none; outline: 0px;}
 a:hover { text-decoration: underline; }
+a img { border: none; }
 
 /*** General Classes ***/
 .light-blue {
@@ -92,7 +93,7 @@ a:hover { text-decoration: underline; }
 #header #tabs ul {
 	overflow: auto;
 	margin-left: 45px;
-} 	
+}
 #header #tabs li {
 	float: left;
 	list-style: none;
@@ -240,7 +241,7 @@ font-size:.9em;
 	width: 960px;
 	margin: 20px auto;
 }
-#footer a { 
+#footer a {
 	color:#215D84;
 }
 #footer ul {
@@ -478,3 +479,4 @@ ul.userbox li a {
 
 .cake-sql-log {clear: both; margin: 10px auto;}
 .cake-sql-log td, .cake-sql-log th  { margin: 2px;}
+
