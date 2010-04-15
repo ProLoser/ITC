@@ -20,10 +20,11 @@ class UsersController extends AppController {
 
 	function password() {
 		if (!empty($this->data)) {
-			if ($this->Membership->password()) {
+			if ($this->User->save($this->data)) {
 				$this->Session->setFlash('Your password has been updated');
 				$this->redirect(array('action' => 'settings'));
 			} else {
+				$this->Membership->resetPasswords();
 				$this->Session->setFlash('Your password could not be updated');
 			}
 		}
