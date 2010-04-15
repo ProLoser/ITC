@@ -16,7 +16,7 @@ class PointEvent extends AppModel {
 				'message' => 'Please don\'t exceed 30 characters',
 			),
 			'characters' => array(
-				'rule' => '/^([a-z0-9-])+$/',
+				'rule' => '^([a-z0-9-])+$',
 				'message' => 'Please enter lower-case letters, numbers or dashes only',
 			),
 		),
