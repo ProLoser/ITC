@@ -3,6 +3,11 @@ class UsersController extends AppController {
 
 	var $name = 'Users';
 	var $components = array('Welcome.Membership', 'SwiftMailer');
+	
+	function beforeFilter() {
+		parent::beforeFilter();
+		$this->Auth->deny(array('password'));
+	}
 
 	function login() {
 	}
@@ -14,6 +19,14 @@ class UsersController extends AppController {
 	}
 
 	function password() {
+		if (!empty($this->data)) {
+			if ($this->Membership->password()) {
+				$this->Session->setFlash('Your password has been updated');
+				$this->redirect(array('action' => 'settings'));
+			} else {
+				$this->Session->setFlash('Your password could not be updated');
+			}
+		}
 	}
 
 	//Send reset password confirmation
