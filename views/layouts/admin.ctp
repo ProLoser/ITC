@@ -22,7 +22,7 @@
 <head>
 	<?php echo $this->Html->charset(); ?>
 	<title>
-		<?php __('CakePHP: the rapid development php framework:'); ?>
+		<?php __('ProCode - Admin: '); ?>
 		<?php echo $title_for_layout; ?>
 	</title>
 	<?php
@@ -36,7 +36,7 @@
 <body>
 	<div id="container">
 		<div id="header">
-			<h1>Controllers (Tables)</h1>
+			<h1><?php echo $this->Html->link('ProCode', '/'); ?> - <?php echo $this->Html->link('Admin Panel', '/admin'); ?>: <?php echo $title_for_layout; ?></h1>
 			<ul>
 				<li><?php echo $this->Html->link('Users', array('controller' => 'users'))?></li>
 				<li><?php echo $this->Html->link('Reviews', array('controller' => 'reviews'))?></li>
@@ -64,3 +64,4 @@
 	<?php echo $this->element('sql_dump'); ?>
 </body>
 </html>
+

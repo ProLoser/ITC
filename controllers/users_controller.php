@@ -3,19 +3,19 @@ class UsersController extends AppController {
 
 	var $name = 'Users';
 	var $components = array('Welcome.Membership', 'SwiftMailer');
-	
+
 	function login() {
 	}
-	
+
 	function logout() {
 		$this->Auth->logout();
 		$this->Session->setFlash('You have succesfully logged out.');
 		$this->redirect(array('action' => 'login'));
 	}
-	
+
 	function password() {
 	}
-	
+
 	//Send reset password confirmation
 	function reset() {
 		if (!empty($this->data)) {
@@ -32,7 +32,7 @@ class UsersController extends AppController {
 			}
 		}
 	}
-	
+
 	function index() {
 		$this->User->recursive = 0;
 		$this->set('users', $this->paginate());
@@ -105,6 +105,7 @@ class UsersController extends AppController {
 			$this->Session->setFlash(sprintf(__('Invalid %s', true), 'user'));
 			$this->redirect(array('action' => 'index'));
 		}
+		$this->User->recursive = 0;
 		$this->set('user', $this->User->read(null, $id));
 	}
 
@@ -154,8 +155,8 @@ class UsersController extends AppController {
 		$this->Session->setFlash(sprintf(__('%s was not deleted', true), 'User'));
 		$this->redirect(array('action' => 'index'));
 	}
-	
-	
+
+
 	function __sendPassMail($email) {
 		$this->SwiftMailer->smtpType = 'tls';
 		$this->SwiftMailer->smtpHost = 'smtp.gmail.com';
@@ -175,6 +176,7 @@ class UsersController extends AppController {
   			$this->log("Failed to send email: ".$e->getMessage());
 		}
 	}
-	
+
 }
 ?>
+
