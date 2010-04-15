@@ -4,7 +4,7 @@
 	<?php
 		echo $this->Form->input('id');
 		echo $this->Form->input('name');
-		echo $this->Form->input('Language');
+		echo $this->Form->input('Language', array('multiple' => 'checkbox'));
 		echo $this->Form->input('visibility');
 		echo $this->Form->input('description');
 	?>
