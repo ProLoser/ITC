@@ -4,6 +4,8 @@
 	<?php if ($this->Session->read('Auth.User')): ?>
 		<li><?php echo $this->Html->link($this->Session->read('Auth.User.username'), array('controller' => 'users', 'action' => 'settings')); ?></li>
 		<li><?php echo $this->Html->link('Logout', array('controller' => 'users', 'action' => 'logout')); ?></li>
+		<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('Review', true)), array('controller' => 'reviews', 'action' => 'add')); ?></li>
+		<li><?php echo $this->Html->link(__('My Stats', true), array('controller' => 'points', 'action' => 'index')); ?></li>
 		<li><?php echo $this->Html->link('My Reviews', array('controller' => 'reviews', 'action' => 'mine')); ?></li>
 		<li><?php echo $this->Html->link('My Subscriptions', array('controller' => 'subscriptions', 'action' => 'index')); ?></li>
 	<?php else: ?>

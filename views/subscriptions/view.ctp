@@ -43,9 +43,5 @@
 	<ul>
 		<li><?php echo $this->Html->link(sprintf(__('Edit %s', true), __('Subscription', true)), array('action' => 'edit', $subscription['Subscription']['id'])); ?> </li>
 		<li><?php echo $this->Html->link(sprintf(__('Delete %s', true), __('Subscription', true)), array('action' => 'delete', $subscription['Subscription']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $subscription['Subscription']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(sprintf(__('List %s', true), __('Subscriptions', true)), array('action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('Subscription', true)), array('action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(sprintf(__('List %s', true), __('Users', true)), array('controller' => 'users', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('User', true)), array('controller' => 'users', 'action' => 'add')); ?> </li>
 	</ul>
 </div>

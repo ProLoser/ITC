@@ -41,9 +41,3 @@
 		<?php echo $this->Paginator->next(__('next', true).' >>', array(), null, array('class' => 'disabled'));?>
 	</div>
 </div>
-<div class="actions">
-	<h3><?php __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('Review', true)), array('action' => 'add')); ?></li>
-	</ul>
-</div>
