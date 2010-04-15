@@ -78,7 +78,7 @@ a img { border: none; }
 #header h1 {
 	margin: 10px 46px;
 	height: 125px;
-	background: url(../img/procode.jpg) no-repeat right;
+	background: url(../img/procode.jpg) no-repeat left center;
 	text-indent: -9999px;
 }
 #header .message {
@@ -91,10 +91,10 @@ a img { border: none; }
 }
 #header #tabs ul {
 	overflow: auto;
-	margin-right: 45px;
+	margin-left: 45px;
 }
 #header #tabs li {
-	float: right;
+	float: left;
 	list-style: none;
 }
 #header #tabs ul li a {
