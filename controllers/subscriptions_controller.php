@@ -55,12 +55,16 @@ class SubscriptionsController extends AppController {
 		}
 	}
 
-	function delete($id = null) {
-		if (!$id) {
-			$this->Session->setFlash(sprintf(__('Invalid id for %s', true), 'subscription'));
+	function delete($model = null, $id = null) {
+		if (!$id || !$model) {
+			$this->Session->setFlash(sprintf(__('Invalid %s', true), 'model'));
 			$this->redirect(array('action'=>'index'));
 		}
-		if ($this->Subscription->delete($id)) {
+		if ($this->Subscription->deleteAll(array(
+			'Subscription.user_id' => $this->Auth->user('id'),
+			'Subscription.foreign_model' => $model,
+			'Subscription.foreign_id' => $id,
+		))) {
 			$this->Session->setFlash(sprintf(__('%s deleted', true), 'Subscription'));
 			$this->redirect(array('action'=>'index'));
 		}

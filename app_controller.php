@@ -25,6 +25,31 @@ class AppController extends Controller {
 		}
 	}
 	
+	/**
+	 * Checks to see if the current user is the owner of the record
+	 */
+	function _owner($id) {
+		if ($this->Auth->user('id') == $this->{$this->modelClass}->field($this->modelClass.'.user_id', array($this->modelClass.'.id' => $id))) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	/**
+	 * Checks to see if the current user is a subscriber
+	 */
+	function _subscriber($id) {
+		$results = $this->{$this->modelClass}->Subscriber->find('first', 
+			array('conditions' => array(
+				'foreign_model' => $this->modelClass, 
+				'foreign_id' => $id, 
+				'user_id' => $this->Auth->user('id')
+			))
+		);
+		$this->set('subscriber', $results);
+		return $results;
+	}
 	
 	/**
 	 * Checks to see what the current prefix in use is. Checks for 'admin' by

@@ -36,6 +36,14 @@ class Review extends AppModel {
 			'order' => ''
 		)
 	);
+	
+	var $hasMany = array(
+		'Subscriber' => array(
+			'className' => 'Subscription',
+			'foreignKey' => 'foreign_id',
+			'conditions' => array('Subscription.foreign_model' => 'Review'),
+		),
+	);
 
 	var $hasAndBelongsToMany = array(
 		'Tag' => array(

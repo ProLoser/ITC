@@ -1,4 +1,5 @@
 <div class="users view">
+<?php echo $this->element('subscribe', array('id' => $user['User']['id'], 'model' => 'User')); ?>
 <h3><?php  __('User');?></h3>
 	<dl><?php $i = 0; $class = ' class="altrow"';?>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Id'); ?></dt>
@@ -67,14 +68,6 @@
 			&nbsp;
 		</dd>
 	</dl>
-</div>
-<div class="actions">
-	<h3><?php __('Actions'); ?></h3>
-	<ul>
-	<?php if ($this->Session->read('Auth.User') && $this->Session->read('Auth.User.id') != $user['User']['id']): ?>
-		<li><?php echo $this->Html->link(__('Subscribe', true), array('controller' => 'subscriptions', 'action' => 'add', 'User', $user['User']['id'])); ?> </li>
-	<?php endif; ?>
-	</ul>
 </div>
 <div class="related">
 	<h3><?php printf(__('Related %s', true), __('Comments', true));?></h3>

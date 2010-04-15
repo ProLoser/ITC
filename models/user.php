@@ -14,7 +14,6 @@ class User extends AppModel {
 				'message' => 'Username already taken. Try again.'
 			)
 		),
-		
 		'email' => array(
 			'email' => array(
 				'rule' => 'email', 
@@ -29,12 +28,10 @@ class User extends AppModel {
 				'message' => 'Email cannot be blank.'
 			)
 		),
-		
 		'date_of_birth' => array(
 			'rule' => 'date',
 			'message' => 'Enter a valid date',
 		),
-		
 		'role' => array(
 			'notEmpty' => array(
 				'rule' => array('notEmpty'),
@@ -53,38 +50,20 @@ class User extends AppModel {
 	);
 
 	var $belongsTo = array(
-		'Rank' => array(
-			'className' => 'Rank',
-			'foreignKey' => 'rank_id',
-		)
+		'Rank'
 	);
 
 	var $hasMany = array(
-		'Comment' => array(
-			'className' => 'Comment',
-			'foreignKey' => 'user_id',
-			'dependent' => false,
-		),
-		'Point' => array(
-			'className' => 'Point',
-			'foreignKey' => 'user_id',
-			'dependent' => false,
-		),
-		'Review' => array(
-			'className' => 'Review',
-			'foreignKey' => 'user_id',
-			'dependent' => false,
-		),
-		'Subscription' => array(
+		'Comment',
+		'Point',
+		'Review',
+		'Subscription',
+		'Subscriber' => array(
 			'className' => 'Subscription',
-			'foreignKey' => 'user_id',
-			'dependent' => false,
+			'foreignKey' => 'foreign_id',
+			'conditions' => array('Subscription.foreign_model' => 'User'),
 		),
-		'Vote' => array(
-			'className' => 'Vote',
-			'foreignKey' => 'user_id',
-			'dependent' => false,
-		)
+		'Vote'
 	);
 
 	var $actsAs = array(
@@ -105,6 +84,10 @@ class User extends AppModel {
 		}
 	}
 	
+	
+	/**
+	 * Used for global authenticated user access
+	 */
 	function &getInstance($user=null) {
 		static $instance = array();
 		if ($user) {
@@ -139,6 +122,7 @@ class User extends AppModel {
 		}
 		return $value[0];
 	}
+	
 	/**
 	 * Function for granting a user points via a point event
 	 * Requires that you pass a string id key for the point event and the target user's id. Foreign_id optional
