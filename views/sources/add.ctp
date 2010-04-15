@@ -3,7 +3,6 @@
 <?php echo $this->Form->create('Source', array('type' => 'file'));?>
 	<?php
 		echo $this->Form->input('review_id');
-		echo $this->Form->input('language_id');
 		echo $this->Form->input('content');
 		echo $this->Form->input('description');
 		echo $this->Form->input('source', array('type' => 'file'));

@@ -37,23 +37,6 @@ class Review extends AppModel {
 		)
 	);
 
-	var $hasMany = array(
-		'Source' => array(
-			'className' => 'Source',
-			'foreignKey' => 'review_id',
-			'dependent' => false,
-			'conditions' => '',
-			'fields' => '',
-			'order' => '',
-			'limit' => '',
-			'offset' => '',
-			'exclusive' => '',
-			'finderQuery' => '',
-			'counterQuery' => ''
-		)
-	);
-
-
 	var $hasAndBelongsToMany = array(
 		'Tag' => array(
 			'className' => 'Tag',
@@ -69,7 +52,8 @@ class Review extends AppModel {
 			'finderQuery' => '',
 			'deleteQuery' => '',
 			'insertQuery' => ''
-		)
+		),
+		'Language',
 	);
 	
 	function afterSave($created) {

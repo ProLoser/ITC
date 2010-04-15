@@ -15,20 +15,9 @@ class Language extends AppModel {
 			)
 		)
 	);
-	var $hasMany = array(
-		'Source' => array(
-			'className' => 'Source',
-			'foreignKey' => 'language_id',
-			'dependent' => false,
-			'conditions' => '',
-			'fields' => '',
-			'order' => '',
-			'limit' => '',
-			'offset' => '',
-			'exclusive' => '',
-			'finderQuery' => '',
-			'counterQuery' => ''
-		)
+
+	var $hasAndBelongsToMany = array(
+		'Review',
 	);
 
 }

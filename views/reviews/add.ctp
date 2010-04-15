@@ -3,6 +3,7 @@
 <?php echo $this->Form->create('Review');?>
 	<?php
 		echo $this->Form->input('name');
+		echo $this->Form->input('Language');
 		echo $this->Form->input('visibility');
 		echo $this->Form->input('description');
 	?>
