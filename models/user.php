@@ -118,6 +118,9 @@ class User extends AppModel {
 	}
 	
 	function store($user) {
+		if(empty($user)){
+			return false;
+		}
 		User::getInstance($user);
 	}
 	

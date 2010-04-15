@@ -3,7 +3,18 @@ class Language extends AppModel {
 	var $name = 'Language';
 	var $order = 'Language.name ASC';
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
-
+	var $validate = array(
+		'name' => array(
+			'alphaNumeric' => array(
+				'rule' => 'alphaNumeric', 
+				'message' => 'Alpha-numeric characters only.',
+			),
+			'notEmpty' => array(
+				'rule' => 'notEmpty',
+				'message' => 'Please enter a name.'
+			)
+		)
+	);
 	var $hasMany = array(
 		'Source' => array(
 			'className' => 'Source',
