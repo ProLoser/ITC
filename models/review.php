@@ -35,7 +35,7 @@ class Review extends AppModel {
 		'Subscriber' => array(
 			'className' => 'Subscription',
 			'foreignKey' => 'foreign_id',
-			'conditions' => array('Subscription.foreign_model' => 'Review'),
+			'conditions' => array('Subscriber.foreign_model' => 'Review'),
 		),
 		'Source',
 	);

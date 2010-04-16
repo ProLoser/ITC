@@ -48,6 +48,9 @@ class CommentsController extends AppController {
 		if (!$id && empty($this->data)) {
 			$this->Session->setFlash(sprintf(__('Invalid %s', true), 'comment'));
 			$this->redirect(array('action' => 'index'));
+		} elseif ($id && !$this->_owner($id)) {
+			$this->Session->setFlash(sprintf(__('You don\'t own this %s', true), 'comment'));
+			$this->redirect(array('action' => 'index'))
 		}
 		if (!empty($this->data)) {
 			if ($this->Comment->save($this->data)) {
@@ -69,6 +72,9 @@ class CommentsController extends AppController {
 		if (!$id) {
 			$this->Session->setFlash(sprintf(__('Invalid id for %s', true), 'comment'));
 			$this->redirect(array('action'=>'index'));
+		} elseif (!$this->_owner($id)) {
+			$this->Session->setFlash(sprintf(__('You don\'t own this %s', true), 'comment'));
+			$this->redirect(array('action' => 'index'))
 		}
 		if ($this->Comment->delete($id)) {
 			$this->Session->setFlash(sprintf(__('%s deleted', true), 'Comment'));

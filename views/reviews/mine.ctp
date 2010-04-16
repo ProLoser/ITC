@@ -1,3 +1,7 @@
+<ul class="actions">	
+	<li><?php echo $this->Html->link('My Comments', array('controller' => 'reviews', 'action' => 'mine')); ?></li>
+	<li><?php echo $this->Html->link('My Subscriptions', array('controller' => 'subscriptions', 'action' => 'index')); ?></li>
+</ul>
 <div class="reviews index">
 	<h3><?php __('Reviews');?></h3>
 	<table cellpadding="0" cellspacing="0">

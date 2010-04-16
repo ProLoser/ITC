@@ -77,6 +77,9 @@ min-width:960px;
 	margin:10px 0 5px 10px;
 	display: inline;
 }
+#header #bar ul li.user {
+	font-weight: bold;
+}
 #header #bar ul li a {
 	color:#ffffff;
 	font-size:.95em;
@@ -302,8 +305,11 @@ ul.reviews li {
 	margin-bottom: 20px;
 	padding-right: 20px;
 	background: no-repeat 85px;
-	background-image: url(../img/post_answered.jpg);
+	background-image: url(../img/post_unanswered.jpg);
 	list-style: none;
+}
+ul.reviews li.altrow {
+	background-image: url(../img/post_answered.jpg);
 }
 /* Scorebox */
 ul.reviews .scores {
@@ -349,26 +355,48 @@ ul.reviews h4 {
 .userbox span {
 	color: #CCC;
 }
-.unanswered {
-	background-image: url(../img/post_unanswered.jpg);
-}
-.answered {
-	background-image: url(../img/post_answered.jpg);
-}
 
 
 /*** Common Elements ***/
 /* Actions */
+.actions {
+	overflow: auto;
+	margin-top: -50px;
+	margin-left: 20px;
+	margin-right: -20px;
+}
+td.actions, th.actions { overflow: visible;}
+.actions h3 {
+	margin: 0;
+	padding: 0;
+	float: left;
+}
 .actions ul {
 	list-style:none;
-	margin: 1em 0 0 54px;
+	overflow: auto;
 }
 .actions ul li {
-	margin-top:.2em;
+	float: left;
+	list-style: none;
 }
 .actions ul li a {
 	color:#215b84;
 	font-size:.9em;
+	display: block;
+	width: 128px;
+	text-align: center;
+	height: 20px;
+	padding-top: 5px;
+	margin: 0 5px;
+	background-color: #DDD;
+	font-size:1em;
+	border: 1px solid #215d84;
+	border-top: none;
+}
+.actions ul li a.current, .actions ul li a:hover {
+	color: #ffffff;
+	background-color: #215d84;
+	text-decoration: none;
 }
 
 /* Filters */
@@ -433,61 +461,8 @@ width:600px;
 }
 
 /* Reviews */
-.post-numbers, .reviews-number, .votes-number, .number-of-reviews, .reviews1, .votes1, .number-of-votes {
-	color: #ffffff;
-	display: block;
-	position: relative;
-	float: left;
-	text-align: center;
-}
-.post-numbers {
-	margin-left:20px;
-	margin-right: 5px;
-	width:74px;
-	height: 125px;
-	background-color: #5F8298;
-	-moz-box-shadow: #bbbbbb 4px 4px 4px;
-	-webkit-box-shadow: #bbbbbb 4px 4px 4px;
-      box-shadow: #bbbbbb 4px 4px 4px;
-}
-.reviews-number {
-	margin: 7px 7px 0 7px;
-	display: block;
-	height: 55px;
-	width: 60px;
-}
-.votes-number {
-	margin: 0 7px 7px 7px;
-	display: block;
-	height: 55px;
-	width: 60px;
-	background-color: #215d84;
-}
-.number-of-reviews {
-	font-size: 2.7em;
-	line-height: 1.1em;
-	width: 60px;
-	font-weight: bold;
-}
-.reviews1 {
-	font-size: 1em;
-	line-height: 1em;
-	width: 60px;
-	margin-top: -3px;
-	font-weight: normal;
-}
-.votes1{
-	font-size: 1em;
-	line-height: 1em;
-	width: 60px;
-	margin-top: 3px;
-	font-weight: normal;
-}
-.number-of-votes {
-	font-size: 2.7em;
-	line-height: 1em;
-	width: 60px;
-	font-weight: bold;
+ol.ui-selectable {
+	margin: 20px;
 }
 
 /* Paging */
@@ -516,3 +491,8 @@ width:600px;
 .cake-sql-log {clear: both; margin: 10px auto;}
 .cake-sql-log td, .cake-sql-log th  { margin: 2px;}
 
+.users.view img {
+	float: right;
+	margin: 10px;
+	border: 2px solid #BDBDBD;
+}

@@ -72,7 +72,7 @@ class User extends AppModel {
 		'Subscriber' => array(
 			'className' => 'Subscription',
 			'foreignKey' => 'foreign_id',
-			'conditions' => array('Subscription.foreign_model' => 'User'),
+			'conditions' => array('Subscriber.foreign_model' => 'User'),
 		),
 		'Vote'
 	);
@@ -149,6 +149,20 @@ class User extends AppModel {
 		if ($foreignId)
 			$data['Point']['foreign_id'] = $foreignId;
 		return $this->Point->save($data);
+	}
+	
+	/**
+	 * Requires that you pass a string id key for the point event and the target user's id.
+	 *
+	 * @param $event string The PointEvent.id key that the user is being given points for
+	 * @param $userId int The currently logged-in user's id to be associated with the record
+	 * @param $foreignId int The primary id of the related model-record that earned the points
+	 */
+	function revokePoints($eventId, $userId, $foreignId) {
+		$data['Point.user_id'] = $userId;
+		$data['Point.point_event_id'] = $eventId;
+		$data['Point.foreign_id'] = $foreignId;
+		return $this->Point->deleteAll($data, true, true);
 	}
 	
 }

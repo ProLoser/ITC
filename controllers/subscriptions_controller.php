@@ -15,13 +15,13 @@ class SubscriptionsController extends AppController {
 	}
 
 	
-	function view($reviewId = null) {
+	/*function view($reviewId = null) {
 		if (!$id) {
 			$this->Session->setFlash(sprintf(__('Invalid %s', true), 'subscription'));
 			$this->redirect(array('action' => 'index'));
 		}
 		$this->set('subscription', $this->Subscription->read(null, $id));
-	}
+	}*/
 
 	function add($model = null, $id = null) {
 		if (!$id || !$model) {
@@ -37,7 +37,7 @@ class SubscriptionsController extends AppController {
 		}
 	}
 
-	function edit($id = null) {
+	/*function edit($id = null) {
 		if (!$id && empty($this->data)) {
 			$this->Session->setFlash(sprintf(__('Invalid %s', true), 'subscription'));
 			$this->redirect(array('action' => 'index'));
@@ -53,7 +53,7 @@ class SubscriptionsController extends AppController {
 		if (empty($this->data)) {
 			$this->data = $this->Subscription->read(null, $id);
 		}
-	}
+	}*/
 
 	function delete($model = null, $id = null) {
 		if (!$id || !$model) {
