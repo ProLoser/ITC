@@ -12,7 +12,8 @@ class AppController extends Controller {
 		'Session',
 		'Form',
 		'Text',
-		'Time'
+		'Time',
+		'Age'
 	);
 
 	function beforeFilter() {

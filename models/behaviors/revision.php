@@ -45,7 +45,7 @@
  * 
  * Configuration :
  * 
- *  - 'limit' : number of revisions to keep, must be at least 2 
+ *  - 'limit' : number of revisions to keep, must be at least 2
  *  - 'ignore' : array containing the name of fields to ignore
  *  - 'auto' : boolean when false the behavior will NOT generate revisions in afterSave
  *  - 'useDbConfig' : string/null Name of dbConfig to use. Null to use Model's

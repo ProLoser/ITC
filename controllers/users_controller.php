@@ -3,7 +3,6 @@ class UsersController extends AppController {
 
 	var $name = 'Users';
 	var $components = array('Welcome.Membership', 'SwiftMailer');
-	var $helpers = array('Age');
 	
 	function beforeFilter() {
 		parent::beforeFilter();
