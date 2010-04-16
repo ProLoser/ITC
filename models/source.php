@@ -1,7 +1,7 @@
 <?php
 class Source extends AppModel {
 	var $name = 'Source';
-	var $order = 'Source.source_file_name ASC';
+	var $order = 'Source.modified DESC';
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
 	var $belongsTo = array(
