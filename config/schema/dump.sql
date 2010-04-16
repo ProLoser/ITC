@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 16, 2010 at 06:33 AM
+-- Generation Time: Apr 16, 2010 at 09:21 AM
 -- Server version: 5.1.36
 -- PHP Version: 5.3.0
 
@@ -116,7 +116,7 @@ CREATE TABLE IF NOT EXISTS `reviews` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
   `name` varchar(100) NOT NULL,
-  `visibility` varchar(10) DEFAULT NULL,
+  `visibility` varchar(10) NOT NULL,
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL,
   `closed` tinyint(1) NOT NULL DEFAULT '0',
@@ -250,12 +250,13 @@ CREATE TABLE IF NOT EXISTS `votes` (
   KEY `user_id` (`user_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
+
 -- phpMyAdmin SQL Dump
 -- version 3.2.0.1
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 16, 2010 at 06:33 AM
+-- Generation Time: Apr 16, 2010 at 09:22 AM
 -- Server version: 5.1.36
 -- PHP Version: 5.3.0
 
