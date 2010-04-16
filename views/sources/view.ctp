@@ -8,8 +8,8 @@
 $(function() {
 	$(".php").selectable({
 		stop: function(){
-			var first = $("#select-first").empty();
-			var last  = $("#select-last").empty();
+			var first = $("#select-first input").empty();
+			var last  = $("#select-last input").empty();
 			$(".ui-selected", this).each(function(){
 				var index = $(".php li").index(this);
 				index += 1;
@@ -22,48 +22,10 @@ $(function() {
 			});
 		}
 	});
+	// Modal Box
+	$('#feedback').dialog();
 });
 </script>
-<p id="feedback">
-You've selected: <span id="select-first"></span>-<span id="select-last"></span>.
-</p>
-<div class="sources view">
-<h3><?php  __('Source');?></h3>
-	<dl><?php $i = 0; $class = ' class="altrow"';?>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Id'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $source['Source']['id']; ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Review'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php
-			echo $this->Html->link($source['Review']['name'], array('controller' => 'reviews', 'action' => 'view', $source['Review']['id']));
-			?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Created'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $source['Source']['created']; ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Modified'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $source['Source']['modified']; ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Content'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $geshi->parse($source['Source']['content'], 'php'); ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Description'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $source['Source']['description']; ?>
-			&nbsp;
-		</dd>
-	</dl>
-</div>
 <div class="actions">
 	<h3><?php __('Actions'); ?></h3>
 	<ul>
@@ -72,6 +34,22 @@ You've selected: <span id="select-first"></span>-<span id="select-last"></span>.
 		<li><?php echo $this->Html->link(sprintf(__('List %s', true), __('Sources', true)), array('action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('Source', true)), array('action' => 'add', $source['Review']['id'])); ?> </li>
 	</ul>
+</div>
+<div id="feedback" title="Add Comment">
+	<?php echo $this->Form->create('Comment', array('action' => 'add')); ?>
+		<?php echo $this->Form->input('line_start', array('id' => 'select-first')); ?>
+		<?php echo $this->Form->input('line_start', array('id' => 'select-last')); ?>
+		<?php echo $this->Form->input('content'); ?>
+		<?php echo $this->Form->input('source_id', array('value' => $source['Source']['id'], 'type' => 'hidden')); ?>
+	<?php echo $this->Form->end('Submit'); ?>
+</div>
+<div class="sources view">
+	<h3><?php echo $this->Html->link($source['Review']['name'], array('controller' => 'reviews', 'action' => 'view', $source['Review']['id']));	?>: </h3>
+	<?php echo $source['Source']['description']; ?>
+	<p>Uploaded <?php echo $this->Time->timeAgoInWords($source['Source']['created']); ?></p>
+	<p>Updated <?php echo $this->Time->timeAgoInWords($source['Source']['modified']); ?></p>
+
+	<?php echo $geshi->parse($source['Source']['content'], 'php'); ?>
 </div>
 <div class="related">
 	<h3><?php printf(__('Related %s', true), __('Comments', true));?></h3>
@@ -116,11 +94,5 @@ You've selected: <span id="select-first"></span>-<span id="select-last"></span>.
 	<?php endforeach; ?>
 	</table>
 <?php endif; ?>
-
-	<div class="actions">
-		<ul>
-			<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('Comment', true)), array('controller' => 'comments', 'action' => 'add'));?> </li>
-		</ul>
-	</div>
 </div>
 

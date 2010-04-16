@@ -1,17 +1,13 @@
+<div class="actions">
+	<ul>
+		<li><?php echo $this->element('subscribe', array('id' => $user['User']['id'], 'model' => 'User')); ?></li>
+	</ul>
+</div>
 <div class="users view">
-<?php echo $this->element('subscribe', array('id' => $user['User']['id'], 'model' => 'User')); ?>
-<h3><?php  __('User');?></h3>
+
+<h3><?php echo $user['User']['username']; ?></h3>
+	<?php echo $this->Upload->image($user, 'User.avatar'); ?>
 	<dl><?php $i = 0; $class = ' class="altrow"';?>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Id'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $user['User']['id']; ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Username'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $user['User']['username']; ?>
-			&nbsp;
-		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Name'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $user['User']['name']; ?>
@@ -20,11 +16,6 @@
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Email'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $user['User']['email']; ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Avatar File Name'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $user['User']['avatar_file_name']; ?>
 			&nbsp;
 		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Website'); ?></dt>
@@ -59,7 +50,7 @@
 		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Date Of Birth'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $user['User']['date_of_birth']; ?>
+			<?php echo $this->Time->format('Y', date('Y-m-d') - $user['User']['date_of_birth']); ?>
 			&nbsp;
 		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Role'); ?></dt>

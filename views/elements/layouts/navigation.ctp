@@ -1,27 +1,11 @@
+<?php $links = array(
+	'Reviews' => array('controller' => 'reviews', 'action' => 'index'),
+	'Users' => array('controller' => 'users', 'action' => 'index'),
+	'Help' => array('controller' => 'pages', 'action' => 'display', 'frequently_asked_questions'),
+); ?>
 <ul>
-	<?php if ($this->params['controller']=='reviews'): ?>
-		<li><?php echo $this->Html->link('Reviews', array('controller' => 'reviews', 'action' => 'index'), array('class' => 'current')); ?></li>
-	<?php else: ?>
-		<li><?php echo $this->Html->link('Reviews', array('controller' => 'reviews', 'action' => 'index')); ?></li>
-	<?php endif; ?>
-	<?php if ($this->params['controller']=='users'): ?>
-		<li><?php echo $this->Html->link('Users', array('controller' => 'users', 'action' => 'index'), array('class' => 'current'));?></li>
-	<?php else: ?>
-		<li><?php echo $this->Html->link('Users', array('controller' => 'users', 'action' => 'index'));?></li>
-	<?php endif; ?>
-	<?php if ($this->params['controller']=='ranks'): ?>
-		<li><?php echo $this->Html->link('Ranks', array('controller' => 'ranks', 'action' => 'index'), array('class' => 'current'));?></li>
-	<?php else: ?>
-		<li><?php echo $this->Html->link('Ranks', array('controller' => 'ranks', 'action' => 'index'));?></li>
-	<?php endif; ?>
-	<?php if ($this->params['controller']=='point_events'): ?>
-		<li><?php echo $this->Html->link('Points', array('controller' => 'point_events', 'action' => 'index'), array('class' => 'current'));?></li>
-	<?php else: ?>
-		<li><?php echo $this->Html->link('Points', array('controller' => 'point_events', 'action' => 'index'));?></li>
-	<?php endif; ?>
-	<?php if (($this->params['controller']=='pages') && ($this->params['pass'][0] == 'frequently_asked_questions')): ?>
-		<li><?php echo $this->Html->link('FAQ', array('controller' => 'pages', 'action' => 'display', 'frequently_asked_questions'), array('class' => 'current'));?></li>
-	<?php else: ?>
-		<li><?php echo $this->Html->link('FAQ', array('controller' => 'pages', 'action' => 'display', 'frequently_asked_questions'));?></li>
-	<?php endif; ?>
+	<?php foreach ($links as $label => $link): ?>
+		<?php $active = ($this->params['controller'] == strtolower($label)) ? array('class' => 'current') : array(); ?>
+		<li><?php echo $this->Html->link($label, $link, $active);?></li>
+	<?php endforeach; ?>
 </ul>
