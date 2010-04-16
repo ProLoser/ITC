@@ -28,8 +28,8 @@ class ReviewsController extends AppController {
 		}
 		$this->_owner($id);
 		$this->_subscriber($id);
-		$this->Review->recursive = 0;
-		$review = $this->Review->read(null, $id);
+		$params['conditions']['Review.id'] = $id;
+		$review = $this->Review->find('first', $params);
 		$this->set(compact('review'));
 	}
 
