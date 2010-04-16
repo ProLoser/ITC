@@ -1,11 +1,12 @@
 <div class="actions">
-	<h3><?php __('Actions'); ?></h3>
 	<ul>
+	<?php if ($owner): ?>
 		<li><?php echo $this->Html->link(sprintf(__('Edit %s', true), __('Review', true)), array('action' => 'edit', $review['Review']['id'])); ?> </li>
 		<li><?php echo $this->Html->link(sprintf(__('Delete %s', true), __('Review', true)), array('action' => 'delete', $review['Review']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $review['Review']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('Source', true)), array('controller' => 'sources', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(sprintf(__('List %s', true), __('Tags', true)), array('controller' => 'tags', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('Tag', true)), array('controller' => 'tags', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('Source', true)), array('action' => 'add', $review['Review']['id'])); ?> </li>
+	<?php else: ?>
+		<li><?php echo $this->element('subscribe', array('model' => 'Review', 'id' => $source['Source']['review_id'])); ?> </li>
+	<?php endif; ?>
 	</ul>
 </div>
 <div class="reviews view">

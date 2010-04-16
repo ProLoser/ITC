@@ -36,6 +36,7 @@ class Review extends AppModel {
 			'className' => 'Subscription',
 			'foreignKey' => 'foreign_id',
 			'conditions' => array('Subscriber.foreign_model' => 'Review'),
+			'order' => 'Subscriber.created DESC',
 		),
 		'Source',
 	);

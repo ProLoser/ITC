@@ -14,8 +14,10 @@ class SourcesController extends AppController {
 			$this->Session->setFlash(sprintf(__('Invalid %s', true), 'source'));
 			$this->redirect(array('action' => 'index'));
 		}
-		$this->Source->recursive = 0;
-		$this->set('source', $this->Source->read(null, $id));
+		$params['conditions'] = array('Source.id' => $id);
+		$params['recursive'] = 1;
+		$source = $this->Source->find('first', $params);
+		$this->set(compact('source'));
 	}
 
 	function add($reviewId = null) {
@@ -73,3 +75,4 @@ class SourcesController extends AppController {
 	}
 }
 ?>
+

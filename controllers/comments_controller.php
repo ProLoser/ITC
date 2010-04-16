@@ -50,7 +50,7 @@ class CommentsController extends AppController {
 			$this->redirect(array('action' => 'index'));
 		} elseif ($id && !$this->_owner($id)) {
 			$this->Session->setFlash(sprintf(__('You don\'t own this %s', true), 'comment'));
-			$this->redirect(array('action' => 'index'))
+			$this->redirect(array('action' => 'index'));
 		}
 		if (!empty($this->data)) {
 			if ($this->Comment->save($this->data)) {
@@ -74,7 +74,7 @@ class CommentsController extends AppController {
 			$this->redirect(array('action'=>'index'));
 		} elseif (!$this->_owner($id)) {
 			$this->Session->setFlash(sprintf(__('You don\'t own this %s', true), 'comment'));
-			$this->redirect(array('action' => 'index'))
+			$this->redirect(array('action' => 'index'));
 		}
 		if ($this->Comment->delete($id)) {
 			$this->Session->setFlash(sprintf(__('%s deleted', true), 'Comment'));
@@ -85,3 +85,4 @@ class CommentsController extends AppController {
 	}
 }
 ?>
+
