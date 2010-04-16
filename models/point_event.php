@@ -45,19 +45,7 @@ class PointEvent extends AppModel {
 	);
 
 	var $hasMany = array(
-		'Point' => array(
-			'className' => 'Point',
-			'foreignKey' => 'point_event_id',
-			'dependent' => false,
-			'conditions' => '',
-			'fields' => '',
-			'order' => '',
-			'limit' => '',
-			'offset' => '',
-			'exclusive' => '',
-			'finderQuery' => '',
-			'counterQuery' => ''
-		)
+		'Point'
 	);
 
 }

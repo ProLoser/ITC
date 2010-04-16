@@ -33,6 +33,8 @@
 class AppModel extends Model {
 	var $recursive = -1;
 	
+	var $actsAs = array('Containable');
+	
 	/**
 	 * Run this during beforeSave() to set the currently logged in user as the owner of the record
 	 */
