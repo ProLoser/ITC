@@ -1,9 +1,7 @@
 [submodule "plugins/welcome"]
 	path = plugins/welcome
 	url = git://github.com/ProLoser/CakePHP-Welcome.git
-[submodule "plugins/geshi"]
-	path = plugins/geshi
-	url = git://github.com/jaimeh/cakephp_geshi.git
 [submodule "plugins/upload_pack"]
 	path = plugins/upload_pack
 	url = git://github.com/josegonzalez/uploadpack.git
+
