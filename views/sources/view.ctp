@@ -49,7 +49,6 @@
 		?>
 		<tr<?php echo $class;?>>
 			<td><?php echo $comment['id'];?></td>
-			<td><?php echo $this->Html->link($comment['User']['username'], array('controller' => 'users', 'action' => 'view', $comment['User']['id']));?></td>
 			<td><?php echo $comment['line_start'];?></td>
 			<td><?php echo $comment['line_end'];?></td>
 			<td><?php echo $comment['content'];?></td>
