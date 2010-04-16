@@ -46,6 +46,7 @@ a img { border: none; }
 }
 #header #bar {
 	background: #215d84;
+min-width:960px;
 	overflow: auto;
 }
 #header #bar ul {
@@ -53,12 +54,12 @@ a img { border: none; }
 	margin: 15px 10px 10px 10px;
 }
 #header #bar ul li {
-	margin:10px 20px 5px 0;
+	margin:10px 0 5px 10px;
 	display: inline;
 }
 #header #bar ul li a {
 	color:#ffffff;
-	font-size:1em;
+	font-size:.95em;
 }
 /* Search Box */
 #header #bar form {
@@ -68,6 +69,11 @@ a img { border: none; }
 #header #bar form div {
 	display: inline;
 }
+
+#header #bar img {
+margin-left:26px;
+}
+
 #header #bar form .input input {
 	height:18px;
 }
@@ -76,7 +82,7 @@ a img { border: none; }
 }
 
 #header h1 {
-	margin: 10px 46px;
+	margin: 20px 46px;
 	height: 125px;
 	background: url(../img/procode.jpg) no-repeat left center;
 	text-indent: -9999px;
@@ -91,7 +97,7 @@ a img { border: none; }
 }
 #header #tabs ul {
 	overflow: auto;
-	margin-left: 45px;
+	margin-left: 46px;
 }
 #header #tabs li {
 	float: left;
@@ -103,7 +109,7 @@ a img { border: none; }
 	text-align: center;
 	height: 20px;
 	padding-top: 5px;
-	margin: 0 10px;
+	margin: 0 5px;
 	color: #215d84;
 	background-color: #ffffff;
 	font-size:1em;
@@ -126,8 +132,8 @@ a img { border: none; }
 
 /* Content */
 #content {
-	margin-top: 40px;
-	margin-left: 260px;
+	margin-top: 50px;
+	margin-left: 280px;
 	color: #000;
 }
 
@@ -194,8 +200,9 @@ border:0px;
 
 /*** Forms ***/
 #content form {
-	margin:0 54px;
+margin:2em 0 1em 0;
 }
+
 #content form a {
 	color:#215D84;
 	font-size: .7em;
@@ -288,6 +295,43 @@ ul.filters li a.current {
 	color: #000000;
 	text-decoration: underline;
 }
+
+
+/* Points, Users, Subscriptions, Point Events, Reviews */
+
+.points table tr th, .users table tr th, .subscriptions table tr th, .pointEvents table tr th, .reviews table tr th {
+	width:140px;
+	padding-left:10px;
+	text-align:left;
+	color:#ffffff;
+	height:40px;
+	background-color:#215D84;
+}
+
+.points table tr th a, .users table tr th a, .subscriptions table tr th a, .pointEvents table tr th a, .reviews table tr th a {
+	color:#ffffff;
+}
+
+.points table tr td, .users table tr td, .subscriptions table tr td, .pointEvents table tr td, .reviews table tr td {
+	padding:5px 10px;
+}
+
+.points table {
+	padding-left:5px;
+}
+
+table {
+margin:2em 0;
+}
+
+
+.altrow {
+background-color:#A6CCE5;
+
+}
+
+
+
 
 /* Pagination */
 .pagination {
@@ -393,6 +437,24 @@ ul.filters li a.current {
 	width: 60px;
 	font-weight: bold;
 }
+
+/* Paging */
+
+.paging span {
+	display:inline-block;
+	width:100px;
+	color:#ffffff;
+	padding:5px 0;
+	text-align:center;
+	background-color:#215D84;
+	margin:1em 0;
+
+
+}
+
+
+
+
 /* Posts */
 .post {
 	position:relative;
