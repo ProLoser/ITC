@@ -31,7 +31,8 @@
 	<?php if (!empty($source['Comment'])):?>
 	<table cellpadding = "0" cellspacing = "0">
 	<tr>
-		<th><?php __('User'); ?></th>
+		<th><?php __('User Id'); ?></th>
+		<th><?php __('User Name'); ?></th>
 		<th><?php __('Line Start'); ?></th>
 		<th><?php __('Line End'); ?></th>
 		<th><?php __('Content'); ?></th>
@@ -48,6 +49,7 @@
 			}
 		?>
 		<tr<?php echo $class;?>>
+			<td><?php echo $comment['id'];?></td>
 			<td><?php echo $this->Html->link($comment['User']['username'], array('controller' => 'users', 'action' => 'view', $comment['User']['id']));?></td>
 			<td><?php echo $comment['line_start'];?></td>
 			<td><?php echo $comment['line_end'];?></td>
