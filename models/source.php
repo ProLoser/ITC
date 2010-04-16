@@ -40,10 +40,12 @@ class Source extends AppModel {
 
 	// Stores the content of the uploaded file into the blob field.
 	function beforeSave() {
-		if ($this->data['Source']['source']) {
+		if ($this->data['Source']['file']) {
 			// @TODO Need to do the CakePHP approach to file management (see the file class)
-			$file = new File($this->data['Source']['source']['tmp_name']);
+			$file = new File($this->data['Source']['file']['tmp_name']);
 			$this->data['Source']['content'] = $file->read();
+			$this->data['Source']['filename'] = $this->data['Source']['file']['name'];
+			$this->data['Source']['size'] = $this->data['Source']['file']['size'];
 		}
 
 		return true;
