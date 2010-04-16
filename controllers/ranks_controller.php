@@ -12,6 +12,7 @@ class RanksController extends AppController {
 			$this->Session->setFlash(sprintf(__('Invalid %s', true), 'rank'));
 			$this->redirect(array('action' => 'index'));
 		}
+		$this->Rank->recursive = 0;
 		$this->set('rank', $this->Rank->read(null, $id));
 	}
 

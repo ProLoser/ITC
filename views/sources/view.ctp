@@ -27,12 +27,15 @@ $(function() {
 });
 </script>
 <div class="actions">
-	<h3><?php __('Actions'); ?></h3>
 	<ul>
+		<li><?php echo $this->Html->link(sprintf(__('View %s', true), __('Review', true)), array('controller' => 'review', 'action' => 'view', $source['Source']['review_id'])); ?> </li>
+	<?php if ($owner): ?>
 		<li><?php echo $this->Html->link(sprintf(__('Edit %s', true), __('Source', true)), array('action' => 'edit', $source['Source']['id'])); ?> </li>
 		<li><?php echo $this->Html->link(sprintf(__('Delete %s', true), __('Source', true)), array('action' => 'delete', $source['Source']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $source['Source']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(sprintf(__('List %s', true), __('Sources', true)), array('action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('Source', true)), array('action' => 'add', $source['Review']['id'])); ?> </li>
+	<?php else: ?>
+		<li><?php echo $this->element('subscribe', array('model' => 'Review', 'id' => $source['Source']['review_id'])); ?> </li><?php endif; ?>
+	<?php endif; ?>
 	</ul>
 </div>
 <div id="feedback" title="Add Comment">
@@ -56,16 +59,13 @@ $(function() {
 	<?php if (!empty($source['Comment'])):?>
 	<table cellpadding = "0" cellspacing = "0">
 	<tr>
-		<th><?php __('Id'); ?></th>
 		<th><?php __('User Id'); ?></th>
-		<th><?php __('Source Id'); ?></th>
 		<th><?php __('Line Start'); ?></th>
 		<th><?php __('Line End'); ?></th>
 		<th><?php __('Content'); ?></th>
 		<th><?php __('Created'); ?></th>
 		<th><?php __('Modified'); ?></th>
 		<th><?php __('Vote Count'); ?></th>
-		<th class="actions"><?php __('Actions');?></th>
 	</tr>
 	<?php
 		$i = 0;
@@ -77,19 +77,13 @@ $(function() {
 		?>
 		<tr<?php echo $class;?>>
 			<td><?php echo $comment['id'];?></td>
-			<td><?php echo $comment['user_id'];?></td>
-			<td><?php echo $comment['source_id'];?></td>
+			<td><?php echo $this->Html->link($comment['User']['username'], array('controller' => 'users', 'action' => 'view', $comment['User']['id']));?></td>
 			<td><?php echo $comment['line_start'];?></td>
 			<td><?php echo $comment['line_end'];?></td>
 			<td><?php echo $comment['content'];?></td>
 			<td><?php echo $comment['created'];?></td>
 			<td><?php echo $comment['modified'];?></td>
 			<td><?php echo $comment['vote_count'];?></td>
-			<td class="actions">
-				<?php echo $this->Html->link(__('View', true), array('controller' => 'comments', 'action' => 'view', $comment['id'])); ?>
-				<?php echo $this->Html->link(__('Edit', true), array('controller' => 'comments', 'action' => 'edit', $comment['id'])); ?>
-				<?php echo $this->Html->link(__('Delete', true), array('controller' => 'comments', 'action' => 'delete', $comment['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $comment['id'])); ?>
-			</td>
 		</tr>
 	<?php endforeach; ?>
 	</table>

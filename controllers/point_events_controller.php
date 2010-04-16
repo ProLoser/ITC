@@ -8,14 +8,6 @@ class PointEventsController extends AppController {
 		$this->set('pointEvents', $this->paginate());
 	}
 
-	function view($id = null) {
-		if (!$id) {
-			$this->Session->setFlash(sprintf(__('Invalid %s', true), 'point event'));
-			$this->redirect(array('action' => 'index'));
-		}
-		$this->set('pointEvent', $this->PointEvent->read(null, $id));
-	}
-
 	function admin_index() {
 		$this->PointEvent->recursive = 0;
 		$this->set('pointEvents', $this->paginate());

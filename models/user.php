@@ -72,7 +72,7 @@ class User extends AppModel {
 		'Subscriber' => array(
 			'className' => 'Subscription',
 			'foreignKey' => 'foreign_id',
-			'conditions' => array('Subscription.foreign_model' => 'User'),
+			'conditions' => array('Subscriber.foreign_model' => 'User'),
 		),
 		'Vote'
 	);

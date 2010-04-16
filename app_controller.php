@@ -39,6 +39,7 @@ class AppController extends Controller {
 	 */
 	function _owner($id) {
 		if ($this->Auth->user('id') == $this->{$this->modelClass}->field($this->modelClass.'.user_id', array($this->modelClass.'.id' => $id))) {
+			$this->set('owner', true);
 			return true;
 		} else {
 			return false;

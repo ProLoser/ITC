@@ -1,3 +1,8 @@
+<script type="text/javascript">
+$(document).read(function(){
+	$('.related').tabs();
+});
+</script>
 <div class="actions">
 	<ul>
 		<li><?php echo $this->element('subscribe', array('id' => $user['User']['id'], 'model' => 'User')); ?></li>
@@ -33,11 +38,6 @@
 			<?php echo $this->Time->timeAgoInWords($user['User']['created']); ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Modified'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $user['User']['modified']; ?>
-			&nbsp;
-		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Status'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $user['User']['status']; ?>
@@ -61,12 +61,18 @@
 	</dl>
 </div>
 <div class="related">
-	<h3><?php printf(__('Related %s', true), __('Comments', true));?></h3>
+<ul>
+	<li><a href="#relComments">Comments</a></li>
+	<li><a href="#relPoints">Points</a></li>
+	<li><a href="#relReviews">Reviews</a></li>
+	<li><a href="#relSubscriptions">Subscriptions</a></li>
+	<li><a href="#relSubscribers">Subscribers</a></li>
+	<li><a href="#relVotes">Votes</a></li>
+</ul>
+<div id="relComments">
 	<?php if (!empty($user['Comment'])):?>
 	<table cellpadding = "0" cellspacing = "0">
 	<tr>
-		<th><?php __('Id'); ?></th>
-		<th><?php __('User Id'); ?></th>
 		<th><?php __('Source Id'); ?></th>
 		<th><?php __('Line Start'); ?></th>
 		<th><?php __('Line End'); ?></th>
@@ -85,8 +91,6 @@
 			}
 		?>
 		<tr<?php echo $class;?>>
-			<td><?php echo $comment['id'];?></td>
-			<td><?php echo $comment['user_id'];?></td>
 			<td><?php echo $comment['source_id'];?></td>
 			<td><?php echo $comment['line_start'];?></td>
 			<td><?php echo $comment['line_end'];?></td>
@@ -104,18 +108,13 @@
 	</table>
 <?php endif; ?>
 </div>
-<div class="related">
-	<h3><?php printf(__('Related %s', true), __('Points', true));?></h3>
+<div id="relPoints">
 	<?php if (!empty($user['Point'])):?>
 	<table cellpadding = "0" cellspacing = "0">
 	<tr>
-		<th><?php __('Id'); ?></th>
-		<th><?php __('User Id'); ?></th>
-		<th><?php __('Point Event Id'); ?></th>
+		<th><?php __('Point Event'); ?></th>
 		<th><?php __('Created'); ?></th>
-		<th><?php __('Modified'); ?></th>
 		<th><?php __('Foreign Id'); ?></th>
-		<th class="actions"><?php __('Actions');?></th>
 	</tr>
 	<?php
 		$i = 0;
@@ -126,29 +125,18 @@
 			}
 		?>
 		<tr<?php echo $class;?>>
-			<td><?php echo $point['id'];?></td>
-			<td><?php echo $point['user_id'];?></td>
-			<td><?php echo $point['point_event_id'];?></td>
-			<td><?php echo $point['created'];?></td>
-			<td><?php echo $point['modified'];?></td>
+			<td><?php echo $point['PointEvent']['name'];?></td>
+			<td><?php echo $this->Time->timeAgoInWords($point['created']);?></td>
 			<td><?php echo $point['foreign_id'];?></td>
-			<td class="actions">
-				<?php echo $this->Html->link(__('View', true), array('controller' => 'points', 'action' => 'view', $point['id'])); ?>
-				<?php echo $this->Html->link(__('Edit', true), array('controller' => 'points', 'action' => 'edit', $point['id'])); ?>
-				<?php echo $this->Html->link(__('Delete', true), array('controller' => 'points', 'action' => 'delete', $point['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $point['id'])); ?>
-			</td>
 		</tr>
 	<?php endforeach; ?>
 	</table>
 <?php endif; ?>
 </div>
-<div class="related">
-	<h3><?php printf(__('Related %s', true), __('Reviews', true));?></h3>
+<div id="relReviews">
 	<?php if (!empty($user['Review'])):?>
 	<table cellpadding = "0" cellspacing = "0">
 	<tr>
-		<th><?php __('Id'); ?></th>
-		<th><?php __('User Id'); ?></th>
 		<th><?php __('Name'); ?></th>
 		<th><?php __('Visibility'); ?></th>
 		<th class="actions"><?php __('Actions');?></th>
@@ -162,12 +150,9 @@
 			}
 		?>
 		<tr<?php echo $class;?>>
-			<td><?php echo $review['id'];?></td>
-			<td><?php echo $review['user_id'];?></td>
-			<td><?php echo $review['name'];?></td>
+			<td><?php echo $this->Html->link($review['name'], array('controller' => 'reviews', 'action' => 'view', $review['id'])); ?></td>
 			<td><?php echo $review['visibility'];?></td>
 			<td class="actions">
-				<?php echo $this->Html->link(__('View', true), array('controller' => 'reviews', 'action' => 'view', $review['id'])); ?>
 				<?php echo $this->Html->link(__('Edit', true), array('controller' => 'reviews', 'action' => 'edit', $review['id'])); ?>
 				<?php echo $this->Html->link(__('Delete', true), array('controller' => 'reviews', 'action' => 'delete', $review['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $review['id'])); ?>
 			</td>
@@ -176,18 +161,14 @@
 	</table>
 <?php endif; ?>
 </div>
-<div class="related">
-	<h3><?php printf(__('Related %s', true), __('Subscriptions', true));?></h3>
+<div id="relSubscriptions">
 	<?php if (!empty($user['Subscription'])):?>
 	<table cellpadding = "0" cellspacing = "0">
 	<tr>
-		<th><?php __('Id'); ?></th>
-		<th><?php __('User Id'); ?></th>
 		<th><?php __('Foreign Id'); ?></th>
-		<th><?php __('Foreign Model'); ?></th>
+		<th><?php __('Subscribed To'); ?></th>
 		<th><?php __('Status'); ?></th>
 		<th><?php __('Created'); ?></th>
-		<th><?php __('Modified'); ?></th>
 		<th class="actions"><?php __('Actions');?></th>
 	</tr>
 	<?php
@@ -199,16 +180,11 @@
 			}
 		?>
 		<tr<?php echo $class;?>>
-			<td><?php echo $subscription['id'];?></td>
-			<td><?php echo $subscription['user_id'];?></td>
 			<td><?php echo $subscription['foreign_id'];?></td>
 			<td><?php echo $subscription['foreign_model'];?></td>
 			<td><?php echo $subscription['status'];?></td>
 			<td><?php echo $subscription['created'];?></td>
-			<td><?php echo $subscription['modified'];?></td>
 			<td class="actions">
-				<?php echo $this->Html->link(__('View', true), array('controller' => 'subscriptions', 'action' => 'view', $subscription['id'])); ?>
-				<?php echo $this->Html->link(__('Edit', true), array('controller' => 'subscriptions', 'action' => 'edit', $subscription['id'])); ?>
 				<?php echo $this->Html->link(__('Delete', true), array('controller' => 'subscriptions', 'action' => 'delete', $subscription['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $subscription['id'])); ?>
 			</td>
 		</tr>
@@ -216,17 +192,39 @@
 	</table>
 <?php endif; ?>
 </div>
-<div class="related">
-	<h3><?php printf(__('Related %s', true), __('Votes', true));?></h3>
+
+<div id="relSubscribers">
+	<?php if (!empty($user['Subscriber'])):?>
+	<table cellpadding = "0" cellspacing = "0">
+	<tr>
+		<th><?php __('User'); ?></th>
+		<th><?php __('Status'); ?></th>
+		<th><?php __('Created'); ?></th>
+	</tr>
+	<?php
+		$i = 0;
+		foreach ($user['Subscriber'] as $subscription):
+			$class = null;
+			if ($i++ % 2 == 0) {
+				$class = ' class="altrow"';
+			}
+		?>
+		<tr<?php echo $class;?>>
+			<td><?php echo $subscription['user_id'];?></td>
+			<td><?php echo $subscription['status'];?></td>
+			<td><?php echo $subscription['created'];?></td>
+		</tr>
+	<?php endforeach; ?>
+	</table>
+<?php endif; ?>
+</div>
+<div id="relVotes">
 	<?php if (!empty($user['Vote'])):?>
 	<table cellpadding = "0" cellspacing = "0">
 	<tr>
-		<th><?php __('Id'); ?></th>
-		<th><?php __('Comment Id'); ?></th>
-		<th><?php __('User Id'); ?></th>
+		<th><?php __('Comment'); ?></th>
 		<th><?php __('Direction'); ?></th>
 		<th><?php __('Created'); ?></th>
-		<th><?php __('Modified'); ?></th>
 		<th class="actions"><?php __('Actions');?></th>
 	</tr>
 	<?php
@@ -238,12 +236,9 @@
 			}
 		?>
 		<tr<?php echo $class;?>>
-			<td><?php echo $vote['id'];?></td>
 			<td><?php echo $vote['comment_id'];?></td>
-			<td><?php echo $vote['user_id'];?></td>
 			<td><?php echo $vote['direction'];?></td>
 			<td><?php echo $vote['created'];?></td>
-			<td><?php echo $vote['modified'];?></td>
 			<td class="actions">
 				<?php echo $this->Html->link(__('View', true), array('controller' => 'votes', 'action' => 'view', $vote['id'])); ?>
 				<?php echo $this->Html->link(__('Edit', true), array('controller' => 'votes', 'action' => 'edit', $vote['id'])); ?>
@@ -253,4 +248,5 @@
 	<?php endforeach; ?>
 	</table>
 <?php endif; ?>
+</div>
 </div>
