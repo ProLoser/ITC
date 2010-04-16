@@ -64,7 +64,18 @@ class Review extends AppModel {
 		'Language',
 	);
 	
+	function beforeSave() {
+		$this->data['Review']['user_id'] = User::get('id');
+		return true;
+	}
+	
 	function afterSave($created) {
+		if (isset($this->data['Source'])) {
+			foreach ($this->data['Source'] as $source) {
+				$source['review_id'] = $this->id;
+				$this->Source->save($source);
+			}
+		}
 		if ($created) {
 			$this->User->grantPoints('create-review', $this->data['Review']['user_id'], $this->id);
 		}

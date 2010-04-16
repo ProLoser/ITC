@@ -29,10 +29,9 @@ class ReviewsController extends AppController {
 		$this->set('review', $this->Review->read(null, $id));
 	}
 
-	function add() {
+	function add($copies = 3) {
 		if (!empty($this->data)) {
 			$this->Review->create();
-			$this->data['Review']['user_id'] = $this->Auth->user('id');
 			if ($this->Review->save($this->data)) {
 				$this->Session->setFlash(sprintf(__('The %s has been saved', true), 'review'));
 				$this->redirect(array('action' => 'index'));
@@ -42,7 +41,7 @@ class ReviewsController extends AppController {
 		}
 		$visibilities = $this->Review->visibilities;
 		$languages = $this->Review->Language->find('list');
-		$this->set(compact('visibilities', 'languages'));
+		$this->set(compact('visibilities', 'languages', 'copies'));
 	}
 
 	function edit($id = null) {
