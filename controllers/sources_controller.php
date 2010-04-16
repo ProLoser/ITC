@@ -17,7 +17,7 @@ class SourcesController extends AppController {
 		$this->set('source', $this->Source->read(null, $id));
 	}
 
-	function add() {
+	function add($reviewId = null) {
 		if (!empty($this->data)) {
 			$this->Source->create();
 			if ($this->Source->save($this->data)) {
@@ -26,6 +26,9 @@ class SourcesController extends AppController {
 			} else {
 				$this->Session->setFlash(sprintf(__('The %s could not be saved. Please, try again.', true), 'source'));
 			}
+		}
+		if ($reviewId) {
+			$this->data['Source']['review_id'] = $reviewId;
 		}
 		$reviews = $this->Source->Review->find('list');
 		$this->set(compact('reviews'));
