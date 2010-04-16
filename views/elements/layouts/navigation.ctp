@@ -19,7 +19,7 @@
 	<?php else: ?>
 		<li><?php echo $this->Html->link('Points', array('controller' => 'point_events', 'action' => 'index'));?></li>
 	<?php endif; ?>
-	<?php if ($this->params['controller']=='pages'): ?>
+	<?php if (($this->params['controller']=='pages') && ($this->params['pass'][0] == 'frequently_asked_questions')): ?>
 		<li><?php echo $this->Html->link('FAQ', array('controller' => 'pages', 'action' => 'display', 'frequently_asked_questions'), array('class' => 'current'));?></li>
 	<?php else: ?>
 		<li><?php echo $this->Html->link('FAQ', array('controller' => 'pages', 'action' => 'display', 'frequently_asked_questions'));?></li>
