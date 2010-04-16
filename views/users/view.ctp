@@ -4,10 +4,9 @@
 	</ul>
 </div>
 <div class="users view">
-
-<h3><?php echo $user['User']['username']; ?></h3>
-<h4><?php echo $this->Html->link($user['Rank']['title'], array('controller' => 'ranks', 'action' => 'view', $user['Rank']['id'])); ?></h4>
 	<?php echo $this->Upload->image($user, 'User.avatar'); ?>
+	<h3><?php echo $user['User']['username']; ?></h3>
+	<h4><?php echo $this->Html->link($user['Rank']['title'], array('controller' => 'ranks', 'action' => 'view', $user['Rank']['id'])); ?></h4>
 	<dl><?php $i = 0; $class = ' class="altrow"';?>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Name'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
