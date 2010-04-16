@@ -28,13 +28,7 @@ class Review extends AppModel {
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
 	var $belongsTo = array(
-		'User' => array(
-			'className' => 'User',
-			'foreignKey' => 'user_id',
-			'conditions' => '',
-			'fields' => '',
-			'order' => ''
-		)
+		'User'
 	);
 	
 	var $hasMany = array(
@@ -43,24 +37,11 @@ class Review extends AppModel {
 			'foreignKey' => 'foreign_id',
 			'conditions' => array('Subscription.foreign_model' => 'Review'),
 		),
+		'Source',
 	);
 
 	var $hasAndBelongsToMany = array(
-		'Tag' => array(
-			'className' => 'Tag',
-			'joinTable' => 'reviews_tags',
-			'foreignKey' => 'review_id',
-			'associationForeignKey' => 'tag_id',
-			'unique' => true,
-			'conditions' => '',
-			'fields' => '',
-			'order' => '',
-			'limit' => '',
-			'offset' => '',
-			'finderQuery' => '',
-			'deleteQuery' => '',
-			'insertQuery' => ''
-		),
+		'Tag',
 		'Language',
 	);
 	
