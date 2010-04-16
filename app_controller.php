@@ -23,6 +23,11 @@ class AppController extends Controller {
 		if ($this->_prefix()) {
 			$this->layout = 'admin';
 		}
+		
+		// Load common layout variables
+		$this->loadModel('User');
+		$popUsers = $this->User->find('list', array('limit' => 10));
+		$this->set(compact('popUsers'));
 	}
 	
 	/**

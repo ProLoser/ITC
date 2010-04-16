@@ -9,15 +9,11 @@
 		<li><a href="#">CSS</a></li>
 		<li><a href="#">CSS</a></li>
 	</ul>
-	<h3>Popular <span>Useds</span></h3>
+	<h3>Popular <span><?php echo $this->Html->link('Users', array('controller' => 'users', 'action' => 'index')); ?></span></h3>
 	<ul>
-		<li><a href="#">Redjoker88</a></li>
-		<li><a href="#">Proloser</a></li>
-		<li><a href="#">Katana234</a></li>
-		<li><a href="#">CSS</a></li>
-		<li><a href="#">CSSforEvEr!</a></li>
-		<li><a href="#">CSS</a></li>
-		<li><a href="#">CSS</a></li>
+		<?php foreach ($popUsers as $id => $user): ?>
+			<li><?php echo $this->Html->link($user, array('controller' => 'users', 'action' => 'view', $id)); ?></li>
+		<?php endforeach; ?>
 	</ul>
 	<p class="adbox">Ad Space Available</p>
 	<p class="adbox">Ad Space Available</p>

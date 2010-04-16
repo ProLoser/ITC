@@ -1,7 +1,8 @@
 <?php
 class User extends AppModel {
 	var $name = 'User';
-	var $order = 'User.username ASC';
+	var $order = 'User.points DESC';
+	var $displayField = 'username';
 	var $validate = array(
 		'username'   => array(
 			'alphaNumeric' => array(
