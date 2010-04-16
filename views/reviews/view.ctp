@@ -10,8 +10,8 @@
 	</ul>
 </div>
 <div class="reviews view">
-<?php echo $this->element('subscribe', array('id' => $user['User']['id'], 'model' => 'User')); ?>
-<h3><?php  __('Review');?></h3>
+	<?php echo $this->element('subscribe', array('id' => $user['User']['id'], 'model' => 'User')); ?>
+	<h3><?php  __('Review');?></h3>
 	<dl><?php $i = 0; $class = ' class="altrow"';?>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('User'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
