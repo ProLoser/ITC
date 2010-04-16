@@ -87,6 +87,19 @@ margin-left:26px;
 	background: url(../img/procode.jpg) no-repeat left center;
 	text-indent: -9999px;
 }
+#header .reviewCount {
+	color:#215D84;
+	font-size:2.5em;
+	float:right;
+	margin:80px 20px 0 0 ;
+	text-align:right; 
+}
+#header .reviewCount span {
+	color:#90C3E5;
+	display:block;
+	font-size:.75em;
+	margin-top:10px;
+}
 #header .message {
 	background: red;
 	margin: 20px;
