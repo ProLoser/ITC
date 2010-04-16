@@ -18,6 +18,10 @@ class SourcesController extends AppController {
 	}
 
 	function add($reviewId = null) {
+		if (!$reviewId && empty($this->data)) {
+			$this->Session->setFlash(sprintf(__('Invalid %s', true), 'review'));
+			$this->redirect(array('action' => 'index'));
+		}
 		if (!empty($this->data)) {
 			$this->Source->create();
 			if ($this->Source->save($this->data)) {
