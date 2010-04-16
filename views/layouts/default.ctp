@@ -29,6 +29,7 @@
 		echo $this->Html->meta('icon');
 
 		echo $this->Html->css('style');
+		echo $this->Html->css('geshi');
 
 		echo $scripts_for_layout;
 	?>
@@ -45,7 +46,7 @@
 		<div id="body">
 			<div id="sidebar"><?php echo $this->element('layouts/sidebar');?></div>
 			<div id="content"><?php echo $content_for_layout; ?></div>
-		</div>		
+		</div>
 		<div id="footer">
 			<?php echo $this->element('layouts/footer');?>
 		</div>
@@ -53,3 +54,4 @@
 	<?php echo $this->element('sql_dump'); ?>
 </body>
 </html>
+
