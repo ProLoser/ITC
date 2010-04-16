@@ -28,6 +28,28 @@ a {text-decoration: none; outline: 0px; color: #215D84;}
 a:hover { text-decoration: underline; }
 a img { border: none; }
 
+/* Tables */
+table {
+	margin:2em 0;
+	width: 100%;
+}
+table tr td {
+	padding:5px 10px;
+}
+table tr th {
+	padding-left:10px;
+	text-align:left;
+	color:#ffffff;
+	height:40px;
+	background-color:#215D84;
+}
+table tr th a {
+	color:#ffffff;
+}
+table .altrow {
+	background-color:#A6CCE5;
+}
+
 /*** General Classes ***/
 .light-blue {
 	color: #5f8298;
@@ -307,58 +329,26 @@ ul.filters li a.current {
 	text-decoration: underline;
 }
 
-
-/* Points, Users, Subscriptions, Point Events, Reviews */
-table {
-	margin:2em 0;
-	width: 100%;
-}
-.altrow {
-	background-color:#A6CCE5;
-}
-.points table tr th, .users table tr th, .subscriptions table tr th, .pointEvents table tr th, .reviews table tr th {
-	padding-left:10px;
-	text-align:left;
-	color:#ffffff;
-	height:40px;
-	background-color:#215D84;
-}
-.points table tr th a, .users table tr th a, .subscriptions table tr th a, .pointEvents table tr th a, .reviews table tr th a {
-	color:#ffffff;
-}
-.points table tr td, .users table tr td, .subscriptions table tr td, .pointEvents table tr td, .reviews table tr td {
-	padding:5px 10px;
-}
-.points table {
-	padding-left:5px;
-}
-
 /* Pagination */
-.pagination {
-	position: relative;
-	float: right;
+.paging {
 	margin-right: 40px;
 	margin-top: 20px;
-}
-.pagination li {
-	display: block;
-	float: left;
-	border: 1px solid #215D84;
-	width: 25px;
-	height: 28px;
-	padding-top: 12px;
-	text-align: center;
-	margin-right: 2px;
-}
-.pagination li a {
-	color: #215D84;
-	font-size: 1.3em;
-	font-weight: normal;
 	margin-left: 2px;
 }
-.pagination li:hover, .pagination li:hover a, .pagination li.current a, .pagination li.current {
+.paging span, .paging a {
+	border: 1px solid #215D84;
+	padding: 12px;
+	text-align: center;
+}
+.paging a {
+	color: #215D84;
+}
+.paging a:hover, .paging .current {
 	background-color: #215D84;
 	color:#ffffff;
+}
+.paging .disabled {
+	background-color: #5F8298;
 }
 
 /* Ranks */

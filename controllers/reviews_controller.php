@@ -10,6 +10,7 @@ class ReviewsController extends AppController {
 
 	function index() {
 		$this->Review->recursive = 0;
+		$this->paginate['conditions'] = array('Review.visibility' => 'Public');
 		$this->set('reviews', $this->paginate());
 	}
 	
