@@ -12,8 +12,8 @@ class Language extends AppModel {
 		)
 	);
 
-	var $hasAndBelongsToMany = array(
-		'Review',
+	var $hasMany = array(
+		'Source'
 	);
 
 }

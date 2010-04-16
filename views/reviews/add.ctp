@@ -4,7 +4,6 @@
 <fieldset>
 	<?php
 		echo $this->Form->input('Review.name');
-		echo $this->Form->input('Language', array('multiple' => 'checkbox'));
 		echo $this->Form->input('Review.visibility');
 		echo $this->Form->input('Review.description');
 	?>
@@ -14,6 +13,7 @@
 	<?php
 		for ($i = 0; $i < $copies; $i++) {				
 			echo $this->Form->input("Source.$i.file", array('type' => 'file'));
+			echo $this->Form->input("Source.$i.language_id");
 			echo $this->Form->input("Source.$i.description");
 		}
 	?>

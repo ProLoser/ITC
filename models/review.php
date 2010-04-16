@@ -42,7 +42,6 @@ class Review extends AppModel {
 
 	var $hasAndBelongsToMany = array(
 		'Tag',
-		'Language',
 	);
 	
 	function beforeSave() {

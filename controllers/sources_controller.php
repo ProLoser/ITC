@@ -14,6 +14,7 @@ class SourcesController extends AppController {
 			$this->Session->setFlash(sprintf(__('Invalid %s', true), 'source'));
 			$this->redirect(array('action' => 'index'));
 		}
+		$this->Source->recursive = 0;
 		$this->set('source', $this->Source->read(null, $id));
 	}
 
@@ -34,8 +35,8 @@ class SourcesController extends AppController {
 		if ($reviewId) {
 			$this->data['Source']['review_id'] = $reviewId;
 		}
-		$reviews = $this->Source->Review->find('list');
-		$this->set(compact('reviews'));
+		$languages = $this->Source->Language->find('list');
+		$this->set(compact('languages'));
 	}
 
 	function edit($id = null) {
@@ -54,6 +55,8 @@ class SourcesController extends AppController {
 		if (empty($this->data)) {
 			$this->data = $this->Source->read(null, $id);
 		}
+		$languages = $this->Source->Language->find('list');
+		$this->set(compact('languages'));
 	}
 
 	function delete($id = null) {

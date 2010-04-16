@@ -41,8 +41,8 @@ class ReviewsController extends AppController {
 			}
 		}
 		$visibilities = $this->Review->visibilities;
-		$languages = $this->Review->Language->find('list');
-		$this->set(compact('visibilities', 'languages', 'copies'));
+		$languages = $this->Review->Source->Language->find('list');
+		$this->set(compact('visibilities', 'copies', 'languages'));
 	}
 
 	function edit($id = null) {
@@ -63,8 +63,7 @@ class ReviewsController extends AppController {
 			$this->data = $this->Review->read(null, $id);
 		}
 		$visibilities = $this->Review->visibilities;
-		$languages = $this->Review->Language->find('list');
-		$this->set(compact('visibilities', 'languages'));
+		$this->set(compact('visibilities'));
 	}
 
 	function delete($id = null) {
