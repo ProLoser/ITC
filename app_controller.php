@@ -39,8 +39,13 @@ class AppController extends Controller {
 	 * 
 	 * @param $id int id of the current record to check ownership for
 	 */
-	function _owner($id) {
-		if ($this->Auth->user('id') == $this->{$this->modelClass}->field($this->modelClass.'.user_id', array($this->modelClass.'.id' => $id))) {
+	function _owner($id, $relatedModel = null) {
+		if ($relatedModel) {
+			$check = $this->{$this->modelClass}->$relatedModel->field($this->relatedModel.'.user_id', array($this->relatedModel.'.id' => $id));
+		} else {
+			$check = $this->{$this->modelClass}->field($this->modelClass.'.user_id', array($this->modelClass.'.id' => $id));
+		}
+		if ($this->Auth->user('id') == $check) {
 			$this->set('owner', true);
 			return true;
 		} else {
