@@ -87,21 +87,29 @@ min-width:960px;
 /* Search Box */
 #header #bar form {
 	float: right;
-	margin: 10px;
+	margin: 10px 20px 10px 10px;
 }
 #header #bar form div {
 	display: inline;
 }
 
 #header #bar img {
-margin-left:26px;
+	margin-left:26px;
 }
 
 #header #bar form .input input {
-	height:18px;
+	height:22px;
+	border:none;
 }
 #header #bar form .submit input {
 	padding: 2px 5px;
+	background-color:#ffffff;
+	border:1px solid #215b84;
+	width:75px;
+	height:24px;
+	position:relative;
+	top:1px;
+
 }
 
 #header h1 {
@@ -133,7 +141,7 @@ margin-left:26px;
 }
 #header #tabs ul {
 	overflow: auto;
-	margin-left: 46px;
+	margin-left: 326px;
 }
 #header #tabs li {
 	float: left;
@@ -229,14 +237,14 @@ margin-left:26px;
 }
 
 #footer a img {
-border:0px;
+	border:0px;
 }
 
 
 
 /*** Forms ***/
 #content form {
-margin:2em 0 1em 0;
+	margin:2em 0 1em 0;
 }
 
 #content form a {
@@ -361,8 +369,8 @@ ul.reviews h4 {
 /* Actions */
 .actions {
 	overflow: auto;
-	margin-top: -50px;
-	margin-left: 20px;
+	margin-top: -40px;
+	margin-left: -4px;
 	margin-right: -20px;
 }
 td.actions, th.actions { overflow: visible;}
@@ -380,7 +388,7 @@ td.actions, th.actions { overflow: visible;}
 	list-style: none;
 }
 .actions ul li a {
-	color:#215b84;
+	color:#66A3CA;
 	font-size:.9em;
 	display: block;
 	width: 128px;
@@ -388,14 +396,14 @@ td.actions, th.actions { overflow: visible;}
 	height: 20px;
 	padding-top: 5px;
 	margin: 0 5px;
-	background-color: #DDD;
+	background-color: #ffffff;
 	font-size:1em;
-	border: 1px solid #215d84;
-	border-top: none;
+	border: 1px solid #66A3CA;
+
 }
 .actions ul li a.current, .actions ul li a:hover {
 	color: #ffffff;
-	background-color: #215d84;
+	background-color: #66A3CA;
 	text-decoration: none;
 }
 
@@ -444,7 +452,7 @@ ul.filters li a.current {
 }
 .ranks dl dt, .faq dl dt {
 	font-size:2em;
-	color:#000000;
+	color:#215b84;
 	margin-bottom:.5em;
 	background-color:#ffffff;
 }
@@ -486,6 +494,7 @@ ol.ui-selectable {
 	background-color: #dddddd;
 	margin-bottom: 10px;
 }
+
 
 .cake-sql-log {clear: both; margin: 10px auto;}
 .cake-sql-log td, .cake-sql-log th  { margin: 2px;}
