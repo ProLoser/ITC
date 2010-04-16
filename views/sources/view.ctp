@@ -32,6 +32,7 @@
 	<table cellpadding = "0" cellspacing = "0">
 	<tr>
 		<th><?php __('User Id'); ?></th>
+		<th><?php __('User Name'); ?></th>
 		<th><?php __('Line Start'); ?></th>
 		<th><?php __('Line End'); ?></th>
 		<th><?php __('Content'); ?></th>

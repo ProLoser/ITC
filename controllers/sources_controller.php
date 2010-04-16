@@ -14,9 +14,21 @@ class SourcesController extends AppController {
 			$this->Session->setFlash(sprintf(__('Invalid %s', true), 'source'));
 			$this->redirect(array('action' => 'index'));
 		}
-		$params['conditions'] = array('Source.id' => $id);
-		$params['recursive'] = 1;
-		$source = $this->Source->find('first', $params);
+		$source = $this->Source->find('first', array(
+			'conditions' => array('Source.id' => $id),
+			'contain'=>array(
+				'Review',
+				'Comment' => array(
+					'User' => array(
+						'fields' => array('id', 'username')
+					)
+				)
+			)
+		));
+
+//		$params['conditions'] = array('Source.id' => $id);
+//		$params['recursive'] = 2;
+//		$source = $this->Source->find('first', $params);
 		$this->set(compact('source'));
 	}
 

@@ -4,7 +4,7 @@
 [submodule "plugins/upload_pack"]
 	path = plugins/upload_pack
 	url = git://github.com/josegonzalez/uploadpack.git
-
 [submodule "plugins/debug_kit"]
 	path = plugins/debug_kit
 	url = git://github.com/cakephp/debug_kit.git
+

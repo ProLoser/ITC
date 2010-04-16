@@ -446,8 +446,7 @@ ul.filters li a.current {
 	font-size:2em;
 	color:#000000;
 	margin-bottom:.5em;
-
-background-color:#ffffff;
+	background-color:#ffffff;
 }
 .ranks dl dt a, .faq dl dt a {
 	color:#215b84;
@@ -457,7 +456,7 @@ background-color:#ffffff;
 	display:block;
 	margin-bottom:3em;
 	font-size:1em;
-width:600px;
+	width:600px;
 }
 
 /* Reviews */
