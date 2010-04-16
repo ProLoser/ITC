@@ -2,7 +2,7 @@
 class SourcesController extends AppController {
 
 	var $name = 'Sources';
-	var $helpers = array('Geshi');
+	var $helpers = array('Geshi', 'Html', 'Javascript');
 
 	function index() {
 		$this->Source->recursive = 0;
