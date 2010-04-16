@@ -8,16 +8,16 @@
 $(function() {
 	$(".php").selectable({
 		stop: function(){
-			var first = $("#select-first input").empty();
-			var last  = $("#select-last input").empty();
+			var first = $("#select-first").empty();
+			var last  = $("#select-last").empty();
 			$(".ui-selected", this).each(function(){
 				var index = $(".php li").index(this);
 				index += 1;
 				if (index != 0) {
-					last.text(index);
+					last.value(index);
 				}
-				if (first.text() == "" && index != 0) {
-					first.text(index);
+				if (first.value() == "" && index != 0) {
+					first.value(index);
 				}
 			});
 		}
@@ -38,7 +38,7 @@ $(function() {
 <div id="feedback" title="Add Comment">
 	<?php echo $this->Form->create('Comment', array('action' => 'add')); ?>
 		<?php echo $this->Form->input('line_start', array('id' => 'select-first')); ?>
-		<?php echo $this->Form->input('line_start', array('id' => 'select-last')); ?>
+		<?php echo $this->Form->input('line_end', array('id' => 'select-last')); ?>
 		<?php echo $this->Form->input('content'); ?>
 		<?php echo $this->Form->input('source_id', array('value' => $source['Source']['id'], 'type' => 'hidden')); ?>
 	<?php echo $this->Form->end('Submit'); ?>
