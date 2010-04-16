@@ -6,7 +6,7 @@
 		<li><?php echo $this->Html->link(sprintf(__('Delete %s', true), __('Source', true)), array('action' => 'delete', $source['Source']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $source['Source']['id'])); ?> </li>
 		<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('Source', true)), array('action' => 'add', $source['Review']['id'])); ?> </li>
 	<?php else: ?>
-		<li><?php echo $this->element('subscribe', array('model' => 'Review', 'id' => $source['Source']['review_id'])); ?> </li><?php endif; ?>
+		<li><?php echo $this->element('subscribe', array('model' => 'Review', 'id' => $source['Source']['review_id'])); ?> </li>
 	<?php endif; ?>
 	</ul>
 </div>
