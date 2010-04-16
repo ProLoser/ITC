@@ -10,7 +10,9 @@ class AppController extends Controller {
 	var $helpers = array(
 		'UploadPack.Upload',
 		'Session',
-		'Form'
+		'Form',
+		'Text',
+		'Time'
 	);
 
 	function beforeFilter() {
