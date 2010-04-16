@@ -5,7 +5,7 @@ class Review extends AppModel {
 	var $validate = array(
 		'name' => array(
 			'alphaNumeric' => array(
-				'rule' => 'alphaNumeric', 
+				'rule' => '/^[\\w\\s]+$/', 
 				'message' => 'Alpha-numeric characters only.',
 			),
 			'notEmpty' => array(
