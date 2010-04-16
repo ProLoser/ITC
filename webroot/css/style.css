@@ -17,14 +17,12 @@ h2 {
 	color: #000000;
 	font-size: 1.7em;
 	line-height: 1.5em;
-
 }
 h3 {
 	color: #000000;
 	font-size: 1.5em;
 	line-height: 1.3em;
 	margin-top: 1.5em;
-
 }
 a {text-decoration: none; outline: 0px; color: #215D84;}
 a:hover { text-decoration: underline; }
@@ -370,7 +368,9 @@ table {
 .ranks dl dt, .faq dl dt {
 	font-size:2em;
 	color:#000000;
-	margin-bottom:10px;
+	margin-bottom:.5em;
+
+background-color:#ffffff;
 }
 .ranks dl dt a, .faq dl dt a {
 	color:#215b84;
@@ -378,8 +378,9 @@ table {
 }
 .ranks dl dd, .faq dl dd {
 	display:block;
-	margin-bottom:2em;
+	margin-bottom:3em;
 	font-size:1em;
+width:600px;
 }
 
 /* Reviews */
@@ -441,7 +442,6 @@ table {
 }
 
 /* Paging */
-
 .paging span {
 	display:inline-block;
 	width:100px;
@@ -450,12 +450,7 @@ table {
 	text-align:center;
 	background-color:#215D84;
 	margin:1em 0;
-
-
 }
-
-
-
 
 /* Posts */
 .post {
