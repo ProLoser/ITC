@@ -70,4 +70,3 @@ class SourcesController extends AppController {
 	}
 }
 ?>
-
