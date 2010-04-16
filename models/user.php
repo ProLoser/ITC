@@ -43,6 +43,16 @@ class User extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
+		'points' => array(
+			'numeric' => array(
+				'rule' => 'numeric',
+				'message' => 'Please numbers only.'
+			),
+			'range' => array(
+				'rule' => array('range', -2147483648, 2147483647),
+				'message' => 'Out of range.'
+			),
+		)
 	);
 	
 	var $roles = array(

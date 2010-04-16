@@ -21,6 +21,16 @@ class PointEvent extends AppModel {
 				'message' => 'Please enter lower-case letters, numbers or dashes only',
 			),
 		),
+		'points' => array(
+			'numeric' => array(
+				'rule' => 'numeric',
+				'message' => 'Please enter numbers only.'
+			),
+			'range' => array(
+				'rule' => array('range', -2147483648, 2147483647),
+				'message' => 'Out of range.'
+			),
+		)
 	);
 
 	var $foreignModels = array(

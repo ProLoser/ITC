@@ -9,20 +9,12 @@ class Comment extends AppModel {
 				'rule' => 'numeric', 
 				'message' => 'Numbers only',
 			),
-			'notEmpty' => array(
-				'rule' => 'notEmpty',
-				'message' => 'Line start cannot be blank.'
-			)
 		),
 		'line_end' => array(
 			'numeric' => array(
 				'rule' => 'numeric', 
 				'message' => 'Numbers only',
 			),
-			'notEmpty' => array(
-				'rule' => 'notEmpty',
-				'message' => 'Line end cannot be blank.'
-			)
 		),
 		'content' => array(
 			'notEmpty' => array(
