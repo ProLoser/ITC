@@ -11,11 +11,6 @@
 			<?php echo $this->Html->link($source['Review']['name'], array('controller' => 'reviews', 'action' => 'view', $source['Review']['id'])); ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Language'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $this->Html->link($source['Language']['name'], array('controller' => 'languages', 'action' => 'view', $source['Language']['id'])); ?>
-			&nbsp;
-		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Created'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $source['Source']['created']; ?>
@@ -28,22 +23,20 @@
 		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Content'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $source['Source']['content']; ?>
+			<?php
+				App::import('Vendor', 'geshi/geshi');
+				$geshi = new GeSHI(trim($source['Source']['content']), 'php');
+				$geshi->set_header_type(GESHI_HEADER_NONE);
+				$geshi->enable_line_numbers(GESHI_FANCY_LINE_NUMBERS, 2);
+				$geshi->enable_classes();
+				$geshi->set_tab_width(4);
+				echo $geshi->parse_code();
+			?>
 			&nbsp;
 		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Description'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $source['Source']['description']; ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('File Name'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $source['Source']['file_name']; ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Visibility'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $source['Source']['visibility']; ?>
 			&nbsp;
 		</dd>
 	</dl>
@@ -113,3 +106,4 @@
 		</ul>
 	</div>
 </div>
+
