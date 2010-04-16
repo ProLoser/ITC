@@ -38,9 +38,9 @@
 			<?php echo $user['User']['status']; ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Date Of Birth'); ?></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Age'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $this->Time->format('Y', date('Y-m-d') - $user['User']['date_of_birth']); ?>
+			<?php echo $age->calculateAge($user['User']['date_of_birth']); ?>
 			&nbsp;
 		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Role'); ?></dt>
