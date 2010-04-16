@@ -20,5 +20,10 @@ class Vote extends AppModel {
 			'order' => ''
 		)
 	);
+	
+	function beforeSave() {
+		$this->owner();
+		return true;
+	}
 }
 ?>

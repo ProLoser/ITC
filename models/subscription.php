@@ -19,10 +19,9 @@ class Subscription extends AppModel {
 		'Review',
 	);
 	
-	function subscribe($userId, $model, $foreignId) {
+	function subscribe($model, $foreignId) {
 		if (in_array($model, $this->foreignModels)) {
 			$data['Subscription'] = array(
-				'user_id' => $userId,
 				'foreign_model' => $model,
 				'foreign_id' => $foreignId,
 			);
@@ -35,6 +34,11 @@ class Subscription extends AppModel {
 		} else {
 			return false;
 		}
+	}
+	
+	function beforeSave() {
+		$this->owner();
+		return true;
 	}
 }
 ?>

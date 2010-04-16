@@ -63,6 +63,10 @@ class Comment extends AppModel {
 			'counterQuery' => ''
 		)
 	);
-
+	
+	function beforeSave() {
+		$this->owner();
+		return true;
+	}
 }
 ?>

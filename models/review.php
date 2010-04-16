@@ -65,7 +65,7 @@ class Review extends AppModel {
 	);
 	
 	function beforeSave() {
-		$this->data['Review']['user_id'] = User::get('id');
+		$this->owner();
 		return true;
 	}
 	

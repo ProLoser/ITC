@@ -21,7 +21,9 @@ class Point extends AppModel {
 		)
 	);
 	
-	// Updates the related user field with updated points and ranks
+	/** 
+	 * Updates the related user field with updated points and ranks
+	 */
 	function afterSave($created) {
 		
 		// Update the user's Points

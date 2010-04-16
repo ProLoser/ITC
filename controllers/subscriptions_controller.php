@@ -28,7 +28,7 @@ class SubscriptionsController extends AppController {
 			$this->Session->setFlash(sprintf(__('Invalid %s', true), 'model'));
 			$this->redirect(array('action' => 'index'));
 		} else {
-			if ($this->Subscription->subscribe($this->Auth->user('id'), $model, $id)) {
+			if ($this->Subscription->subscribe($model, $id)) {
 				$this->Session->setFlash(sprintf(__('The %s has been saved', true), 'subscription'));
 				$this->redirect(array('action' => 'index'));
 			} else {

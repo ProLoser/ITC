@@ -32,5 +32,17 @@
  */
 class AppModel extends Model {
 	var $recursive = -1;
+	
+	/**
+	 * Run this during beforeSave() to set the currently logged in user as the owner of the record
+	 */
+	function owner() {
+		if (!isset($this->data[$this->name]['id'])) {
+			$this->data[$this->name]['user_id'] = User::get('id');
+			return true;
+		} else {
+			return false;
+		}
+	}
 }
 ?>
