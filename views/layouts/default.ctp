@@ -38,6 +38,7 @@
 	<div id="wrapper">
 		<div id="header">
 			<?php echo $this->element('layouts/header-bar');?>
+			<div class="reviewCount"><?php echo $reviewCount; ?><span>Reviews</span></div>
 			<h1>ProCode a web based community here to review develper code...</h1>
 			<?php echo $this->Session->flash(); ?>
 			<?php echo $this->Session->flash('auth'); ?>

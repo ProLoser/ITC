@@ -27,7 +27,8 @@ class AppController extends Controller {
 		// Load common layout variables
 		$this->loadModel('User');
 		$popUsers = $this->User->find('list', array('limit' => 10));
-		$this->set(compact('popUsers'));
+		$reviewCount = $this->User->Review->find('count');
+		$this->set(compact('popUsers', 'reviewCount'));
 	}
 	
 	/**
