@@ -53,6 +53,7 @@ class Review extends AppModel {
 		if (isset($this->data['Source'])) {
 			foreach ($this->data['Source'] as $source) {
 				$source['review_id'] = $this->id;
+				$source['Source'] = $source;
 				$this->Source->save($source);
 			}
 		}
