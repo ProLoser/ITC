@@ -11,11 +11,6 @@
 			<?php echo $this->Html->link($source['Review']['name'], array('controller' => 'reviews', 'action' => 'view', $source['Review']['id'])); ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Language'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $this->Html->link($source['Language']['name'], array('controller' => 'languages', 'action' => 'view', $source['Language']['id'])); ?>
-			&nbsp;
-		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Created'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $source['Source']['created']; ?>
@@ -28,22 +23,15 @@
 		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Content'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $source['Source']['content']; ?>
+			<?php
+
+				echo $this->Geshi->highlight('<pre>'.htmlspecialchars($source['Source']['content']).'</pre>');
+			?>
 			&nbsp;
 		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Description'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $source['Source']['description']; ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('File Name'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $source['Source']['file_name']; ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Visibility'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $source['Source']['visibility']; ?>
 			&nbsp;
 		</dd>
 	</dl>
@@ -113,3 +101,4 @@
 		</ul>
 	</div>
 </div>
+

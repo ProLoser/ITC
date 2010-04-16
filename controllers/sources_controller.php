@@ -2,6 +2,7 @@
 class SourcesController extends AppController {
 
 	var $name = 'Sources';
+	var $helpers = array('Geshi.Geshi');
 
 	function index() {
 		$this->Source->recursive = 0;
@@ -62,3 +63,4 @@ class SourcesController extends AppController {
 	}
 }
 ?>
+
