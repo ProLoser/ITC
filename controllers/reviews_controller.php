@@ -3,6 +3,10 @@ class ReviewsController extends AppController {
 
 	var $name = 'Reviews';
 	
+	public $components = array ('Filter.Filter');
+	public $helpers = array ('Filter.Filter');
+
+	
 	function beforeFilter() {
 		parent::beforeFilter();
 		$this->Auth->deny(array('mine'));
@@ -14,6 +18,12 @@ class ReviewsController extends AppController {
 		$this->set('reviews', $this->paginate());
 	}
 	
+	function search() {
+		$this->paginate = array_merge_recursive($this->paginate, $this->Filter->paginate);
+		$reviews = $this->paginate();
+		$this->set(compact('reviews'));
+	}
+
 	function mine() {
 		$this->Review->recursive = 0;
 		// This approach is only used for paginate(), not Model->find()
