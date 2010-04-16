@@ -298,40 +298,29 @@ ul.filters li a.current {
 
 
 /* Points, Users, Subscriptions, Point Events, Reviews */
-
+table {
+	margin:2em 0;
+	width: 100%;
+}
+.altrow {
+	background-color:#A6CCE5;
+}
 .points table tr th, .users table tr th, .subscriptions table tr th, .pointEvents table tr th, .reviews table tr th {
-	width:140px;
 	padding-left:10px;
 	text-align:left;
 	color:#ffffff;
 	height:40px;
 	background-color:#215D84;
 }
-
 .points table tr th a, .users table tr th a, .subscriptions table tr th a, .pointEvents table tr th a, .reviews table tr th a {
 	color:#ffffff;
 }
-
 .points table tr td, .users table tr td, .subscriptions table tr td, .pointEvents table tr td, .reviews table tr td {
 	padding:5px 10px;
 }
-
 .points table {
 	padding-left:5px;
 }
-
-table {
-margin:2em 0;
-}
-
-
-.altrow {
-background-color:#A6CCE5;
-
-}
-
-
-
 
 /* Pagination */
 .pagination {
