@@ -65,5 +65,14 @@ class Comment extends AppModel {
 		$this->owner();
 		return true;
 	}
+	
+	function afterSave($created) {
+		if (!$created) {
+			if (isset($this->data['Comment']['owner_vote'])) {
+				$userId = $this->field('user_id', array('Comment.id' => $this->data['Comment']['id']));
+				$this->User->grantPoints('owner-comment-up', $ownerId, $this->data['Comment']['id']);
+			}
+		}
+	}
 }
 ?>

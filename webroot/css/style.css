@@ -365,6 +365,7 @@ ul.reviews h4 {
 	margin-left: 20px;
 	margin-right: -20px;
 }
+td.actions, th.actions { overflow: visible;}
 .actions h3 {
 	margin: 0;
 	padding: 0;

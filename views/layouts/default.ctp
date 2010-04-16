@@ -31,6 +31,9 @@
 		echo $this->Html->css('style');
 		echo $this->Html->css('geshi');
 		echo $this->Html->css('jquery-ui-1.8.custom');
+		echo $this->Html->script('jquery-1.4.2.min');
+		echo $this->Html->script('jquery-ui-1.8.custom.min');
+		echo $this->Html->script('procode');
 
 		echo $scripts_for_layout;
 	?>

@@ -1,31 +1,3 @@
-<?php
-	$this->Html->css('geshi', 'stylesheet', array("media"=>"all" ), false);
-	$this->Html->css('jquery-ui-1.8.custom', 'stylesheet', array("media"=>"all" ), false);
-	$javascript->link('jquery-1.4.2.min.js', false);
-	$javascript->link('jquery-ui-1.8.custom.min.js', false);
-?>
-<script type="text/javascript">
-$(function() {
-	$(".php").selectable({
-		stop: function(){
-			var first = $("#select-first").empty();
-			var last  = $("#select-last").empty();
-			$(".ui-selected", this).each(function(){
-				var index = $(".php li").index(this);
-				index += 1;
-				if (index != 0) {
-					last.value(index);
-				}
-				if (first.value() == "" && index != 0) {
-					first.value(index);
-				}
-			});
-		}
-	});
-	// Modal Box
-	$('#feedback').dialog();
-});
-</script>
 <div class="actions">
 	<ul>
 		<li><?php echo $this->Html->link(sprintf(__('View %s', true), __('Review', true)), array('controller' => 'review', 'action' => 'view', $source['Source']['review_id'])); ?> </li>

@@ -25,5 +25,13 @@ class Vote extends AppModel {
 		$this->owner();
 		return true;
 	}
+	
+	function afterSave($created) {
+		if ($created) {
+			
+		} else {
+			
+		}
+	}
 }
 ?>
