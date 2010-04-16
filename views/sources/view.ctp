@@ -1,3 +1,32 @@
+<?php
+	$this->Html->css('geshi', 'stylesheet', array("media"=>"all" ), false);
+	$this->Html->css('jquery-ui-1.8.custom', 'stylesheet', array("media"=>"all" ), false);
+	$javascript->link('jquery-1.4.2.min.js', false);
+	$javascript->link('jquery-ui-1.8.custom.min.js', false);
+?>
+<script type="text/javascript">
+$(function() {
+	$(".php").selectable({
+		stop: function(){
+			var first = $("#select-first").empty();
+			var last  = $("#select-last").empty();
+			$(".ui-selected", this).each(function(){
+				var index = $(".php li").index(this);
+				index += 1;
+				if (index != 0) {
+					last.text(index);
+				}
+				if (first.text() == "" && index != 0) {
+					first.text(index);
+				}
+			});
+		}
+	});
+});
+</script>
+<p id="feedback">
+You've selected: <span id="select-first"></span>-<span id="select-last"></span>.
+</p>
 <div class="sources view">
 <h3><?php  __('Source');?></h3>
 	<dl><?php $i = 0; $class = ' class="altrow"';?>
@@ -8,7 +37,9 @@
 		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Review'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $this->Html->link($source['Review']['name'], array('controller' => 'reviews', 'action' => 'view', $source['Review']['id'])); ?>
+			<?php
+			echo $this->Html->link($source['Review']['name'], array('controller' => 'reviews', 'action' => 'view', $source['Review']['id']));
+			?>
 			&nbsp;
 		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Created'); ?></dt>

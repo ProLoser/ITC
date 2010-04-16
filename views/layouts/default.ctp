@@ -30,6 +30,7 @@
 
 		echo $this->Html->css('style');
 		echo $this->Html->css('geshi');
+		echo $this->Html->css('jquery-ui-1.8.custom');
 
 		echo $scripts_for_layout;
 	?>
