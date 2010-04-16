@@ -5,7 +5,7 @@ class Review extends AppModel {
 	var $validate = array(
 		'name' => array(
 			'alphaNumeric' => array(
-				'rule' => '/^[\\w\\s]+$/', 
+				'rule' => '/^[\\w\\s]+$/',
 				'message' => 'Alpha-numeric characters only.',
 			),
 			'notEmpty' => array(
@@ -30,7 +30,7 @@ class Review extends AppModel {
 	var $belongsTo = array(
 		'User'
 	);
-	
+
 	var $hasMany = array(
 		'Subscriber' => array(
 			'className' => 'Subscription',
@@ -40,24 +40,24 @@ class Review extends AppModel {
 		),
 		'Source',
 	);
-	
+
 	var $actsAs = 'Filter';
-	
+
 	var $hasAndBelongsToMany = array(
 		'Tag',
 	);
-	
+
 	function beforeSave() {
 		$this->owner();
 		return true;
 	}
-	
+
 	function afterSave($created) {
 		if (isset($this->data['Source'])) {
 			foreach ($this->data['Source'] as $source) {
 				$source['review_id'] = $this->id;
 				$source['Source'] = $source;
-				$this->Source->save($source);
+				$this->Source->saveAll($source);
 			}
 		}
 		if ($created) {
@@ -67,3 +67,4 @@ class Review extends AppModel {
 
 }
 ?>
+
