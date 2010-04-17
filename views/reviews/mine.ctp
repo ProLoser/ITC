@@ -1,12 +1,13 @@
-<ul class="actions">	
-	<li><?php echo $this->Html->link('My Comments', array('controller' => 'reviews', 'action' => 'mine')); ?></li>
-	<li><?php echo $this->Html->link('My Subscriptions', array('controller' => 'subscriptions', 'action' => 'index')); ?></li>
-</ul>
+<div class="actions">
+	<ul>	
+		<li><?php echo $this->Html->link('My Comments', array('controller' => 'reviews', 'action' => 'mine')); ?></li>
+		<li><?php echo $this->Html->link('My Subscriptions', array('controller' => 'subscriptions', 'action' => 'index')); ?></li>
+	</ul>
+</div>
 <div class="reviews index">
 	<h3><?php __('Reviews');?></h3>
 	<table cellpadding="0" cellspacing="0">
 	<tr>
-			<th><?php echo $this->Paginator->sort('id');?></th>
 			<th><?php echo $this->Paginator->sort('name');?></th>
 			<th><?php echo $this->Paginator->sort('visibility');?></th>
 			<th class="actions"><?php __('Actions');?></th>
@@ -20,7 +21,6 @@
 		}
 	?>
 	<tr<?php echo $class;?>>
-		<td><?php echo $review['Review']['id']; ?>&nbsp;</td>
 		<td><?php echo $review['Review']['name']; ?>&nbsp;</td>
 		<td><?php echo $review['Review']['visibility']; ?>&nbsp;</td>
 		<td class="actions">
