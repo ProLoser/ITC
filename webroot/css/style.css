@@ -309,7 +309,7 @@ min-width:960px;
 /*** Review Lists ***/
 ul.reviews li {
 	overflow: auto;
-	height:130px;
+	height:135px;
 	margin-bottom: 20px;
 	padding-right: 20px;
 	background: no-repeat 85px;
@@ -319,17 +319,20 @@ ul.reviews li {
 ul.reviews li.closed {
 	background-image: url(../img/leftLight.jpg);
 }
+
+
 /* Scorebox */
 ul.reviews .scores {
 	float: left;
 	text-align: center;
 	margin-right: 40px;
 	width:74px;
-	height: 125px;
+	height: 120px;
 	color: #fff;
 	font-weight: bold;
 	font-size: 2.7em;
 	line-height: 1.1em;
+
 	background-color: #76913A;
 	-moz-box-shadow: #bbbbbb 4px 4px 4px;
 	-webkit-box-shadow: #bbbbbb 4px 4px 4px;
@@ -352,6 +355,8 @@ ul.reviews h4 {
 	line-height: 1.5em;
 	text-decoration: underline;
 }
+
+
 /* userbox */
 .userbox {
 	font-size: .9em;
@@ -361,7 +366,7 @@ ul.reviews h4 {
 	color: #5A7D0D;
 }
 .userbox span {
-	color: #CCC;
+	color: #ccc;
 }
 
 
@@ -407,31 +412,31 @@ td.actions, th.actions { overflow: visible;}
 
 
 /* Users */
-#content img {
+.users.view img {
 	float: right;
 	border: 5px solid #5A7D0D;
 }
 
-#content h3 {
+.users h3 {
 font-size:2em;
 margin-bottom:.5em;
 }
 
-#content dl {
+.users dl {
 margin-bottom:2em;
 }
 
-#content h4 {
+.users h4 {
 font-size:1.5em;
 margin-bottom:.5em;
 }
 
-#content dl dt {
+.users dl dt {
 color:#5A7D0D;
 margin-bottom:.3em;
 }
 
-#content dl dd {
+.users dl dd {
 margin-bottom:1em;
 }
 
@@ -594,7 +599,7 @@ background-color:#ffffff;
 #geshi ol li {
 	margin: 0;
 padding-left:5px;
-	color: #ffffff;
+	color: #000000;
 	font-size: 1em;
 }
 
