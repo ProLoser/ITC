@@ -61,7 +61,11 @@ class Subscription extends AppModel {
 					$this->data['Subscription']['foreign_id']
 				);
 			} else {
-			
+				$userId = $this->User->Review->field('user_id', array('Review.id' => $this->data['Subscription']['foreign_id']));
+				$this->grantPoints(
+					'review-subscribed',
+					$userId
+				);
 			}
 		}
 	}
