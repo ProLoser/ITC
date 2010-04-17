@@ -1,6 +1,6 @@
 <div class="actions">
 	<ul>
-		<li><?php echo $this->Html->link(sprintf(__('View %s', true), __('Review', true)), array('controller' => 'review', 'action' => 'view', $source['Source']['review_id'])); ?> </li>
+		<li><?php echo $this->Html->link(sprintf(__('View %s', true), __('Review', true)), array('controller' => 'reviews', 'action' => 'view', $source['Source']['review_id'])); ?> </li>
 	<?php if ($owner): ?>
 		<li><?php echo $this->Html->link(sprintf(__('Edit %s', true), __('Source', true)), array('action' => 'edit', $source['Source']['id'])); ?> </li>
 		<li><?php echo $this->Html->link(sprintf(__('Delete %s', true), __('Source', true)), array('action' => 'delete', $source['Source']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $source['Source']['id'])); ?> </li>
