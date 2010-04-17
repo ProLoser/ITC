@@ -45,6 +45,7 @@ class ReviewsController extends AppController {
 		$this->_owner($id);
 		$this->_subscriber($id);
 		$params['conditions']['Review.id'] = $id;
+		$params['recursive'] = 1;
 		$review = $this->Review->find('first', $params);
 		$this->set(compact('review'));
 	}

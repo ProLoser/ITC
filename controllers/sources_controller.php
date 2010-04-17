@@ -25,10 +25,7 @@ class SourcesController extends AppController {
 				)
 			)
 		));
-
-//		$params['conditions'] = array('Source.id' => $id);
-//		$params['recursive'] = 2;
-//		$source = $this->Source->find('first', $params);
+		$this->_owner($id, 'Review');
 		$this->set(compact('source'));
 	}
 

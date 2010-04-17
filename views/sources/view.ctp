@@ -31,13 +31,11 @@
 	<?php if (!empty($source['Comment'])):?>
 	<table cellpadding = "0" cellspacing = "0">
 	<tr>
-		<th><?php __('User Id'); ?></th>
 		<th><?php __('User Name'); ?></th>
 		<th><?php __('Line Start'); ?></th>
 		<th><?php __('Line End'); ?></th>
 		<th><?php __('Content'); ?></th>
 		<th><?php __('Created'); ?></th>
-		<th><?php __('Modified'); ?></th>
 		<th><?php __('Vote Count'); ?></th>
 	</tr>
 	<?php
@@ -49,13 +47,11 @@
 			}
 		?>
 		<tr<?php echo $class;?>>
-			<td><?php echo $comment['id'];?></td>
 			<td><?php echo $this->Html->link($comment['User']['username'], array('controller' => 'users', 'action' => 'view', $comment['User']['id']));?></td>
 			<td><?php echo $comment['line_start'];?></td>
 			<td><?php echo $comment['line_end'];?></td>
 			<td><?php echo $comment['content'];?></td>
 			<td><?php echo $comment['created'];?></td>
-			<td><?php echo $comment['modified'];?></td>
 			<td><?php echo $comment['vote_count'];?></td>
 		</tr>
 	<?php endforeach; ?>
