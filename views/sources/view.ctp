@@ -18,12 +18,12 @@
 </div>
 <div class="sources view">
 	<h3><?php echo $this->Html->link($source['Review']['name'], array('controller' => 'reviews', 'action' => 'view', $source['Review']['id']));	?> </h3>
-	<?php echo $source['Source']['description']; ?>
-	<p>Uploaded <?php echo $this->Time->timeAgoInWords($source['Source']['created']); ?></p>
-	<p>Updated <?php echo $this->Time->timeAgoInWords($source['Source']['modified']); ?></p>
-
+	<p><?php echo $source['Source']['description']; ?></p>
 	<div id="geshi">
-		<?php echo $geshi->parse($source['Source']['content'], $source['Language']['name'], $source['Source']['filename']); ?>
+		<?php
+			$header = $source['Source']['filename'].' <span>Uploaded:'.$this->Time->timeAgoInWords($source['Source']['created']).' Updated:'.$this->Time->timeAgoInWords($source['Source']['modified'].'</span>');
+			echo $geshi->parse($source['Source']['content'], $source['Language']['name'], $header);
+		?>
 	</div>
 </div>
 <div class="related">
