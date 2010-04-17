@@ -34,7 +34,7 @@ class Vote extends AppModel {
 				$event = 'vote-comment-down';
 			}
 			$userId = $this->User->Comment->field('user_id', array('Comment.id' => $this->data['Vote']['comment_id']));
-			$this->User->grantPoints($event, $userId, $this->id)
+			$this->User->grantPoints($event, $userId, $this->id);
 		} else {
 			
 		}
