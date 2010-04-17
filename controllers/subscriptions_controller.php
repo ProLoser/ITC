@@ -30,9 +30,10 @@ class SubscriptionsController extends AppController {
 		} else {
 			if ($this->Subscription->subscribe($model, $id)) {
 				$this->Session->setFlash(sprintf(__('The %s has been saved', true), 'subscription'));
-				$this->redirect(array('action' => 'index'));
+				$this->redirect($this->referer);
 			} else {
 				$this->Session->setFlash(sprintf(__('The %s could not be saved. Please, try again.', true), 'subscription'));
+				$this->redirect($this->referer);
 			}
 		}
 	}

@@ -28,16 +28,19 @@ class CommentsController extends AppController {
 	function add($id = null) {
 		if (!$id && empty($this->data)) {
 			$this->Session->setFlash(sprintf(__('Invalid %s', true), 'review'));
-			$this->redirect(array('action' => 'index'));
+			$this->redirect('/');
 		}
 		if (!empty($this->data)) {
 			$this->Comment->create();
 			if ($this->Comment->save($this->data)) {
 				$this->Session->setFlash(sprintf(__('The %s has been saved', true), 'comment'));
-				$this->redirect(array('controller' => 'sources', 'action' => 'view', $this->data['Comment']['source_id']));
+				$this->redirect($this->referer);
 			} else {
 				$this->Session->setFlash(sprintf(__('The %s could not be saved. Please, try again.', true), 'comment'));
+				$this->redirect($this->referer);
 			}
+		} else {
+			$this->redirect('/');
 		}
 		$users = $this->Comment->User->find('list');
 		$files = $this->Comment->File->find('list');
@@ -71,17 +74,17 @@ class CommentsController extends AppController {
 	function delete($id = null) {
 		if (!$id) {
 			$this->Session->setFlash(sprintf(__('Invalid id for %s', true), 'comment'));
-			$this->redirect(array('action'=>'index'));
+			$this->redirect($this->referer);
 		} elseif (!$this->_owner($id)) {
 			$this->Session->setFlash(sprintf(__('You don\'t own this %s', true), 'comment'));
-			$this->redirect(array('action' => 'index'));
+			$this->redirect($this->referer);
 		}
 		if ($this->Comment->delete($id)) {
 			$this->Session->setFlash(sprintf(__('%s deleted', true), 'Comment'));
-			$this->redirect(array('action'=>'index'));
+			$this->redirect($this->referer);
 		}
 		$this->Session->setFlash(sprintf(__('%s was not deleted', true), 'Comment'));
-		$this->redirect(array('action' => 'index'));
+		$this->redirect($this->referer);
 	}
 }
 ?>

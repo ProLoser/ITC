@@ -2,24 +2,21 @@
 	<ul>
 	<?php if ($owner): ?>
 		<li><?php echo $this->Html->link(sprintf(__('Edit %s', true), __('Review', true)), array('action' => 'edit', $review['Review']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(sprintf(__('Close %s', true), __('Review', true)), array('action' => 'close', $review['Review']['id'])); ?> </li>
 		<li><?php echo $this->Html->link(sprintf(__('Delete %s', true), __('Review', true)), array('action' => 'delete', $review['Review']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $review['Review']['id'])); ?> </li>
+		<?php if (!$source['Review']['closed']): ?>
+		<li><?php echo $this->Html->link(sprintf(__('Close %s', true), __('Review', true)), array('action' => 'close', $review['Review']['id'])); ?> </li>
 		<li><?php echo $this->Html->link(sprintf(__('Add %s', true), __('Source', true)), array('action' => 'add', $review['Review']['id'])); ?> </li>
+		<?php endif; ?>
 	<?php endif; ?>
 	</ul>
 </div>
 <div class="reviews view">
-	<?php echo $this->ProCode->subscribe('Review', $review['Review']['id']); ?>
-	<h3><?php  __('Review');?></h3>
+	<?php echo $this->ProCode->subscribe('Review', $review['Review']['id']); ?> <?php if ($review['Review']['closed']) echo '<span class="closed">[CLOSED]</span>'; ?>
+	<h3><?php  __('Review');?>: <?php echo $review['Review']['name']; ?></h3>
 	<dl><?php $i = 0; $class = ' class="altrow"';?>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('User'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $this->Html->link($review['User']['username'], array('controller' => 'users', 'action' => 'view', $review['User']['id'])); ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Name'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $review['Review']['name']; ?>
 			&nbsp;
 		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Visibility'); ?></dt>

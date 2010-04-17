@@ -16,14 +16,14 @@ class VotesController extends AppController {
 			
 			if ($this->Vote->save($this->data)) {
 				$this->Session->setFlash(sprintf(__('The %s has been saved', true), 'vote'));
-				$this->redirect('/');
+				$this->redirect($this->referer);
 			} else {
 				$this->Session->setFlash(sprintf(__('The %s could not be saved. Please, try again.', true), 'vote'));
-				$this->redirect('/');
+				$this->redirect($this->referer);
 			}
 		} else {
 			$this->Session->setFlash(sprintf(__('The %s could not be saved', true), 'vote'));
-			$this->redirect('/');
+			$this->redirect($this->referer);
 		}
 	}
 }

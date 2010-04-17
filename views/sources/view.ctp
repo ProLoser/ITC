@@ -8,6 +8,7 @@
 	<?php endif; ?>
 	</ul>
 </div>
+<?php if (!$source['Review']['closed']): ?>
 <div id="feedback" title="Add Comment">
 	<?php echo $this->Form->create('Comment', array('action' => 'add')); ?>
 		<?php echo $this->Form->input('line_start', array('id' => 'select-first')); ?>
@@ -16,6 +17,7 @@
 		<?php echo $this->Form->input('source_id', array('value' => $source['Source']['id'], 'type' => 'hidden')); ?>
 	<?php echo $this->Form->end('Submit'); ?>
 </div>
+<?php endif; ?>
 <div class="sources view">
 	<?php echo $this->ProCode->subscribe('Review', $source['Review']['id']); ?>
 	<h3><?php echo $this->Html->link($source['Review']['name'], array('controller' => 'reviews', 'action' => 'view', $source['Review']['id']));	?> </h3>
