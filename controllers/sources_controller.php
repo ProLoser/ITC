@@ -22,7 +22,7 @@ class SourcesController extends AppController {
 					)
 				),
 				'Language' => array(
-					'fields' => array('id', 'name')
+					'fields' => array('id', 'key')
 				)
 			)
 		));

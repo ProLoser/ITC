@@ -23,7 +23,7 @@
 	<div id="geshi">
 		<?php
 			$header = $source['Source']['filename'].' <span>Uploaded:'.$this->Time->timeAgoInWords($source['Source']['created']).' Updated:'.$this->Time->timeAgoInWords($source['Source']['modified'].'</span>');
-			echo $geshi->parse($source['Source']['content'], $source['Language']['name'], $header);
+			echo $geshi->parse($source['Source']['content'], $source['Language']['key'], $header);
 		?>
 	</div>
 </div>
