@@ -4,15 +4,10 @@ class SourcesController extends AppController {
 	var $name = 'Sources';
 	var $helpers = array('Geshi', 'Html', 'Javascript');
 
-	function index() {
-		$this->Source->recursive = 0;
-		$this->set('sources', $this->paginate());
-	}
-
 	function view($id = null) {
 		if (!$id) {
 			$this->Session->setFlash(sprintf(__('Invalid %s', true), 'source'));
-			$this->redirect(array('action' => 'index'));
+			$this->redirect(array('controller' => 'reviews', 'action' => 'index'));
 		}
 		$source = $this->Source->find('first', array(
 			'conditions' => array('Source.id' => $id),
@@ -35,13 +30,13 @@ class SourcesController extends AppController {
 	function add($reviewId = null) {
 		if (!$reviewId && empty($this->data)) {
 			$this->Session->setFlash(sprintf(__('Invalid %s', true), 'review'));
-			$this->redirect(array('action' => 'index'));
+			$this->redirect(array('controller' => 'reviews', 'action' => 'index'));
 		}
 		if (!empty($this->data)) {
 			$this->Source->create();
 			if ($this->Source->save($this->data)) {
 				$this->Session->setFlash(sprintf(__('The %s has been saved', true), 'source'));
-				$this->redirect(array('action' => 'index'));
+				$this->redirect(array('controller' => 'reviews', 'action' => 'index'));
 			} else {
 				$this->Session->setFlash(sprintf(__('The %s could not be saved. Please, try again.', true), 'source'));
 			}
@@ -56,12 +51,12 @@ class SourcesController extends AppController {
 	function edit($id = null) {
 		if (!$id && empty($this->data)) {
 			$this->Session->setFlash(sprintf(__('Invalid %s', true), 'source'));
-			$this->redirect(array('action' => 'index'));
+			$this->redirect(array('action' => 'mine'));
 		}
 		if (!empty($this->data)) {
 			if ($this->Source->save($this->data)) {
 				$this->Session->setFlash(sprintf(__('The %s has been saved', true), 'source'));
-				$this->redirect(array('action' => 'index'));
+				$this->redirect(array('controller' => 'reviews', 'action' => 'mine'));
 			} else {
 				$this->Session->setFlash(sprintf(__('The %s could not be saved. Please, try again.', true), 'source'));
 			}
@@ -76,14 +71,14 @@ class SourcesController extends AppController {
 	function delete($id = null) {
 		if (!$id) {
 			$this->Session->setFlash(sprintf(__('Invalid id for %s', true), 'source'));
-			$this->redirect(array('action'=>'index'));
+			$this->redirect(array('controller' => 'reviews', 'action'=>'mine'));
 		}
 		if ($this->Source->delete($id)) {
 			$this->Session->setFlash(sprintf(__('%s deleted', true), 'Source'));
-			$this->redirect(array('action'=>'index'));
+			$this->redirect(array('controller' => 'reviews', 'action'=>'mine'));
 		}
 		$this->Session->setFlash(sprintf(__('%s was not deleted', true), 'Source'));
-		$this->redirect(array('action' => 'index'));
+		$this->redirect(array('controller' => 'reviews', 'action' => 'mine'));
 	}
 }
 ?>
