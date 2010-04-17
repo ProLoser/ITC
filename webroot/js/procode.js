@@ -5,7 +5,7 @@ $(function() {
 			var first = $("#select-first").val("");
 			var last  = $("#select-last").val("");
 			$(".ui-selected", this).each(function(){
-				var index = $(".php li").index(this);
+				var index = $("#geshi li").index(this);
 				index += 1;
 				last.val(index);
 				if (first.val() == "") {
