@@ -8,7 +8,7 @@ body {
 	color: #000000;
 }
 h1 {
-	color: #215D84;
+	color: #5A7D0D;
 	font-size: 2em;
 	line-height: 1.2em;
 	font-weight: normal;
@@ -24,7 +24,7 @@ h3 {
 	line-height: 1.3em;
 	margin-top: 1.5em;
 }
-a {text-decoration: none; outline: 0px; color: #215D84;}
+a {text-decoration: none; outline: 0px; color: #5A7D0D;}
 a:hover { text-decoration: underline; }
 a img { border: none; }
 
@@ -41,18 +41,18 @@ table tr th {
 	text-align:left;
 	color:#ffffff;
 	height:40px;
-	background-color:#215D84;
+	background-color:#5A7D0D;
 }
 table tr th a {
 	color:#ffffff;
 }
 table .altrow {
-	background-color:#A6CCE5;
+	background-color:#C1E07D;
 }
 
 /*** General Classes ***/
 .light-blue {
-	color: #5f8298;
+	color: #76913A;
 }
 
 /*** Layout ***/
@@ -65,7 +65,7 @@ table .altrow {
 #header {
 }
 #header #bar {
-	background: #215d84;
+	background: #5A7D0D;
 min-width:960px;
 	overflow: auto;
 }
@@ -104,7 +104,7 @@ min-width:960px;
 #header #bar form .submit input {
 	padding: 2px 5px;
 	background-color:#ffffff;
-	border:1px solid #215b84;
+	border:1px solid #5A7D0D;
 	width:75px;
 	height:24px;
 	position:relative;
@@ -119,14 +119,14 @@ min-width:960px;
 	text-indent: -9999px;
 }
 #header .reviewCount {
-	color:#215D84;
+	color:#5A7D0D;
 	font-size:2.5em;
 	float:right;
 	margin:80px 46px 0 0 ;
 	text-align:right; 
 }
 #header .reviewCount span {
-	color:#90C3E5;
+	color:#B6E05A;
 	display:block;
 	font-size:.75em;
 	margin-top:10px;
@@ -154,23 +154,23 @@ min-width:960px;
 	height: 20px;
 	padding-top: 5px;
 	margin: 0 5px;
-	color: #215d84;
+	color: #5A7D0D;
 	background-color: #ffffff;
 	font-size:1em;
-	border: 1px solid #215d84;
+	border: 1px solid #5A7D0D;
 	border-bottom: none;
 }
 #header #tabs ul li a.current, #header #tabs ul li a:hover {
 	color: #ffffff;
-	background-color: #215d84;
+	background-color: #5A7D0D;
 	text-decoration: none;
 }
 
 /* Mid-section Wrapper */
 #body {
 	overflow: auto;
-	border-top: 1px solid #215d84;
-	border-bottom: 1px solid #215d84;
+	border-top: 1px solid #5A7D0D;
+	border-bottom: 1px solid #5A7D0D;
 	padding: 0 50px;
 }
 
@@ -187,7 +187,7 @@ min-width:960px;
 	width:240px;
 }
 #sidebar h3 span {
-	color: #215b84;
+	color: #5A7D0D;
 }
 #sidebar ul {
 	margin-top: 1em;
@@ -200,18 +200,18 @@ min-width:960px;
 #sidebar ul li a {
 	font-size: 1.2em;
 	line-height: 1.4em;
-	color:#215D84;
+	color:#5A7D0D;
 }
 
 /* footer */
 #footer {
 	height: 200px;
-	color:#215D84;
+	color:#5A7D0D;
 	width: 960px;
 	margin: 20px auto;
 }
 #footer a {
-	color:#215D84;
+	color:#5A7D0D;
 }
 #footer ul {
 	margin-top:10px;
@@ -225,7 +225,7 @@ min-width:960px;
 #footer ul li h4 {
 	font-weight:bold;
 	font-size:1.1em;
-	color:#215D84;
+	color:#5A7D0D;
 }
 #footer ul li h4 a{
 }
@@ -248,7 +248,7 @@ min-width:960px;
 }
 
 #content form a {
-	color:#215D84;
+	color:#5A7D0D;
 	font-size: .7em;
 	margin-left:1em;
 }
@@ -262,7 +262,7 @@ min-width:960px;
 	margin-bottom:1em;
 }
 #content form label {
-	color:#215D84;
+	color:#5A7D0D;
 	padding-right:5px;
 	display:inline-block;
 	width:141px;
@@ -270,20 +270,20 @@ min-width:960px;
 #content form input {
 	height:20px;
 	margin:5px 5px 10px 5px;
-	border:#5f8298 1px solid;
+	border:#76913A 1px solid;
 }
 #content form .checkbox input {
 	height: auto;
 }
 #content form input:hover {
-	border: #215D84 1px solid;
+	border: #5A7D0D 1px solid;
 }
 #content form select, #content form textarea{
-	border:1px solid #5f8298;
+	border:1px solid #76913A;
 	margin:5px 5px 10px 5px;
 }
 #content form select:hover, #content form textarea:hover {
-	border:1px solid #215b84;
+	border:1px solid #5A7D0D;
 }
 #content form .select {
 	overflow: auto;
@@ -298,7 +298,7 @@ min-width:960px;
 	float: none;
 }
 #content .submit input {
-	background-color:#215D84;
+	background-color:#5A7D0D;
 	color:white;
 	width:100px;
 	font-size:.9em;
@@ -330,7 +330,7 @@ ul.reviews .scores {
 	font-weight: bold;
 	font-size: 2.7em;
 	line-height: 1.1em;
-	background-color: #5F8298;
+	background-color: #76913A;
 	-moz-box-shadow: #bbbbbb 4px 4px 4px;
 	-webkit-box-shadow: #bbbbbb 4px 4px 4px;
       box-shadow: #bbbbbb 4px 4px 4px;
@@ -342,11 +342,11 @@ ul.reviews .scores span {
 	font-weight: normal;
 }
 ul.reviews .scores div {
-	background-color: #215d84;
+	background-color: #5A7D0D;
 	margin: 7px;
 }
 ul.reviews h4 {
-	color: #215D84;
+	color: #5A7D0D;
 	font-weight: normal;
 	font-size: 1.3em;
 	line-height: 1.5em;
@@ -358,7 +358,7 @@ ul.reviews h4 {
 	float: right;
 }
 .userbox a {
-	color: #215d84;
+	color: #5A7D0D;
 }
 .userbox span {
 	color: #CCC;
@@ -388,7 +388,7 @@ td.actions, th.actions { overflow: visible;}
 	list-style: none;
 }
 .actions ul li a {
-	color:#66A3CA;
+	color:#91C127;
 	font-size:.9em;
 	display: block;
 	width: 128px;
@@ -398,12 +398,12 @@ td.actions, th.actions { overflow: visible;}
 	margin: 0 5px;
 	background-color: #ffffff;
 	font-size:1em;
-	border: 1px solid #66A3CA;
+	border: 1px solid #91C127;
 
 }
 .actions ul li a.current, .actions ul li a:hover {
 	color: #ffffff;
-	background-color: #66A3CA;
+	background-color: #91C127;
 	text-decoration: none;
 }
 
@@ -411,7 +411,7 @@ td.actions, th.actions { overflow: visible;}
 /* Users */
 .users.view img {
 	float: right;
-	border: 5px solid #215b84;
+	border: 5px solid #5A7D0D;
 }
 
 .users h3 {
@@ -429,7 +429,7 @@ margin-bottom:.5em;
 }
 
 .users dl dt {
-color:#215b84;
+color:#5A7D0D;
 margin-bottom:.3em;
 }
 
@@ -447,7 +447,7 @@ ul.filters li {
 	color: #000000;
 }
 ul.filters li a {
-	color: #215D84;
+	color: #5A7D0D;
 }
 ul.filters li a.current {
 	color: #000000;
@@ -461,19 +461,19 @@ ul.filters li a.current {
 	margin-left: 2px;
 }
 .paging span, .paging a {
-	border: 1px solid #215D84;
+	border: 1px solid #5A7D0D;
 	padding: 12px;
 	text-align: center;
 }
 .paging a {
-	color: #215D84;
+	color: #5A7D0D;
 }
 .paging a:hover, .paging .current {
-	background-color: #215D84;
+	background-color: #5A7D0D;
 	color:#ffffff;
 }
 .paging .disabled {
-	background-color: #5F8298;
+	background-color: #76913A;
 }
 
 /* Ranks */
@@ -482,12 +482,12 @@ ul.filters li a.current {
 }
 .ranks dl dt, .faq dl dt {
 	font-size:2em;
-	color:#215b84;
+	color:#5A7D0D;
 	margin-bottom:.5em;
 	background-color:#ffffff;
 }
 .ranks dl dt a, .faq dl dt a {
-	color:#215b84;
+	color:#5A7D0D;
 	margin-right:1em;
 }
 .ranks dl dd, .faq dl dd {
@@ -509,7 +509,7 @@ ol.ui-selectable {
 	color:#ffffff;
 	padding:5px 0;
 	text-align:center;
-	background-color:#215D84;
+	background-color:#5A7D0D;
 	margin:1em 0;
 }
 
@@ -532,8 +532,8 @@ ol.ui-selectable {
 .next, .previous, .thumbsUp, .thumbsDown, .remove, .star, .listAll, .hideList, .subscribe {
 display:block;
 float:right;
-width:48px;
-height:48px;
+width:30px;
+height:30px;
 margin:5px;
 text-indent:-9999px;
 

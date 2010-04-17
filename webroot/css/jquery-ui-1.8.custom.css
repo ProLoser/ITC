@@ -41,7 +41,7 @@
 * jQuery UI CSS Framework
 * Copyright (c) 2010 AUTHORS.txt (http://jqueryui.com/about)
 * Dual licensed under the MIT (MIT-LICENSE.txt) and GPL (GPL-LICENSE.txt) licenses.
-* To view and modify this theme, visit http://jqueryui.com/themeroller/?ffDefault=Helvetica,%20Trebuchet%20MS,%20sans-serif&fwDefault=normal&fsDefault=1.3em&cornerRadius=0px&bgColorHeader=A6CCE5&bgTextureHeader=01_flat.png&bgImgOpacityHeader=100&borderColorHeader=A6CCE5&fcHeader=000000&iconColorHeader=215D84&bgColorContent=ffffff&bgTextureContent=01_flat.png&bgImgOpacityContent=100&borderColorContent=A6CCE5&fcContent=000000&iconColorContent=90c3e5&bgColorDefault=ffffff&bgTextureDefault=01_flat.png&bgImgOpacityDefault=50&borderColorDefault=d3d3d3&fcDefault=555555&iconColorDefault=5f8298&bgColorHover=215D84&bgTextureHover=01_flat.png&bgImgOpacityHover=100&borderColorHover=215D84&fcHover=ffffff&iconColorHover=ffffff&bgColorActive=215D84&bgTextureActive=01_flat.png&bgImgOpacityActive=100&borderColorActive=215D84&fcActive=ffffff&iconColorActive=ffffff&bgColorHighlight=fbf9ee&bgTextureHighlight=02_glass.png&bgImgOpacityHighlight=55&borderColorHighlight=fcefa1&fcHighlight=363636&iconColorHighlight=2e83ff&bgColorError=fef1ec&bgTextureError=05_inset_soft.png&bgImgOpacityError=95&borderColorError=cd0a0a&fcError=cd0a0a&iconColorError=cd0a0a&bgColorOverlay=aaaaaa&bgTextureOverlay=01_flat.png&bgImgOpacityOverlay=0&opacityOverlay=30&bgColorShadow=cdcdcd&bgTextureShadow=01_flat.png&bgImgOpacityShadow=20&opacityShadow=30&thicknessShadow=8px&offsetTopShadow=-8px&offsetLeftShadow=-8px&cornerRadiusShadow=8px
+* To view and modify this theme, visit http://jqueryui.com/themeroller/?ffDefault=Helvetica,%20Trebuchet%20MS,%20sans-serif&fwDefault=normal&fsDefault=1.3em&cornerRadius=0px&bgColorHeader=A6CCE5&bgTextureHeader=01_flat.png&bgImgOpacityHeader=100&borderColorHeader=A6CCE5&fcHeader=000000&iconColorHeader=5A7D0D&bgColorContent=ffffff&bgTextureContent=01_flat.png&bgImgOpacityContent=100&borderColorContent=A6CCE5&fcContent=000000&iconColorContent=90c3e5&bgColorDefault=ffffff&bgTextureDefault=01_flat.png&bgImgOpacityDefault=50&borderColorDefault=d3d3d3&fcDefault=555555&iconColorDefault=5f8298&bgColorHover=5A7D0D&bgTextureHover=01_flat.png&bgImgOpacityHover=100&borderColorHover=5A7D0D&fcHover=ffffff&iconColorHover=ffffff&bgColorActive=5A7D0D&bgTextureActive=01_flat.png&bgImgOpacityActive=100&borderColorActive=5A7D0D&fcActive=ffffff&iconColorActive=ffffff&bgColorHighlight=fbf9ee&bgTextureHighlight=02_glass.png&bgImgOpacityHighlight=55&borderColorHighlight=fcefa1&fcHighlight=363636&iconColorHighlight=2e83ff&bgColorError=fef1ec&bgTextureError=05_inset_soft.png&bgImgOpacityError=95&borderColorError=cd0a0a&fcError=cd0a0a&iconColorError=cd0a0a&bgColorOverlay=aaaaaa&bgTextureOverlay=01_flat.png&bgImgOpacityOverlay=0&opacityOverlay=30&bgColorShadow=cdcdcd&bgTextureShadow=01_flat.png&bgImgOpacityShadow=20&opacityShadow=30&thicknessShadow=8px&offsetTopShadow=-8px&offsetLeftShadow=-8px&cornerRadiusShadow=8px
 */
 
 
@@ -52,16 +52,16 @@
 .ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button { font-family: Helvetica, Trebuchet MS, sans-serif; font-size: 1em; }
 .ui-widget-content { background: #ffffff url(../img/jquery-ui/ui-bg_flat_100_ffffff_40x100.png) 50% 50% repeat-x; color: #000000; }
 .ui-widget-content a { color: #000000; }
-.ui-widget-header { border-bottom: 1px solid #215b84; color: #000000; font-weight: bold; display:block; height:28px; overflow:hidden;}
+.ui-widget-header { border-bottom: 1px solid #5A7D0D; color: #000000; font-weight: bold; display:block; height:28px; overflow:hidden;}
 .ui-widget-header a { color: #000000; }
 
 /* Interaction states
 ----------------------------------*/
-.ui-state-default, .ui-widget-content .ui-state-default { border: #215b84 1px solid; background: #ffffff url(../img/jquery-ui/ui-bg_flat_50_ffffff_40x100.png) 50% 50% repeat-x; font-weight: normal; color: #555555; }
+.ui-state-default, .ui-widget-content .ui-state-default { border: #5A7D0D 1px solid; background: #ffffff url(../img/jquery-ui/ui-bg_flat_50_ffffff_40x100.png) 50% 50% repeat-x; font-weight: normal; color: #555555; }
 .ui-state-default a, .ui-state-default a:link, .ui-state-default a:visited { color: #555555; text-decoration: none; }
-.ui-state-hover, .ui-widget-content .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus { border: 1px solid #215d84; background: #215d84 url(../img/jquery-ui/ui-bg_flat_100_215d84_40x100.png) 50% 50% repeat-x; font-weight: normal; color: #ffffff; }
+.ui-state-hover, .ui-widget-content .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus { border: 1px solid #5A7D0D; background: #5A7D0D url(../img/jquery-ui/ui-bg_flat_100_5A7D0D_40x100.png) 50% 50% repeat-x; font-weight: normal; color: #ffffff; }
 .ui-state-hover a, .ui-state-hover a:hover { color: #ffffff; text-decoration: none; }
-.ui-state-active, .ui-widget-content .ui-state-active { border: 1px solid #215d84; background: #215d84 url(../img/jquery-ui/ui-bg_flat_100_215d84_40x100.png) 50% 50% repeat-x; font-weight: normal; color: #ffffff; }
+.ui-state-active, .ui-widget-content .ui-state-active { border: 1px solid #5A7D0D; background: #5A7D0D url(../img/jquery-ui/ui-bg_flat_100_5A7D0D_40x100.png) 50% 50% repeat-x; font-weight: normal; color: #ffffff; }
 .ui-state-active a, .ui-state-active a:link, .ui-state-active a:visited { color: #ffffff; text-decoration: none; }
 .ui-widget :active { outline: none; }
 
@@ -82,7 +82,7 @@
 /* states and images */
 .ui-icon { width: 16px; height: 16px; background-image: url(../img/jquery-ui/ui-icons_90c3e5_256x240.png); }
 .ui-widget-content .ui-icon {background-image: url(../img/jquery-ui/ui-icons_90c3e5_256x240.png); }
-.ui-widget-header .ui-icon {background-image: url(../img/jquery-ui/ui-icons_215d84_256x240.png); }
+.ui-widget-header .ui-icon {background-image: url(../img/jquery-ui/ui-icons_5A7D0D_256x240.png); }
 .ui-state-default .ui-icon { background-image: url(../img/jquery-ui/ui-icons_5f8298_256x240.png); }
 .ui-state-hover .ui-icon, .ui-state-focus .ui-icon {background-image: url(../img/jquery-ui/ui-icons_ffffff_256x240.png); }
 .ui-state-active .ui-icon {background-image: url(../img/jquery-ui/ui-icons_ffffff_256x240.png); }
