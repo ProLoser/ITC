@@ -34,41 +34,69 @@
 		</dd>
 	</dl>
 </div>
-<div class="related">
-	<h3><?php printf(__('Related %s', true), __('Sources', true));?></h3>
-	<?php if (!empty($review['Source'])):?>
-	<table cellpadding = "0" cellspacing = "0">
-	<tr>
-		<th><?php __('File Name'); ?></th>
-		<th><?php __('Language'); ?></th>
-		<th><?php __('Uploaded'); ?></th>
-		<th><?php __('Updated'); ?></th>
-		<th><?php __('Content'); ?></th>
-		<th><?php __('Description'); ?></th>
-		<?php if ($owner): ?><th class="actions"><?php __('Actions');?></th><?php endif; ?>
-	</tr>
-	<?php
-		$i = 0;
-		foreach ($review['Source'] as $source):
-			$class = null;
-			if ($i++ % 2 == 0) {
-				$class = ' class="altrow"';
-			}
-		?>
-		<tr<?php echo $class;?>>
-			<td><?php echo $this->Html->link($source['filename'], array('controller' => 'sources', 'action' => 'view', $source['id'])); ?></td>
-			<td><?php echo $source['Language']['name'];?></td>
-			<td><?php echo $source['created'];?></td>
-			<td><?php echo $source['modified'];?></td>
-			<td><?php echo $source['content'];?></td>
-			<td><?php echo $source['description'];?></td>
-			<?php if ($owner): ?><td class="actions">
-				<?php echo $this->Html->link(__('Edit', true), array('controller' => 'sources', 'action' => 'edit', $source['id'])); ?>
-				<?php echo $this->Html->link(__('Delete', true), array('controller' => 'sources', 'action' => 'delete', $source['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $source['id'])); ?>
-			</td><?php endif; ?>
+<div class="tabs">
+	<ul>
+		<li><a href="#relComments">Sources</a></li>
+		<li><a href="#relSubscribers">Subscribers</a></li>
+	</ul>
+	<div id="relComments">
+		<?php if (!empty($review['Source'])):?>
+		<table cellpadding = "0" cellspacing = "0">
+		<tr>
+			<th><?php __('File Name'); ?></th>
+			<th><?php __('Language'); ?></th>
+			<th><?php __('Uploaded'); ?></th>
+			<th><?php __('Updated'); ?></th>
+			<th><?php __('Description'); ?></th>
+			<?php if ($owner): ?><th class="actions"><?php __('Actions');?></th><?php endif; ?>
 		</tr>
-	<?php endforeach; ?>
-	</table>
-<?php endif; ?>
-</div>
+		<?php
+			$i = 0;
+			foreach ($review['Source'] as $source):
+				$class = null;
+				if ($i++ % 2 == 0) {
+					$class = ' class="altrow"';
+				}
+			?>
+			<tr<?php echo $class;?>>
+				<td><?php echo $this->Html->link($source['filename'], array('controller' => 'sources', 'action' => 'view', $source['id'])); ?></td>
+				<td><?php echo $source['Language']['name'];?></td>
+				<td><?php echo $this->Time->timeAgoInWords($source['created']);?></td>
+				<td><?php echo $source['modified'];?></td>
+				<td><?php echo $source['description'];?></td>
+				<?php if ($owner): ?><td class="actions">
+					<?php echo $this->Html->link(__('Edit', true), array('controller' => 'sources', 'action' => 'edit', $source['id'])); ?>
+					<?php echo $this->Html->link(__('Delete', true), array('controller' => 'sources', 'action' => 'delete', $source['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $source['id'])); ?>
+				</td><?php endif; ?>
+			</tr>
+		<?php endforeach; ?>
+		</table>
+	<?php endif; ?>
+	</div>
+	
+	<div id="relSubscribers">
+		<?php if (!empty($user['Subscriber'])):?>
+		<table cellpadding = "0" cellspacing = "0">
+		<tr>
+			<th><?php __('User'); ?></th>
+			<th><?php __('Pending'); ?></th>
+			<th><?php __('Created'); ?></th>
+		</tr>
+		<?php
+			$i = 0;
+			foreach ($user['Subscriber'] as $subscription):
+				$class = null;
+				if ($i++ % 2 == 0) {
+					$class = ' class="altrow"';
+				}
+			?>
+			<tr<?php echo $class;?>>
+				<td><?php echo $subscription['user_id'];?></td>
+				<td><?php echo $subscription['pending'];?></td>
+				<td><?php echo $subscription['created'];?></td>
+			</tr>
+		<?php endforeach; ?>
+		</table>
+	<?php endif; ?>
+	</div>
 </div>
