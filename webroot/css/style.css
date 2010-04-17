@@ -87,7 +87,7 @@ min-width:960px;
 /* Search Box */
 #header #bar form {
 	float: right;
-	margin: 10px 20px 10px 10px;
+	margin: 10px 46px 10px 10px;
 }
 #header #bar form div {
 	display: inline;
@@ -122,7 +122,7 @@ min-width:960px;
 	color:#215D84;
 	font-size:2.5em;
 	float:right;
-	margin:80px 20px 0 0 ;
+	margin:80px 46px 0 0 ;
 	text-align:right; 
 }
 #header .reviewCount span {
@@ -494,6 +494,57 @@ ol.ui-selectable {
 	background-color: #dddddd;
 	margin-bottom: 10px;
 }
+
+
+/* buttons */
+
+
+.next, .previous, .thumbsUp, .thumbsDown, .remove, .star, .listAll, .hideList, .subscribe {
+display:block;
+float:right;
+width:48px;
+height:48px;
+margin:5px;
+text-indent:-9999px;
+
+}
+
+.next {
+background-image: url(..img/next.png);
+}
+
+.previous {
+background-image: url(..img/previous.png);
+}
+
+.thumbsDown {
+background-image: url(..img/thumbsDown.png);
+}
+
+.thumbsUp {
+background-image: url(..img/thumbsUp.png);
+}
+
+.remove {
+background-image: url(..img/remove.png);
+}
+
+.star {
+background-image: url(..img/star.png);
+}
+
+.listAll {
+background-image: url(..img/listAll.png);
+}
+
+.hideList {
+background-image: url(..img/hideList.png);
+}
+
+.subscribe {
+background-image: url(..img/subscribe.png);
+}
+
 
 
 .cake-sql-log {clear: both; margin: 10px auto;}
