@@ -2,41 +2,41 @@
  * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
  * (http://qbnz.com/highlighter/ and http://geshi.org/)
  */
-.php .de1, .php .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;}
-.php  {font-family:monospace;}
-.php .imp {font-weight: bold; color: red;}
-.php li, .php .li1 {font-weight: normal; vertical-align:top;}
-.php .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
-.php .li2 {font-weight: bold; vertical-align:top;}
-.php .kw1 {color: #b1b100;}
-.php .kw2 {color: #000000; font-weight: bold;}
-.php .kw3 {color: #990000;}
-.php .kw4 {color: #009900; font-weight: bold;}
-.php .co1 {color: #666666; font-style: italic;}
-.php .co2 {color: #666666; font-style: italic;}
-.php .co3 {color: #0000cc; font-style: italic;}
-.php .co4 {color: #009933; font-style: italic;}
-.php .coMULTI {color: #666666; font-style: italic;}
-.php .es0 {color: #000099; font-weight: bold;}
-.php .es1 {color: #000099; font-weight: bold;}
-.php .es2 {color: #660099; font-weight: bold;}
-.php .es3 {color: #660099; font-weight: bold;}
-.php .es4 {color: #006699; font-weight: bold;}
-.php .es5 {color: #006699; font-weight: bold; font-style: italic;}
-.php .es6 {color: #009933; font-weight: bold;}
-.php .es_h {color: #000099; font-weight: bold;}
-.php .br0 {color: #009900;}
-.php .sy0 {color: #339933;}
-.php .sy1 {color: #000000; font-weight: bold;}
-.php .st0 {color: #0000ff;}
-.php .st_h {color: #0000ff;}
-.php .nu0 {color: #cc66cc;}
-.php .nu8 {color: #208080;}
-.php .nu12 {color: #208080;}
-.php .nu19 {color:#800080;}
-.php .me1 {color: #004000;}
-.php .me2 {color: #004000;}
-.php .re0 {color: #000088;}
-.php span.xtra { display:block; }
+#geshi ol .de1, #geshi ol .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;}
+#geshi ol  {font-family:monospace;}
+#geshi ol .imp {font-weight: bold; color: red;}
+#geshi ol li, #geshi ol .li1 {font-weight: normal; vertical-align:top;}
+#geshi ol .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+#geshi ol .li2 {font-weight: bold; vertical-align:top;}
+#geshi ol .kw1 {color: #b1b100;}
+#geshi ol .kw2 {color: #000000; font-weight: bold;}
+#geshi ol .kw3 {color: #990000;}
+#geshi ol .kw4 {color: #009900; font-weight: bold;}
+#geshi ol .co1 {color: #666666; font-style: italic;}
+#geshi ol .co2 {color: #666666; font-style: italic;}
+#geshi ol .co3 {color: #0000cc; font-style: italic;}
+#geshi ol .co4 {color: #009933; font-style: italic;}
+#geshi ol .coMULTI {color: #666666; font-style: italic;}
+#geshi ol .es0 {color: #000099; font-weight: bold;}
+#geshi ol .es1 {color: #000099; font-weight: bold;}
+#geshi ol .es2 {color: #660099; font-weight: bold;}
+#geshi ol .es3 {color: #660099; font-weight: bold;}
+#geshi ol .es4 {color: #006699; font-weight: bold;}
+#geshi ol .es5 {color: #006699; font-weight: bold; font-style: italic;}
+#geshi ol .es6 {color: #009933; font-weight: bold;}
+#geshi ol .es_h {color: #000099; font-weight: bold;}
+#geshi ol .br0 {color: #009900;}
+#geshi ol .sy0 {color: #339933;}
+#geshi ol .sy1 {color: #000000; font-weight: bold;}
+#geshi ol .st0 {color: #0000ff;}
+#geshi ol .st_h {color: #0000ff;}
+#geshi ol .nu0 {color: #cc66cc;}
+#geshi ol .nu8 {color: #208080;}
+#geshi ol .nu12 {color: #208080;}
+#geshi ol .nu19 {color:#800080;}
+#geshi ol .me1 {color: #004000;}
+#geshi ol .me2 {color: #004000;}
+#geshi ol .re0 {color: #000088;}
+#geshi ol span.xtra { display:block; }
 .ln-xtra { background: #FECA40; }
 

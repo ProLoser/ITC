@@ -17,12 +17,12 @@
 	<?php echo $this->Form->end('Submit'); ?>
 </div>
 <div class="sources view">
-	<h3><?php echo $this->Html->link($source['Review']['name'], array('controller' => 'reviews', 'action' => 'view', $source['Review']['id']));	?>: </h3>
+	<h3><?php echo $this->Html->link($source['Review']['name'], array('controller' => 'reviews', 'action' => 'view', $source['Review']['id']));	?> </h3>
 	<?php echo $source['Source']['description']; ?>
 	<p>Uploaded <?php echo $this->Time->timeAgoInWords($source['Source']['created']); ?></p>
 	<p>Updated <?php echo $this->Time->timeAgoInWords($source['Source']['modified']); ?></p>
 
-	<?php echo $geshi->parse($source['Source']['content'], $source['Language']['name']); ?>
+	<div id="geshi"><?php echo $geshi->parse($source['Source']['content'], $source['Language']['name']); ?></div>
 </div>
 <div class="related">
 	<h3><?php printf(__('Related %s', true), __('Comments', true));?></h3>

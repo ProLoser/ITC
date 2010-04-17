@@ -1,5 +1,5 @@
 $(function() {
-	$(".php").selectable({
+	$("#geshi ol").selectable({
 		filter: 'li',
 		stop: function(){
 			var first = $("#select-first").val("");
