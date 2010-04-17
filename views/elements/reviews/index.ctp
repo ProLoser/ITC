@@ -11,6 +11,7 @@ foreach ($reviews as $review):
 	}
 ?>
 <li<?php echo $class;?>>
+	<?php echo $this->ProCode->subscribe('Review', $review['Review']['id']); ?>
 	<div class="scores">
 		8<span>reviews</span>
 		<div>
@@ -20,7 +21,6 @@ foreach ($reviews as $review):
 	<h4><?php echo $this->Html->link($review['Review']['name'], array('action' => 'view', $review['Review']['id'])); ?></h4>
 	<p><?php echo $this->Text->truncate($review['Review']['description']); ?></p>
 	<p class="userbox">
-		<?php echo $this->Html->link(__('Subscribe', true), array('controller' => 'subscriptions', 'action' => 'add', $review['Review']['id'])); ?>
 		asked <?php echo $this->Time->timeAgoInWords($review['Review']['created']); ?> by <?php echo $this->Html->link($review['User']['username'], array('controller' => 'users', 'action' => 'view', $review['User']['id'])); ?> <span>[grand puba]</span>
 	</p>
 <?php endforeach; ?>
