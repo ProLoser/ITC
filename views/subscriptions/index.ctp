@@ -2,11 +2,11 @@
 	<h3><?php __('Subscriptions');?></h3>
 	<table cellpadding="0" cellspacing="0">
 	<tr>
-			<th><?php echo $this->Paginator->sort('id');?></th>
-			<th><?php echo $this->Paginator->sort('user_id');?></th>
-			<th><?php echo $this->Paginator->sort('status');?></th>
-			<th><?php echo $this->Paginator->sort('created');?></th>
-			<th class="actions"><?php __('Actions');?></th>
+		<th><?php echo $this->Paginator->sort('foreign_model');?></th>
+		<th>Subscribed To</th>
+		<th><?php echo $this->Paginator->sort('pending');?></th>
+		<th><?php echo $this->Paginator->sort('created');?></th>
+		<th class="actions"><?php __('Actions');?></th>
 	</tr>
 	<?php
 	$i = 0;
@@ -17,15 +17,15 @@
 		}
 	?>
 	<tr<?php echo $class;?>>
-		<td><?php echo $subscription['Subscription']['id']; ?>&nbsp;</td>
-		<td>
-			<?php echo $this->Html->link($subscription['User']['username'], array('controller' => 'users', 'action' => 'view', $subscription['User']['id'])); ?>
-		</td>
-		<td><?php echo $subscription['Subscription']['status']; ?>&nbsp;</td>
-		<td><?php echo $subscription['Subscription']['created']; ?>&nbsp;</td>
+		<td><?php echo $subscription['Subscription']['foreign_model']; ?>&nbsp;</td>
+	<?php if (!empty($subscription['Review']['id'])): ?>
+		<td><?php echo $this->Html->link($subscription['Review']['name'], array('controller' => 'reviews', 'action' => 'view', $subscription['Review']['id'])); ?>&nbsp;</td>
+	<?php else: ?>
+		<td><?php echo $this->Html->link($subscription['Subscribee']['username'], array('controller' => 'users', 'action' => 'view', $subscription['Subscribee']['id'])); ?>&nbsp;</td>
+	<?php endif; ?>
+		<td><?php echo $subscription['Subscription']['pending']; ?>&nbsp;</td>
+		<td><?php echo $this->Time->timeAgoInWords($subscription['Subscription']['created']); ?>&nbsp;</td>
 		<td class="actions">
-			<?php echo $this->Html->link(__('View', true), array('action' => 'view', $subscription['Subscription']['id'])); ?>
-			<?php echo $this->Html->link(__('Edit', true), array('action' => 'edit', $subscription['Subscription']['id'])); ?>
 			<?php echo $this->Html->link(__('Delete', true), array('action' => 'delete', $subscription['Subscription']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $subscription['Subscription']['id'])); ?>
 		</td>
 	</tr>

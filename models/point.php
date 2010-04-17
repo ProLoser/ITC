@@ -35,7 +35,9 @@ class Point extends AppModel {
 		$data['User']['points'] = $points + $pointEvent['PointEvent']['points'];
 		
 		// Update the user's Rank
-		$data['User']['rank_id'] = $this->User->Rank->field('id', array('Rank.points >=' => $data['User']['points']));
+		$data['User']['rank_id'] = $this->User->Rank->field('id', array(
+			'Rank.points >=' => $data['User']['points']
+		));
 		
 		// Save updates
 		$this->User->id = $this->data['Point']['user_id'];

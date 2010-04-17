@@ -1,7 +1,6 @@
 <?php
 class Subscription extends AppModel {
 	var $name = 'Subscription';
-	var $order = 'created DESC';
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
 	var $belongsTo = array(
@@ -12,6 +11,16 @@ class Subscription extends AppModel {
 			'fields' => '',
 			'order' => ''
 		),
+		'Review' => array(
+			'className' => 'Review',
+			'foreignKey' => 'foreign_id',
+			'conditions' => array('Subscription.foreign_model' => 'Review'),
+		),
+		'Subscribee' => array(
+			'className' => 'User',
+			'foreignKey' => 'foreign_id',
+			'conditions' => array('Subscription.foreign_model' => 'User'),
+		),
 	);
 	
 	var $foreignModels = array(
@@ -19,6 +28,9 @@ class Subscription extends AppModel {
 		'Review',
 	);
 	
+	/**
+	 * Call this method to subscribe the current user to a foreign model/id
+	 */
 	function subscribe($model, $foreignId) {
 		if (in_array($model, $this->foreignModels)) {
 			$data['Subscription'] = array(

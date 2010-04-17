@@ -153,7 +153,6 @@ class User extends AppModel {
 	 * @param $foreignId int The primary id of the related model-record that earned the points
 	 */
 	function grantPoints($event, $userId, $foreignId = null) {
-		//@TODO Should point event use the key as the primary key?
 		$data['Point']['user_id'] = $userId;
 		$data['Point']['point_event_id'] = $event;
 		if ($foreignId)
