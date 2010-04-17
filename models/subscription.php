@@ -52,5 +52,18 @@ class Subscription extends AppModel {
 		$this->owner();
 		return true;
 	}
+	
+	function afterSave($created) {
+		if ($created) {
+			if ($this->data['Subscription']['foreign_id'] == 'User') {
+				$this->grantPoints(
+					'user-subscribed',
+					$this->data['Subscription']['foreign_id']
+				);
+			} else {
+			
+			}
+		}
+	}
 }
 ?>

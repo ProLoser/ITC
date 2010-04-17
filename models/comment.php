@@ -57,17 +57,14 @@ class Comment extends AppModel {
 	);
 	
 	function beforeSave() {
-		// Make sure the review is open before commenting
-		//@TODO Fix this stupid check. needs to check a field of a table of a table
-		//if ($this->Source->Review->field('closed', array('Review.id = Source.id' => $this->data['Comment']['source_id'])) == true)
-			//return false;
-			
 		$this->owner();
 		return true;
 	}
 	
 	function afterSave($created) {
-		if (!$created) {
+		if ($created) {
+			$this->User->grantPoints('create-comment', $this->data['Comment']['user_id'], $this->data['Comment']['id']);
+		} else {
 			if (isset($this->data['Comment']['owner_vote'])) {
 				$userId = $this->field('user_id', array('Comment.id' => $this->data['Comment']['id']));
 				$this->User->grantPoints('owner-comment-up', $ownerId, $this->data['Comment']['id']);

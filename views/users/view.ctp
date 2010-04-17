@@ -98,6 +98,7 @@
 		<tr>
 			<th><?php __('Point Event'); ?></th>
 			<th><?php __('Created'); ?></th>
+			<th><?php __('Points'); ?></th>
 		</tr>
 		<?php
 			$i = 0;
@@ -110,6 +111,7 @@
 			<tr<?php echo $class;?>>
 				<td><?php echo $point['PointEvent']['name'];?></td>
 				<td><?php echo $this->Time->timeAgoInWords($point['created']);?></td>
+				<td><?php echo $point['PointEvent']['points'];?></td>
 			</tr>
 		<?php endforeach; ?>
 		</table>
@@ -150,7 +152,7 @@
 		<table cellpadding = "0" cellspacing = "0">
 		<tr>
 			<th><?php __('Subscribed To'); ?></th>
-			<th><?php __('Status'); ?></th>
+			<th><?php __('Pending'); ?></th>
 			<th><?php __('Created'); ?></th>
 			<th class="actions"><?php __('Actions');?></th>
 		</tr>
@@ -164,7 +166,7 @@
 			?>
 			<tr<?php echo $class;?>>
 				<td><?php echo $subscription['foreign_model'];?></td>
-				<td><?php echo $subscription['status'];?></td>
+				<td><?php echo $subscription['pending'];?></td>
 				<td><?php echo $subscription['created'];?></td>
 				<td class="actions">
 					<?php echo $this->Html->link(__('Delete', true), array('controller' => 'subscriptions', 'action' => 'delete', $subscription['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $subscription['id'])); ?>
@@ -180,7 +182,7 @@
 		<table cellpadding = "0" cellspacing = "0">
 		<tr>
 			<th><?php __('User'); ?></th>
-			<th><?php __('Status'); ?></th>
+			<th><?php __('Pending'); ?></th>
 			<th><?php __('Created'); ?></th>
 		</tr>
 		<?php
@@ -193,7 +195,7 @@
 			?>
 			<tr<?php echo $class;?>>
 				<td><?php echo $subscription['user_id'];?></td>
-				<td><?php echo $subscription['status'];?></td>
+				<td><?php echo $subscription['pending'];?></td>
 				<td><?php echo $subscription['created'];?></td>
 			</tr>
 		<?php endforeach; ?>

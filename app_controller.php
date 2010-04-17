@@ -62,13 +62,14 @@ class AppController extends Controller {
 	 * @param $id int id of the current record to check a subscription for
 	 */
 	function _subscriber($id) {
-		$results = $this->{$this->modelClass}->Subscriber->find('first',
-			array('conditions' => array(
+		$results = $this->{$this->modelClass}->Subscriber->find('first', array(
+			'conditions' => array(
 				'foreign_model' => $this->modelClass,
 				'foreign_id' => $id,
 				'user_id' => $this->Auth->user('id')
-			))
-		);
+			),
+			'recursive' => -1,
+		));
 		$this->set('subscriber', $results);
 		return $results;
 	}
