@@ -69,6 +69,7 @@ class UsersController extends AppController {
 				'Vote',
 			)
 		);
+		$this->_owner();
 		$this->set('user', $this->User->find('first', $params));
 	}
 

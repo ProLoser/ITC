@@ -84,8 +84,10 @@
 				<td><?php echo $comment['vote_count'];?></td>
 				<td class="actions">
 					<?php echo $this->Html->link(__('View', true), array('controller' => 'comments', 'action' => 'view', $comment['id'])); ?>
+					<?php if ($owner): ?>
 					<?php echo $this->Html->link(__('Edit', true), array('controller' => 'comments', 'action' => 'edit', $comment['id'])); ?>
 					<?php echo $this->Html->link(__('Delete', true), array('controller' => 'comments', 'action' => 'delete', $comment['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $comment['id'])); ?>
+					<?php endif; ?>
 				</td>
 			</tr>
 		<?php endforeach; ?>
@@ -139,8 +141,10 @@
 				<td><?php echo $review['visibility'];?></td>
 				<td><?php echo $this->Time->timeAgoInWords($review['created']);?></td>
 				<td class="actions">
+					<?php if ($owner): ?>
 					<?php echo $this->Html->link(__('Edit', true), array('controller' => 'reviews', 'action' => 'edit', $review['id'])); ?>
 					<?php echo $this->Html->link(__('Delete', true), array('controller' => 'reviews', 'action' => 'delete', $review['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $review['id'])); ?>
+					<?php endif; ?>
 				</td>
 			</tr>
 		<?php endforeach; ?>
@@ -231,8 +235,10 @@
 				<td><?php echo $this->Time->timeAgoInWords($vote['created']);?></td>
 				<td class="actions">
 					<?php echo $this->Html->link(__('View', true), array('controller' => 'votes', 'action' => 'view', $vote['id'])); ?>
+					<?php if ($owner): ?>
 					<?php echo $this->Html->link(__('Edit', true), array('controller' => 'votes', 'action' => 'edit', $vote['id'])); ?>
 					<?php echo $this->Html->link(__('Delete', true), array('controller' => 'votes', 'action' => 'delete', $vote['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $vote['id'])); ?>
+					<?php endif; ?>
 				</td>
 			</tr>
 		<?php endforeach; ?>
