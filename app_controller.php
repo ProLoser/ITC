@@ -97,7 +97,7 @@ class AppController extends Controller {
 		$this->Auth->fields = array('username' => 'username', 'password' => 'password');
 		$this->Auth->loginAction = array('plugin' => null, 'admin' => false, 'controller' => 'users', 'action' => 'login');
 		$this->Auth->logoutRedirect = '/';
-		$this->Auth->loginRedirect = '/';
+		$this->Auth->loginRedirect = array('action' => 'mine');
 
 		if ($this->_prefix()) {
 			$this->Auth->deny();
