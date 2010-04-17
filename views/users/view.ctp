@@ -1,10 +1,6 @@
-<div class="actions">
-	<ul>
-		<li><?php echo $this->ProCode->subscribe('User', $user['User']['id']); ?></li>
-	</ul>
-</div>
 <div class="users view">
 	<?php echo $this->Upload->image($user, 'User.avatar'); ?>
+	<?php echo $this->ProCode->subscribe('User', $user['User']['id']); ?>
 	<h3><?php echo $user['User']['username']; ?></h3>
 	<h4>Rank: <?php echo $this->Html->link($user['Rank']['title'], array('controller' => 'ranks', 'action' => 'view', $user['Rank']['id'])); ?></h4>
 	<dl><?php $i = 0; $class = ' class="altrow"';?>

@@ -49,7 +49,12 @@
 			<div id="tabs"><?php echo $this->element('layouts/navigation')?></div>
 		</div>
 		<div id="body">
-			<div id="sidebar"><?php echo $this->element('layouts/sidebar');?></div>
+			<div id="sidebar">
+				<?php if ($this->params['controller'] == 'sources' && $this->params['action'] == 'view') {
+					echo $this->element('reviews/sidebar');
+				} ?>
+				<?php echo $this->element('layouts/sidebar');?>
+			</div>
 			<div id="content"><?php echo $content_for_layout; ?></div>
 		</div>
 		<div id="footer">
