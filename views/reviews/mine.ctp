@@ -1,6 +1,6 @@
 <div class="actions">
 	<ul>	
-		<li><?php echo $this->Html->link('My Comments', array('controller' => 'comments', 'action' => 'mine')); ?></li>
+		<li><?php echo $this->Html->link('My Comments', array('controller' => 'comments', 'action' => 'index')); ?></li>
 		<li><?php echo $this->Html->link('My Subscriptions', array('controller' => 'subscriptions', 'action' => 'index')); ?></li>
 	</ul>
 </div>
