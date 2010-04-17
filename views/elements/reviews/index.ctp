@@ -13,7 +13,7 @@ foreach ($reviews as $review):
 <li<?php echo $class;?>>
 	<?php echo $this->ProCode->subscribe('Review', $review['Review']['id']); ?>
 	<div class="scores">
-		8<span>reviews</span>
+		8<span>comments</span>
 		<div>
 			<span>votes</span>6
 		</div>
