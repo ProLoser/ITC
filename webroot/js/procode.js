@@ -12,10 +12,11 @@ $(function() {
 					first.val(index);
 				}
 			});
+			$('#feedback').dialog("open");
 		}
 	});
 	// Modal Box
-	$('#feedback').dialog();
+	$('#feedback').dialog({ autoOpen: false });
 	// Tabs
 	$(".tabs").tabs();
 });
