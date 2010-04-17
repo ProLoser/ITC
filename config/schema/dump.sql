@@ -66,25 +66,25 @@ CREATE TABLE IF NOT EXISTS `languages` (
 --
 
 INSERT INTO `languages` (`id`, `name`, `key`) VALUES
-(1, 'PHP', ''),
-(2, 'ASP.NET', ''),
-(3, 'Perl', ''),
-(4, 'Java', ''),
-(5, 'C', ''),
-(6, 'C++', ''),
-(7, 'C#', ''),
-(8, 'Fortran', ''),
-(9, 'Cobol', ''),
-(10, 'VB.NET', ''),
-(11, 'HTML', ''),
-(12, 'JavaScript', ''),
-(13, 'CSS', ''),
-(14, 'AJAX', ''),
-(15, 'XML', ''),
-(16, 'Objective C', ''),
-(17, 'Pascal', ''),
-(18, 'Python', ''),
-(19, 'Ruby', '');
+(1, 'PHP', 'php'),
+(2, 'ASP.NET', 'asp'),
+(3, 'Perl', 'perl'),
+(4, 'Java', 'java5'),
+(5, 'C', 'c'),
+(6, 'C++', 'cpp'),
+(7, 'C#', 'csharp'),
+(8, 'Fortran', 'fortran'),
+(9, 'Cobol', 'cobol'),
+(10, 'VB.NET', 'vbnet'),
+(11, 'HTML', 'html4strict'),
+(12, 'JavaScript', 'javascript'),
+(13, 'CSS', 'css'),
+(14, 'AJAX', 'javascript'),
+(15, 'XML', 'xml'),
+(16, 'Objective C', 'objc'),
+(17, 'Pascal', 'pascal'),
+(18, 'Python', 'python'),
+(19, 'Ruby', 'ruby');
 
 -- --------------------------------------------------------
 
