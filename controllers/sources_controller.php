@@ -15,7 +15,10 @@ class SourcesController extends AppController {
 				'Review',
 				'Comment' => array(
 					'User' => array(
-						'fields' => array('id', 'username')
+						'fields' => array('id', 'username', 'avatar_file_name'),
+						'Rank' => array(
+							'fields' => array('id', 'title')
+						)
 					)
 				),
 				'Language' => array(
