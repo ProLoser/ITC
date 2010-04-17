@@ -63,7 +63,6 @@
 		<?php if (!empty($user['Comment'])):?>
 		<table cellpadding = "0" cellspacing = "0">
 		<tr>
-			<th><?php __('Source Id'); ?></th>
 			<th><?php __('Line Start'); ?></th>
 			<th><?php __('Line End'); ?></th>
 			<th><?php __('Content'); ?></th>
@@ -81,7 +80,6 @@
 				}
 			?>
 			<tr<?php echo $class;?>>
-				<td><?php echo $comment['source_id'];?></td>
 				<td><?php echo $comment['line_start'];?></td>
 				<td><?php echo $comment['line_end'];?></td>
 				<td><?php echo $comment['content'];?></td>
@@ -104,7 +102,6 @@
 		<tr>
 			<th><?php __('Point Event'); ?></th>
 			<th><?php __('Created'); ?></th>
-			<th><?php __('Foreign Id'); ?></th>
 		</tr>
 		<?php
 			$i = 0;
@@ -117,7 +114,6 @@
 			<tr<?php echo $class;?>>
 				<td><?php echo $point['PointEvent']['name'];?></td>
 				<td><?php echo $this->Time->timeAgoInWords($point['created']);?></td>
-				<td><?php echo $point['foreign_id'];?></td>
 			</tr>
 		<?php endforeach; ?>
 		</table>
@@ -155,7 +151,6 @@
 		<?php if (!empty($user['Subscription'])):?>
 		<table cellpadding = "0" cellspacing = "0">
 		<tr>
-			<th><?php __('Foreign Id'); ?></th>
 			<th><?php __('Subscribed To'); ?></th>
 			<th><?php __('Status'); ?></th>
 			<th><?php __('Created'); ?></th>
@@ -170,7 +165,6 @@
 				}
 			?>
 			<tr<?php echo $class;?>>
-				<td><?php echo $subscription['foreign_id'];?></td>
 				<td><?php echo $subscription['foreign_model'];?></td>
 				<td><?php echo $subscription['status'];?></td>
 				<td><?php echo $subscription['created'];?></td>
