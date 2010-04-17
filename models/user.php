@@ -8,7 +8,7 @@ class User extends AppModel {
 			'alphaNumeric' => array(
 				'rule' => 'alphaNumeric',
 				'required' => true,
-				'message' => 'Alpha-numeric names only."'
+				'message' => 'Alpha-numeric names only.'
 			),
 			'unique' => array(
 				'rule' => 'isUnique',
