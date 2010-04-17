@@ -526,8 +526,8 @@ ol.ui-selectable {
 .thumbsUp, .thumbsDown, .remove, .star, .listAll, .hideList, .subscribe {
 	display:block;
 	float:right;
-	width:30px;
-	height:30px;
+	width:20px;
+	height:20px;
 	margin:5px;
 	text-indent:-9999px;
 }
@@ -588,6 +588,7 @@ background-color:#5A7D0D;
 }
 #sideComments ul li .top span {
 	float: right;
+	font-weight: bold;
 }
 /* GeSHi */
 #geshi {
