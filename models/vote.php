@@ -28,7 +28,13 @@ class Vote extends AppModel {
 	
 	function afterSave($created) {
 		if ($created) {
-			
+			if ($this->data['direction']) {
+				$event = 'vote-comment-up';
+			} else {
+				$event = 'vote-comment-down';
+			}
+			$userId = $this->User->Comment->field('user_id', array('Comment.id' => $this->data['Vote']['comment_id']));
+			$this->User->grantPoints($event, $userId, $this->id)
 		} else {
 			
 		}
