@@ -368,7 +368,6 @@ ul.reviews h4 {
 /*** Common Elements ***/
 /* Actions */
 .actions {
-	overflow: auto;
 	margin-top: -40px;
 	margin-left: -4px;
 	margin-right: -20px;
@@ -377,10 +376,9 @@ td.actions, th.actions { overflow: visible;}
 .actions h3 {
 	margin: 0;
 	padding: 0;
-	float: left;
+	display: none;
 }
 .actions ul {
-	list-style:none;
 	overflow: auto;
 }
 .actions ul li {
