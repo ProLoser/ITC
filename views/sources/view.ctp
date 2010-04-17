@@ -26,36 +26,4 @@
 		?>
 	</div>
 </div>
-<div class="related">
-	<h3><?php printf(__('Related %s', true), __('Comments', true));?></h3>
-	<?php if (!empty($source['Comment'])):?>
-	<table cellpadding = "0" cellspacing = "0">
-	<tr>
-		<th><?php __('User Name'); ?></th>
-		<th><?php __('Line Start'); ?></th>
-		<th><?php __('Line End'); ?></th>
-		<th><?php __('Content'); ?></th>
-		<th><?php __('Created'); ?></th>
-		<th><?php __('Vote Count'); ?></th>
-	</tr>
-	<?php
-		$i = 0;
-		foreach ($source['Comment'] as $comment):
-			$class = null;
-			if ($i++ % 2 == 0) {
-				$class = ' class="altrow"';
-			}
-		?>
-		<tr<?php echo $class;?>>
-			<td><?php echo $this->Html->link($comment['User']['username'], array('controller' => 'users', 'action' => 'view', $comment['User']['id']));?></td>
-			<td><?php echo $comment['line_start'];?></td>
-			<td><?php echo $comment['line_end'];?></td>
-			<td><?php echo $comment['content'];?></td>
-			<td><?php echo $comment['created'];?></td>
-			<td><?php echo $comment['vote_count'];?></td>
-		</tr>
-	<?php endforeach; ?>
-	</table>
-<?php endif; ?>
-</div>
 

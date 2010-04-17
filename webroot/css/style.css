@@ -123,7 +123,7 @@ min-width:960px;
 	font-size:2.5em;
 	float:right;
 	margin:80px 46px 0 0 ;
-	text-align:right; 
+	text-align:right;
 }
 #header .reviewCount span {
 	color:#B6E05A;
@@ -562,6 +562,47 @@ background-image: url(../img/subscribe.png);
 }
 
 
+.sources.view h3 {
+font-size:2em;
+margin-bottom:.5em;
+}
+
+
+.sources.view p {
+margin-bottom:1em;
+}
+
+
+.php .head {
+display:block;
+width:100%;
+height:12px;
+padding:10px;
+background-color:#5A7D0D;
+}
+
+
+#geshi {
+background-color:#91C127;
+}
+
+#geshi ol {
+	margin: 20px 0;
+background-color:#ffffff;
+	margin: 0 0 0 50px; /*--Distance between the order numbers--*/
+	}
+#geshi ol li {
+	margin: 0;
+padding-left:5px;
+	color: #ffffff;
+	font-size: 1em;
+}
+
+.li2 {
+background-color:#eeeeee;
+}
+
 
 .cake-sql-log {clear: both; margin: 10px auto;}
 .cake-sql-log td, .cake-sql-log th  { margin: 2px;}
+
