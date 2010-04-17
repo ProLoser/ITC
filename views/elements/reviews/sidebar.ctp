@@ -14,7 +14,7 @@
 			<div class="content"><?php echo $comment['content'];?></div>
 			<div class="bottom">
 				<?php echo $comment['vote_count'];?>
-				<a class="thumbsUp" href="#">Thumbs Up</a><a class="thumbsDown" href="#">Thumbs Down</a>
+				<?php echo $this->ProCode->vote('Comment', $comment['id']); ?><?php echo $this->ProCode->vote('Comment', $comment['id'], false); ?>
 			</div>
 		</li>
 	<?php endforeach; ?>

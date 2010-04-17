@@ -3,6 +3,8 @@ class ReviewsController extends AppController {
 
 	var $name = 'Reviews';
 	
+	var $components = array('Filter.Filter');
+	
 	function beforeFilter() {
 		parent::beforeFilter();
 		$this->Auth->deny(array('mine'));
@@ -10,9 +12,13 @@ class ReviewsController extends AppController {
 
 	function index() {
 		$this->Review->recursive = 0;
-		$this->paginate['conditions'] = array('Review.visibility' => 'Public');
+		$conditions = array('Review.visibility' => 'Public');
+		
+		$this->paginate['conditions'] = $conditions;
 		$this->paginate['limit'] = 5;
 		$this->set('reviews', $this->paginate());
+		if (isset($this->data['Review']['search']))
+			$this->params['named']['search'] = $this->data['Review']['search'];
 	}
 
 	function mine() {

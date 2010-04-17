@@ -32,11 +32,19 @@ class ProCodeHelper extends AppHelper {
 	 * Generate thumbs up or down link
 	 */
 	function vote($model, $id, $direction = true) {
-		return $this->Html->link(
-			'Thumbs Up', 
-			array('controller' => 'votes', 'action' => 'add', $model, $id, $direction), 
-			array('class' => 'thumbsUp')
-		);
+		if ($direction) {
+			return $this->Html->link(
+				'Thumbs Up', 
+				array('controller' => 'votes', 'action' => 'add', $model, $id, 'up'), 
+				array('class' => 'thumbsUp')
+			);
+		} else {
+			return $this->Html->link(
+				'Thumbs Down', 
+				array('controller' => 'votes', 'action' => 'add', $model, $id, 'down'), 
+				array('class' => 'thumbsDown')
+			);
+		}
 	}
 }
 ?>
