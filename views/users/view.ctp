@@ -151,6 +151,7 @@
 		<?php if (!empty($user['Subscription'])):?>
 		<table cellpadding = "0" cellspacing = "0">
 		<tr>
+			<th>Subscription Type</th>
 			<th><?php __('Subscribed To'); ?></th>
 			<th><?php __('Pending'); ?></th>
 			<th><?php __('Created'); ?></th>
@@ -165,9 +166,14 @@
 				}
 			?>
 			<tr<?php echo $class;?>>
-				<td><?php echo $subscription['foreign_model'];?></td>
+				<td><?php echo $subscription['foreign_model']; ?>&nbsp;</td>
+				<td><?php if (!empty($subscription['Review']['id'])) {
+					echo $this->Html->link($subscription['Review']['name'], array('controller' => 'reviews', 'action' => 'view', $subscription['Review']['id']));
+				} else {
+					echo $this->Html->link($subscription['Subscribee']['username'], array('controller' => 'users', 'action' => 'view', $subscription['Subscribee']['id']));
+				 }?>&nbsp;</td>
 				<td><?php echo $subscription['pending'];?></td>
-				<td><?php echo $subscription['created'];?></td>
+				<td><?php echo $this->Time->timeAgoInWords($subscription['created']);?></td>
 				<td class="actions">
 					<?php echo $this->Html->link(__('Delete', true), array('controller' => 'subscriptions', 'action' => 'delete', $subscription['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $subscription['id'])); ?>
 				</td>
@@ -196,7 +202,7 @@
 			<tr<?php echo $class;?>>
 				<td><?php echo $subscription['user_id'];?></td>
 				<td><?php echo $subscription['pending'];?></td>
-				<td><?php echo $subscription['created'];?></td>
+				<td><?php echo $this->Time->timeAgoInWords($subscription['created']);?></td>
 			</tr>
 		<?php endforeach; ?>
 		</table>
@@ -222,7 +228,7 @@
 			<tr<?php echo $class;?>>
 				<td><?php echo $vote['comment_id'];?></td>
 				<td><?php echo $vote['direction'];?></td>
-				<td><?php echo $vote['created'];?></td>
+				<td><?php echo $this->Time->timeAgoInWords($vote['created']);?></td>
 				<td class="actions">
 					<?php echo $this->Html->link(__('View', true), array('controller' => 'votes', 'action' => 'view', $vote['id'])); ?>
 					<?php echo $this->Html->link(__('Edit', true), array('controller' => 'votes', 'action' => 'edit', $vote['id'])); ?>
