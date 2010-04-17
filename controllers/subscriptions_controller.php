@@ -2,7 +2,7 @@
 class SubscriptionsController extends AppController {
 
 	var $name = 'Subscriptions';
-	
+
 	function beforeFilter() {
 		parent::beforeFilter();
 		$this->Auth->deny(array('index', 'view'));
@@ -14,7 +14,7 @@ class SubscriptionsController extends AppController {
 		$this->set('subscriptions', $this->paginate());
 	}
 
-	
+
 	/*function view($reviewId = null) {
 		if (!$id) {
 			$this->Session->setFlash(sprintf(__('Invalid %s', true), 'subscription'));
@@ -30,10 +30,10 @@ class SubscriptionsController extends AppController {
 		} else {
 			if ($this->Subscription->subscribe($model, $id)) {
 				$this->Session->setFlash(sprintf(__('The %s has been saved', true), 'subscription'));
-				$this->redirect($this->referer);
+				$this->redirect($_SERVER['HTTP_REFERER']);
 			} else {
 				$this->Session->setFlash(sprintf(__('The %s could not be saved. Please, try again.', true), 'subscription'));
-				$this->redirect($this->referer);
+				$this->redirect($_SERVER['HTTP_REFERER']);
 			}
 		}
 	}
@@ -75,3 +75,4 @@ class SubscriptionsController extends AppController {
 
 }
 ?>
+

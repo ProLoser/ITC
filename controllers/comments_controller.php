@@ -34,10 +34,10 @@ class CommentsController extends AppController {
 			$this->Comment->create();
 			if ($this->Comment->save($this->data)) {
 				$this->Session->setFlash(sprintf(__('The %s has been saved', true), 'comment'));
-				$this->redirect($this->referer);
+				$this->redirect($_SERVER['HTTP_REFERER']);
 			} else {
 				$this->Session->setFlash(sprintf(__('The %s could not be saved. Please, try again.', true), 'comment'));
-				$this->redirect($this->referer);
+				$this->redirect($_SERVER['HTTP_REFERER']);
 			}
 		} else {
 			$this->redirect('/');
@@ -74,17 +74,17 @@ class CommentsController extends AppController {
 	function delete($id = null) {
 		if (!$id) {
 			$this->Session->setFlash(sprintf(__('Invalid id for %s', true), 'comment'));
-			$this->redirect($this->referer);
+			$this->redirect($_SERVER['HTTP_REFERER']);
 		} elseif (!$this->_owner($id)) {
 			$this->Session->setFlash(sprintf(__('You don\'t own this %s', true), 'comment'));
-			$this->redirect($this->referer);
+			$this->redirect($_SERVER['HTTP_REFERER']);
 		}
 		if ($this->Comment->delete($id)) {
 			$this->Session->setFlash(sprintf(__('%s deleted', true), 'Comment'));
-			$this->redirect($this->referer);
+			$this->redirect($_SERVER['HTTP_REFERER']);
 		}
 		$this->Session->setFlash(sprintf(__('%s was not deleted', true), 'Comment'));
-		$this->redirect($this->referer);
+		$this->redirect($_SERVER['HTTP_REFERER']);
 	}
 }
 ?>
