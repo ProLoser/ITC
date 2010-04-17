@@ -14,10 +14,6 @@ class Source extends AppModel {
 	);
 
 	var $actsAs = array(
-		/*'UploadPack.Upload' => array(
-			'source_file_name' => array(
-			)
-		),*/
 		'Revision',
 	);
 

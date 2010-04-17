@@ -17,6 +17,7 @@
 	<?php echo $this->Form->end('Submit'); ?>
 </div>
 <div class="sources view">
+	<?php echo $this->ProCode->subscribe('Review', $source['Review']['id']); ?>
 	<h3><?php echo $this->Html->link($source['Review']['name'], array('controller' => 'reviews', 'action' => 'view', $source['Review']['id']));	?> </h3>
 	<p><?php echo $source['Source']['description']; ?></p>
 	<div id="geshi">
