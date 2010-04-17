@@ -37,7 +37,8 @@ class Comment extends AppModel {
 			'foreignKey' => 'source_id',
 			'conditions' => '',
 			'fields' => '',
-			'order' => ''
+			'order' => '',
+			'counterCache' => true,
 		)
 	);
 
