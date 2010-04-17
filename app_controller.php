@@ -37,12 +37,12 @@ class AppController extends Controller {
 
 	/**
 	 * Checks to see if the current user is the owner of the record and sets a boolean variable to the view
-	 * 
+	 *
 	 * @param $id int id of the current record to check ownership for
 	 */
 	function _owner($id, $relatedModel = null) {
 		if ($relatedModel) {
-			$check = $this->{$this->modelClass}->$relatedModel->field($relatedModel.'.user_id', array($relatedModel.'.id' => $id));
+			$check = $this->{$this->modelClass}->$relatedModel->field('user_id', array('id' => $id));
 		} else {
 			$check = $this->{$this->modelClass}->field($this->modelClass.'.user_id', array($this->modelClass.'.id' => $id));
 		}
@@ -58,7 +58,7 @@ class AppController extends Controller {
 	/**
 	 * Checks to see if the current user is a subscriber and sends subscription info to the view
 	 * Can be used in conjunction with the 'subscribe.ctp' element
-	 * 
+	 *
 	 * @param $id int id of the current record to check a subscription for
 	 */
 	function _subscriber($id) {

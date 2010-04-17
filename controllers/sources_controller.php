@@ -25,7 +25,7 @@ class SourcesController extends AppController {
 				)
 			)
 		));
-		$this->_owner($id, 'Review');
+		$this->_owner($source['Source']['review_id'], 'Review');
 		$this->set(compact('source'));
 	}
 
