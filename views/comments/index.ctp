@@ -38,8 +38,7 @@
 		<td><?php echo $comment['Comment']['line_start']; ?>&nbsp;</td>
 		<td><?php echo $comment['Comment']['line_end']; ?>&nbsp;</td>
 		<td><?php echo $comment['Comment']['content']; ?>&nbsp;</td>
-		<td><?php echo $comment['Comment']['created']; ?>&nbsp;</td>
-		<td><?php echo $comment['Comment']['modified']; ?>&nbsp;</td>
+		<td><?php echo $this->Time->timeAgoInWords($comment['Comment']['created']); ?>&nbsp;</td>
 		<td><?php echo $comment['Comment']['vote_count']; ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View', true), array('action' => 'view', $comment['Comment']['id'])); ?>
