@@ -9,6 +9,12 @@ class Language extends AppModel {
 				'rule' => 'notEmpty',
 				'message' => 'Please enter a name.'
 			)
+		),
+		'key' => array(
+			'notEmpty' => array(
+				'rule' => 'notEmpty',
+				'message' => 'Please enter a key.'
+			)
 		)
 	);
 
