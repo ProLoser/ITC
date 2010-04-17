@@ -412,31 +412,31 @@ td.actions, th.actions { overflow: visible;}
 
 
 /* Users */
-.users.view img {
+#content img {
 	float: right;
 	border: 5px solid #5A7D0D;
 }
 
-.users h3 {
+#content h3 {
 font-size:2em;
 margin-bottom:.5em;
 }
 
-.users dl {
+#content dl {
 margin-bottom:2em;
 }
 
-.users h4 {
+#content h4 {
 font-size:1.5em;
 margin-bottom:.5em;
 }
 
-.users dl dt {
+#content dl dt {
 color:#5A7D0D;
 margin-bottom:.3em;
 }
 
-.users dl dd {
+#content dl dd {
 margin-bottom:1em;
 }
 
