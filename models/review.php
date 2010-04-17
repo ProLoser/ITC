@@ -41,8 +41,6 @@ class Review extends AppModel {
 		'Source',
 	);
 
-	var $actsAs = 'Filter';
-
 	var $hasAndBelongsToMany = array(
 		'Tag',
 	);

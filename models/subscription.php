@@ -14,12 +14,10 @@ class Subscription extends AppModel {
 		'Review' => array(
 			'className' => 'Review',
 			'foreignKey' => 'foreign_id',
-			'conditions' => array('Subscription.foreign_model' => 'Review'),
 		),
 		'Subscribee' => array(
 			'className' => 'User',
 			'foreignKey' => 'foreign_id',
-			'conditions' => array('Subscription.foreign_model' => 'User'),
 		),
 	);
 	

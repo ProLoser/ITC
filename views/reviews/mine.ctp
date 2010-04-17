@@ -1,6 +1,6 @@
 <div class="actions">
 	<ul>	
-		<li><?php echo $this->Html->link('My Comments', array('controller' => 'reviews', 'action' => 'mine')); ?></li>
+		<li><?php echo $this->Html->link('My Comments', array('controller' => 'comments', 'action' => 'mine')); ?></li>
 		<li><?php echo $this->Html->link('My Subscriptions', array('controller' => 'subscriptions', 'action' => 'index')); ?></li>
 	</ul>
 </div>
@@ -21,10 +21,9 @@
 		}
 	?>
 	<tr<?php echo $class;?>>
-		<td><?php echo $review['Review']['name']; ?>&nbsp;</td>
+		<td><?php echo $this->Html->link($review['Review']['name'], array('action' => 'view', $review['Review']['id'])); ?>&nbsp;</td>
 		<td><?php echo $review['Review']['visibility']; ?>&nbsp;</td>
 		<td class="actions">
-			<?php echo $this->Html->link(__('View', true), array('action' => 'view', $review['Review']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit', true), array('action' => 'edit', $review['Review']['id'])); ?>
 			<?php echo $this->Html->link(__('Delete', true), array('action' => 'delete', $review['Review']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $review['Review']['id'])); ?>
 		</td>

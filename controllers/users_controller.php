@@ -57,10 +57,19 @@ class UsersController extends AppController {
 			$this->Session->setFlash(sprintf(__('Invalid %s', true), 'user'));
 			$this->redirect(array('action' => 'index'));
 		}
-		$this->User->recursive = 2;
-		$this->set('user', $this->User->read(null, $id));
-		$this->helpers[] = 'Time';
-		$this->helpers[] = 'UploadPack.Upload';
+		$params = array(
+			'conditions' => array('User.id' => $id),
+			'contain' => array(
+				'Rank',
+				'Comment',
+				'Point' => array('PointEvent'),
+				'Review',
+				'Subscription' => array('Review', 'Subscribee'),
+				'Subscriber',
+				'Vote',
+			)
+		);
+		$this->set('user', $this->User->find('first', $params));
 	}
 
 	function register() {

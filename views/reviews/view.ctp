@@ -14,7 +14,7 @@
 	<dl><?php $i = 0; $class = ' class="altrow"';?>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('User'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $this->Html->link($review['User']['name'], array('controller' => 'users', 'action' => 'view', $review['User']['id'])); ?>
+			<?php echo $this->Html->link($review['User']['username'], array('controller' => 'users', 'action' => 'view', $review['User']['id'])); ?>
 			&nbsp;
 		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Name'); ?></dt>
@@ -57,7 +57,7 @@
 		?>
 		<tr<?php echo $class;?>>
 			<td><?php echo $this->Html->link($source['filename'], array('controller' => 'sources', 'action' => 'view', $source['id'])); ?></td>
-			<td><?php echo $source['language_id'];?></td>
+			<td><?php echo $source['Language']['name'];?></td>
 			<td><?php echo $source['created'];?></td>
 			<td><?php echo $source['modified'];?></td>
 			<td><?php echo $source['content'];?></td>
