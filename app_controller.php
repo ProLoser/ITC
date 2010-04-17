@@ -13,7 +13,7 @@ class AppController extends Controller {
 		'Form',
 		'Text',
 		'Time',
-		'Age'
+		'ProCode'
 	);
 
 	function beforeFilter() {

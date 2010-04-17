@@ -40,7 +40,7 @@
 		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Age'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $age->calculateAge($user['User']['date_of_birth']); ?>
+			<?php echo $proCode->calculateAge($user['User']['date_of_birth']); ?>
 			&nbsp;
 		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Role'); ?></dt>
