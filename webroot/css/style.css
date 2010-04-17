@@ -407,6 +407,36 @@ td.actions, th.actions { overflow: visible;}
 	text-decoration: none;
 }
 
+
+/* Users */
+.users.view img {
+	float: right;
+	border: 5px solid #215b84;
+}
+
+.users h3 {
+font-size:2em;
+margin-bottom:.5em;
+}
+
+.users dl {
+margin-bottom:2em;
+}
+
+.users h4 {
+font-size:1.5em;
+margin-bottom:.5em;
+}
+
+.users dl dt {
+color:#215b84;
+margin-bottom:.3em;
+}
+
+.users dl dd {
+margin-bottom:1em;
+}
+
 /* Filters */
 ul.filters {
 	margin-right: 40px;
@@ -549,9 +579,3 @@ background-image: url(..img/subscribe.png);
 
 .cake-sql-log {clear: both; margin: 10px auto;}
 .cake-sql-log td, .cake-sql-log th  { margin: 2px;}
-
-.users.view img {
-	float: right;
-	margin: 10px;
-	border: 2px solid #BDBDBD;
-}

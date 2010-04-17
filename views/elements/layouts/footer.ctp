@@ -9,7 +9,7 @@
 			<li><a href="mailto:redjoker88@hotmail.com">Andrew Hipp</a></li>
 			<li><a href="http://www.deansofer.com">Dean Sofer</a></li>
 			<li><a href="http://www.jaimehernandez.com">Jaime Hernandez</a></li>
-			<li><a href="#">Mark Lenser</a></li>
+			<li><a href="http://weebicle.com">Mark Lenser</a></li>
 			<li><a href="http://www.nicholaschan.net">Nicholas Chan</a></li>
 		</ul>
 	</li>
