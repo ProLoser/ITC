@@ -6,7 +6,6 @@
 			<th><?php echo $this->Paginator->sort('user_id');?></th>
 			<th><?php echo $this->Paginator->sort('status');?></th>
 			<th><?php echo $this->Paginator->sort('created');?></th>
-			<th><?php echo $this->Paginator->sort('modified');?></th>
 			<th class="actions"><?php __('Actions');?></th>
 	</tr>
 	<?php
@@ -20,11 +19,10 @@
 	<tr<?php echo $class;?>>
 		<td><?php echo $subscription['Subscription']['id']; ?>&nbsp;</td>
 		<td>
-			<?php echo $this->Html->link($subscription['User']['name'], array('controller' => 'users', 'action' => 'view', $subscription['User']['id'])); ?>
+			<?php echo $this->Html->link($subscription['User']['username'], array('controller' => 'users', 'action' => 'view', $subscription['User']['id'])); ?>
 		</td>
 		<td><?php echo $subscription['Subscription']['status']; ?>&nbsp;</td>
 		<td><?php echo $subscription['Subscription']['created']; ?>&nbsp;</td>
-		<td><?php echo $subscription['Subscription']['modified']; ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View', true), array('action' => 'view', $subscription['Subscription']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit', true), array('action' => 'edit', $subscription['Subscription']['id'])); ?>
