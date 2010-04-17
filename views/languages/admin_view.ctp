@@ -11,6 +11,11 @@
 			<?php echo $language['Language']['name']; ?>
 			&nbsp;
 		</dd>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Key'); ?></dt>
+		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+			<?php echo $language['Language']['key']; ?>
+			&nbsp;
+		</dd>
 	</dl>
 </div>
 <div class="actions">

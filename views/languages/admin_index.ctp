@@ -4,6 +4,7 @@
 	<tr>
 			<th><?php echo $this->Paginator->sort('id');?></th>
 			<th><?php echo $this->Paginator->sort('name');?></th>
+			<th><?php echo $this->Paginator->sort('key');?></th>
 			<th class="actions"><?php __('Actions');?></th>
 	</tr>
 	<?php
@@ -17,6 +18,7 @@
 	<tr<?php echo $class;?>>
 		<td><?php echo $language['Language']['id']; ?>&nbsp;</td>
 		<td><?php echo $language['Language']['name']; ?>&nbsp;</td>
+		<td><?php echo $language['Language']['key']; ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View', true), array('action' => 'view', $language['Language']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit', true), array('action' => 'edit', $language['Language']['id'])); ?>
