@@ -42,7 +42,7 @@ class AppController extends Controller {
 	 */
 	function _owner($id, $relatedModel = null) {
 		if ($relatedModel) {
-			$check = $this->{$this->modelClass}->$relatedModel->field($this->relatedModel.'.user_id', array($this->relatedModel.'.id' => $id));
+			$check = $this->{$this->modelClass}->$relatedModel->field($relatedModel.'.user_id', array($relatedModel.'.id' => $id));
 		} else {
 			$check = $this->{$this->modelClass}->field($this->modelClass.'.user_id', array($this->modelClass.'.id' => $id));
 		}
