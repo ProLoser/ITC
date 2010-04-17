@@ -457,23 +457,27 @@ ul.filters li a.current {
 	text-decoration: underline;
 }
 
-/* Pagination */
+
+/* Paging */
 .paging {
 	margin-right: 40px;
 	margin-top: 20px;
 	margin-left: 2px;
 }
-.paging span, .paging a {
+.paging span {
+	display:inline-block;
+	color:#ffffff;
+	padding: 2px 5px;
 	border: 1px solid #5A7D0D;
-	padding: 12px;
 	text-align: center;
+	background-color:#5A7D0D;
+	margin:1em 0;
 }
 .paging a {
-	color: #5A7D0D;
-}
-.paging a:hover, .paging .current {
-	background-color: #5A7D0D;
 	color:#ffffff;
+}
+.paging .current {
+	background-color: #91C127;
 }
 .paging .disabled {
 	background-color: #76913A;
@@ -505,17 +509,6 @@ ol.ui-selectable {
 	margin: 20px;
 }
 
-/* Paging */
-.paging span {
-	display:inline-block;
-	width:100px;
-	color:#ffffff;
-	padding:5px 0;
-	text-align:center;
-	background-color:#5A7D0D;
-	margin:1em 0;
-}
-
 /* adbox */
 .adbox {
 	color: #ffffff;
@@ -530,7 +523,7 @@ ol.ui-selectable {
 
 
 /* buttons */
-.next, .previous, .thumbsUp, .thumbsDown, .remove, .star, .listAll, .hideList, .subscribe {
+.thumbsUp, .thumbsDown, .remove, .star, .listAll, .hideList, .subscribe {
 	display:block;
 	float:right;
 	width:30px;
@@ -538,12 +531,12 @@ ol.ui-selectable {
 	margin:5px;
 	text-indent:-9999px;
 }
-.next {
+/*.next {
 background-image: url(../img/next.png);
 }
 .previous {
 background-image: url(../img/previous.png);
-}
+}*/
 .thumbsDown {
 background-image: url(../img/thumbsDown.png);
 }

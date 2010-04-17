@@ -28,6 +28,7 @@ class Comment extends AppModel {
 			'className' => 'User',
 			'foreignKey' => 'user_id',
 			'conditions' => '',
+			'counterCache' => true,
 			'fields' => '',
 			'order' => ''
 		),
