@@ -8,15 +8,12 @@
 	<h3><?php __('Comments');?></h3>
 	<table cellpadding="0" cellspacing="0">
 	<tr>
-			<th><?php echo $this->Paginator->sort('id');?></th>
 			<th><?php echo $this->Paginator->sort('user_id');?></th>
 			<th><?php echo $this->Paginator->sort('source_id');?></th>
 			<th><?php echo $this->Paginator->sort('line_start');?></th>
 			<th><?php echo $this->Paginator->sort('line_end');?></th>
 			<th><?php echo $this->Paginator->sort('content');?></th>
 			<th><?php echo $this->Paginator->sort('created');?></th>
-			<th><?php echo $this->Paginator->sort('modified');?></th>
-			<th><?php echo $this->Paginator->sort('vote_count');?></th>
 			<th class="actions"><?php __('Actions');?></th>
 	</tr>
 	<?php
@@ -28,18 +25,16 @@
 		}
 	?>
 	<tr<?php echo $class;?>>
-		<td><?php echo $comment['Comment']['id']; ?>&nbsp;</td>
 		<td>
-			<?php echo $this->Html->link($comment['User']['name'], array('controller' => 'users', 'action' => 'view', $comment['User']['id'])); ?>
+			<?php echo $this->Html->link($comment['User']['username'], array('controller' => 'users', 'action' => 'view', $comment['User']['id'])); ?>
 		</td>
 		<td>
-			<?php echo $this->Html->link($comment['Source']['id'], array('controller' => 'sources', 'action' => 'view', $comment['Source']['id'])); ?>
+			<?php echo $this->Html->link($comment['Source']['filename'], array('controller' => 'sources', 'action' => 'view', $comment['Source']['id'])); ?>
 		</td>
 		<td><?php echo $comment['Comment']['line_start']; ?>&nbsp;</td>
 		<td><?php echo $comment['Comment']['line_end']; ?>&nbsp;</td>
 		<td><?php echo $comment['Comment']['content']; ?>&nbsp;</td>
 		<td><?php echo $this->Time->timeAgoInWords($comment['Comment']['created']); ?>&nbsp;</td>
-		<td><?php echo $comment['Comment']['vote_count']; ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View', true), array('action' => 'view', $comment['Comment']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit', true), array('action' => 'edit', $comment['Comment']['id'])); ?>

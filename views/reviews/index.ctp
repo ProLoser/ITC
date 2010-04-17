@@ -9,9 +9,11 @@
 		<li>Sort by:</li>
 		<li><?php echo $this->Paginator->sort('user_id');?> |</li>
 		<li><?php echo $this->Paginator->sort('name');?> |</li>
-		<li><a href="#">New</a> |</li>
-		<li><a href="#">Old</a> |</li>
-		<li><a href="#">Popular</a></li>
+		<li>Filter by:</li>
+		<li><?php echo $this->Paginator->sort('user_id');?> |</li>
+		<li><?php echo $this->Paginator->sort('name');?> |</li>
+		<li><?php echo $this->Paginator->sort('created');?></li>
+		<li><?php echo $this->Paginator->sort('created');?></li>
 	</ul>
 	
 	<?php echo $this->element('reviews/index', array('reviews' => $reviews)); ?>
