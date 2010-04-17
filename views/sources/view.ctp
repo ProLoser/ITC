@@ -22,7 +22,7 @@
 	<p>Uploaded <?php echo $this->Time->timeAgoInWords($source['Source']['created']); ?></p>
 	<p>Updated <?php echo $this->Time->timeAgoInWords($source['Source']['modified']); ?></p>
 
-	<?php echo $geshi->parse($source['Source']['content'], 'php'); ?>
+	<?php echo $geshi->parse($source['Source']['content'], $source['Language']['name']); ?>
 </div>
 <div class="related">
 	<h3><?php printf(__('Related %s', true), __('Comments', true));?></h3>
