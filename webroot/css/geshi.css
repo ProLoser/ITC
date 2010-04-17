@@ -7,7 +7,7 @@
 #geshi ol .imp {font-weight: bold; color: red;}
 #geshi ol li, #geshi ol .li1 {font-weight: normal; vertical-align:top;}
 #geshi ol .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
-#geshi ol .li2 {font-weight: bold; vertical-align:top;}
+#geshi ol .li2 {vertical-align:top;}
 #geshi ol .kw1 {color: #b1b100;}
 #geshi ol .kw2 {color: #000000; font-weight: bold;}
 #geshi ol .kw3 {color: #990000;}
