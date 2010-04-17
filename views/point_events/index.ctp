@@ -1,3 +1,11 @@
+<div class="actions">
+	<ul>
+		<li><?php echo $this->Html->link('FAQ', array('controller' => 'pages', 'action' => 'display', 'frequently_asked_questions')); ?></li>
+		<li><?php echo $this->Html->link('Ranks', array('controller' => 'ranks', 'action' => 'index')); ?></li>
+		<li><?php echo $this->Html->link('Terms of Use', array('controller' => 'pages', 'action' => 'display', 'terms_of_use')); ?></li>
+		<li><?php echo $this->Html->link('Privacy Policy', array('controller' => 'pages', 'action' => 'display', 'privacy_policy')); ?></li>
+	</ul>
+</div>
 <div class="pointEvents index">
 	<h3><?php __('Point Events');?></h3>
 	<table cellpadding="0" cellspacing="0">
