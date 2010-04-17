@@ -593,6 +593,7 @@ background-color:#5A7D0D;
 /* GeSHi */
 #geshi {
 	background-color:#91C127;
+	overflow:auto;
 }
 #geshi ol {
 	margin: 20px 0;
