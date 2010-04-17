@@ -50,6 +50,7 @@ class AppController extends Controller {
 			$this->set('owner', true);
 			return true;
 		} else {
+			$this->set('owner', false);
 			return false;
 		}
 	}
