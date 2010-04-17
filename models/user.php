@@ -65,16 +65,26 @@ class User extends AppModel {
 	);
 
 	var $hasMany = array(
-		'Comment',
-		'Point',
-		'Review',
-		'Subscription',
+		'Comment' => array(
+			'order' => 'created DESC',
+		),
+		'Point' => array(
+			'order' => 'created DESC',
+		),
+		'Review' => array(
+			'order' => 'created DESC',
+		),
+		'Subscription' => array(
+			'order' => 'created DESC',
+		),
 		'Subscriber' => array(
 			'className' => 'Subscription',
 			'foreignKey' => 'foreign_id',
 			'conditions' => array('Subscriber.foreign_model' => 'User'),
 		),
-		'Vote'
+		'Vote' => array(
+			'order' => 'created DESC',
+		)
 	);
 
 	var $actsAs = array(

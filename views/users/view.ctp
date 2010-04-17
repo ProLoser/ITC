@@ -6,7 +6,7 @@
 <div class="users view">
 	<?php echo $this->Upload->image($user, 'User.avatar'); ?>
 	<h3><?php echo $user['User']['username']; ?></h3>
-	<h4><?php echo $this->Html->link($user['Rank']['title'], array('controller' => 'ranks', 'action' => 'view', $user['Rank']['id'])); ?></h4>
+	<h4>Rank: <?php echo $this->Html->link($user['Rank']['title'], array('controller' => 'ranks', 'action' => 'view', $user['Rank']['id'])); ?></h4>
 	<dl><?php $i = 0; $class = ' class="altrow"';?>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Name'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
@@ -125,6 +125,7 @@
 		<tr>
 			<th><?php __('Name'); ?></th>
 			<th><?php __('Visibility'); ?></th>
+			<th><?php __('Created'); ?></th>
 			<th class="actions"><?php __('Actions');?></th>
 		</tr>
 		<?php
@@ -138,6 +139,7 @@
 			<tr<?php echo $class;?>>
 				<td><?php echo $this->Html->link($review['name'], array('controller' => 'reviews', 'action' => 'view', $review['id'])); ?></td>
 				<td><?php echo $review['visibility'];?></td>
+				<td><?php echo $this->Time->timeAgoInWords($review['created']);?></td>
 				<td class="actions">
 					<?php echo $this->Html->link(__('Edit', true), array('controller' => 'reviews', 'action' => 'edit', $review['id'])); ?>
 					<?php echo $this->Html->link(__('Delete', true), array('controller' => 'reviews', 'action' => 'delete', $review['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $review['id'])); ?>
