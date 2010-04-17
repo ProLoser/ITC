@@ -313,11 +313,11 @@ ul.reviews li {
 	margin-bottom: 20px;
 	padding-right: 20px;
 	background: no-repeat 85px;
-	background-image: url(../img/leftLight.jpg);
+	background-image: url(../img/leftDark.jpg);
 	list-style: none;
 }
-ul.reviews li.altrow {
-	background-image: url(../img/leftDark.jpg);
+ul.reviews li.closed {
+	background-image: url(../img/leftLight.jpg);
 }
 /* Scorebox */
 ul.reviews .scores {

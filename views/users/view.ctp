@@ -1,6 +1,6 @@
 <div class="actions">
 	<ul>
-		<li><?php echo $this->element('subscribe', array('id' => $user['User']['id'], 'model' => 'User')); ?></li>
+		<li><?php echo $this->ProCode->subscribe('User', $user['User']['id']); ?></li>
 	</ul>
 </div>
 <div class="users view">

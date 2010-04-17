@@ -68,6 +68,9 @@ class ReviewsController extends AppController {
 		if (!$id && empty($this->data)) {
 			$this->Session->setFlash(sprintf(__('Invalid %s', true), 'review'));
 			$this->redirect(array('action' => 'index'));
+		} elseif ($this->_owner($id)) {
+			$this->Session->setFlash(sprintf(__('You aren\'t the owner of this %s', true), 'review'));
+			$this->redirect(array('action'=>'index'));
 		}
 		if (!empty($this->data)) {
 			$this->data['Review']['user_id'] = $this->Auth->user('id');
@@ -85,9 +88,31 @@ class ReviewsController extends AppController {
 		$this->set(compact('visibilities'));
 	}
 
+	/**
+	 * Closes a review
+	 */
+	function close($id = null) {
+		if (!$id) {
+			$this->Session->setFlash(sprintf(__('Invalid id for %s', true), 'review'));
+			$this->redirect(array('action'=>'index'));
+		} elseif ($this->_owner($id)) {
+			$this->Session->setFlash(sprintf(__('You aren\'t the owner of this %s', true), 'review'));
+			$this->redirect(array('action'=>'index'));
+		}
+		if ($this->Review->saveField('closed', true)) {
+			$this->Session->setFlash(sprintf(__('%s closed', true), 'Review'));
+			$this->redirect(array('action'=>'index'));
+		}
+		$this->Session->setFlash(sprintf(__('%s was not closed', true), 'Review'));
+		$this->redirect(array('action' => 'index'));
+	}
+	
 	function delete($id = null) {
 		if (!$id) {
 			$this->Session->setFlash(sprintf(__('Invalid id for %s', true), 'review'));
+			$this->redirect(array('action'=>'index'));
+		} elseif ($this->_owner($id)) {
+			$this->Session->setFlash(sprintf(__('You aren\'t the owner of this %s', true), 'review'));
 			$this->redirect(array('action'=>'index'));
 		}
 		if ($this->Review->delete($id)) {

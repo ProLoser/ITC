@@ -6,8 +6,8 @@ foreach ($reviews as $review):
 		$review['Review'] = $review;
 	}
 	$class = null;
-	if ($i++ % 2 == 0) {
-		$class = ' class="altrow"';
+	if ($review['Review']['closed']) {
+		$class = ' class="closed"';
 	}
 ?>
 <li<?php echo $class;?>>
