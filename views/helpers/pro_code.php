@@ -35,13 +35,13 @@ class ProCodeHelper extends AppHelper {
 		if ($direction) {
 			return $this->Html->link(
 				'Thumbs Up', 
-				array('controller' => 'votes', 'action' => 'add', $model, $id, 'up'), 
+				array('controller' => 'votes', 'action' => 'add', $id, 'up', $model), 
 				array('class' => 'thumbsUp')
 			);
 		} else {
 			return $this->Html->link(
 				'Thumbs Down', 
-				array('controller' => 'votes', 'action' => 'add', $model, $id, 'down'), 
+				array('controller' => 'votes', 'action' => 'add', $id, 'down', $model), 
 				array('class' => 'thumbsDown')
 			);
 		}
