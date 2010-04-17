@@ -5,6 +5,7 @@
 			<th><?php echo $this->Paginator->sort('username');?></th>
 			<th><?php echo $this->Paginator->sort('points');?></th>
 			<th><?php echo $this->Paginator->sort('rank_id');?></th>
+			<th>Subscribe</th>
 	</tr>
 	<?php
 	$i = 0;
@@ -20,6 +21,7 @@
 		<td>
 			<?php echo $this->Html->link($user['Rank']['title'], array('controller' => 'ranks', 'action' => 'view', $user['Rank']['id'])); ?>
 		</td>
+		<td><?php echo $this->ProCode->subscribe('User', $user['User']['id']); ?>&nbsp;</td>
 	</tr>
 <?php endforeach; ?>
 	</table>
