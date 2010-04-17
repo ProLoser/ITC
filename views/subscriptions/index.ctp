@@ -4,8 +4,6 @@
 	<tr>
 			<th><?php echo $this->Paginator->sort('id');?></th>
 			<th><?php echo $this->Paginator->sort('user_id');?></th>
-			<th><?php echo $this->Paginator->sort('foreign_id');?></th>
-			<th><?php echo $this->Paginator->sort('foreign_model');?></th>
 			<th><?php echo $this->Paginator->sort('status');?></th>
 			<th><?php echo $this->Paginator->sort('created');?></th>
 			<th><?php echo $this->Paginator->sort('modified');?></th>
@@ -24,8 +22,6 @@
 		<td>
 			<?php echo $this->Html->link($subscription['User']['name'], array('controller' => 'users', 'action' => 'view', $subscription['User']['id'])); ?>
 		</td>
-		<td><?php echo $subscription['Subscription']['foreign_id']; ?>&nbsp;</td>
-		<td><?php echo $subscription['Subscription']['foreign_model']; ?>&nbsp;</td>
 		<td><?php echo $subscription['Subscription']['status']; ?>&nbsp;</td>
 		<td><?php echo $subscription['Subscription']['created']; ?>&nbsp;</td>
 		<td><?php echo $subscription['Subscription']['modified']; ?>&nbsp;</td>
