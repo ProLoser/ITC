@@ -559,18 +559,14 @@ background-image: url(../img/hideList.png);
 background-image: url(../img/subscribe.png);
 }
 
-
+/*** View Source ***/
 .sources.view h3 {
 font-size:2em;
 margin-bottom:.5em;
 }
-
-
 .sources.view p {
 margin-bottom:1em;
 }
-
-
 .php .head {
 display:block;
 width:100%;
@@ -578,20 +574,33 @@ height:12px;
 padding:10px;
 background-color:#5A7D0D;
 }
-
-
-#geshi {
-background-color:#91C127;
+/* sideComments */
+#sideComments ul li{
+	display: block;
+	list-style: none;
+	color: #000;
+	margin: 10px 0;
+	border-bottom: dashed 1px #91C127;
+	padding-bottom: 10px;
 }
-
+#sideComments ul li .top, #sideComments ul li .content, #sideComments ul li .bottom {
+	overflow: auto;
+}
+#sideComments ul li .top span {
+	float: right;
+}
+/* GeSHi */
+#geshi {
+	background-color:#91C127;
+}
 #geshi ol {
 	margin: 20px 0;
-background-color:#ffffff;
+	background-color:#ffffff;
 	margin: 0 0 0 50px; /*--Distance between the order numbers--*/
-	}
+}
 #geshi ol li {
 	margin: 0;
-padding-left:5px;
+	padding-left:5px;
 	color: #000000;
 	font-size: 1em;
 }

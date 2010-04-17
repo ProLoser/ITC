@@ -1,26 +1,26 @@
-<div class="related">
+<div id="sideComments">
 	<h3><?php printf(__('Related %s', true), __('Comments', true));?></h3>
 	<?php if (!empty($source['Comment'])):?>
+	<ul>
 	<?php
 		$i = 0;
 		foreach ($source['Comment'] as $comment):?>
-		<div class="commentBox">
-			<div class="commentTop">
-			<?php echo $this->Html->link($comment['User']['username'], array('controller' => 'users', 'action' => 'view', $comment['User']['id']));?>
-			<?php echo $comment['User']['Rank']['title']?>
-			<a class="subscribe" href="#">Subscribe to user</a>
-			<?php //echo $comment['line_start'];?>
-			<?php //echo $comment['line_end'];?>
+		<li>
+			<div class="top">
+				<?php echo $this->Html->link($comment['User']['username'], array('controller' => 'users', 'action' => 'view', $comment['User']['id']));?>
+				[<?php echo $comment['User']['Rank']['title']?>]
+				<span>Lines <?php echo $comment['line_start'];?>:<?php echo $comment['line_end'];?></span>
 			</div>
-			<div class="commentContent"><?php echo $comment['content'];?></div>
-			<div class="commentBottom">
-			<?php echo $comment['vote_count'];?>
-			<a class="thumbsUp" href="#">Thumbs Up</a><a class="thumbsDown" href="#">Thumbs Down</a>
-			<?php //echo $comment['created'];?>
-			<?php //echo $comment['vote_count'];?>
+			<div class="content"><?php echo $comment['content'];?></div>
+			<div class="bottom">
+				<?php echo $comment['vote_count'];?>
+				<a class="thumbsUp" href="#">Thumbs Up</a><a class="thumbsDown" href="#">Thumbs Down</a>
 			</div>
-		</div>
+		</li>
 	<?php endforeach; ?>
-<?php endif; ?>
+	</ul>
+	<?php else: ?>
+	<p>There are no comments at this time</p>
+	<?php endif; ?>
 </div>
 
