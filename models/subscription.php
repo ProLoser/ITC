@@ -54,15 +54,17 @@ class Subscription extends AppModel {
 	function afterSave($created) {
 		if ($created) {
 			if ($this->data['Subscription']['foreign_id'] == 'User') {
-				$this->grantPoints(
+				$this->User->grantPoints(
 					'user-subscribed',
-					$this->data['Subscription']['foreign_id']
+					$this->data['Subscription']['foreign_id'],
+					$this->id
 				);
 			} else {
 				$userId = $this->User->Review->field('user_id', array('Review.id' => $this->data['Subscription']['foreign_id']));
-				$this->grantPoints(
+				$this->User->grantPoints(
 					'review-subscribed',
-					$userId
+					$userId,
+					$this->id
 				);
 			}
 		}
