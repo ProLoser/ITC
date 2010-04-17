@@ -64,7 +64,11 @@ class Comment extends AppModel {
 	
 	function afterSave($created) {
 		if ($created) {
-			$this->User->grantPoints('create-comment', $this->data['Comment']['user_id'], $this->data['Comment']['id']);
+			$this->User->grantPoints(
+				'create-comment', 
+				$this->data['Comment']['user_id'], 
+				$this->id
+			);
 		} else {
 			if (isset($this->data['Comment']['owner_vote'])) {
 				if (!isset($this->data['Comment']['owner_vote'])) {
