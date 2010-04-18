@@ -43,6 +43,8 @@ class AppController extends Controller {
 	function _owner($id, $relatedModel = null) {
 		if ($relatedModel) {
 			$check = $this->{$this->modelClass}->$relatedModel->field('user_id', array('id' => $id));
+		} elseif ($this->modelClass == 'User') {
+			$check = $id;
 		} else {
 			$check = $this->{$this->modelClass}->field($this->modelClass.'.user_id', array($this->modelClass.'.id' => $id));
 		}

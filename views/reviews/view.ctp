@@ -3,7 +3,7 @@
 	<?php if ($owner): ?>
 		<li><?php echo $this->Html->link(sprintf(__('Edit %s', true), __('Review', true)), array('action' => 'edit', $review['Review']['id'])); ?> </li>
 		<li><?php echo $this->Html->link(sprintf(__('Delete %s', true), __('Review', true)), array('action' => 'delete', $review['Review']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $review['Review']['id'])); ?> </li>
-		<?php if (!$source['Review']['closed']): ?>
+		<?php if (!$review['Review']['closed']): ?>
 		<li><?php echo $this->Html->link(sprintf(__('Close %s', true), __('Review', true)), array('action' => 'close', $review['Review']['id'])); ?> </li>
 		<li><?php echo $this->Html->link(sprintf(__('Add %s', true), __('Source', true)), array('action' => 'add', $review['Review']['id'])); ?> </li>
 		<?php endif; ?>
