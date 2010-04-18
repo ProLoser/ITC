@@ -62,7 +62,7 @@ class ReviewsController extends AppController {
 		if (!$id && empty($this->data)) {
 			$this->Session->setFlash(sprintf(__('Invalid %s', true), 'review'));
 			$this->redirect(array('action' => 'index'));
-		} elseif ($this->_owner($id)) {
+		} elseif (!$this->_owner($id)) {
 			$this->Session->setFlash(sprintf(__('You aren\'t the owner of this %s', true), 'review'));
 			$this->redirect(array('action'=>'index'));
 		}
@@ -89,7 +89,7 @@ class ReviewsController extends AppController {
 		if (!$id) {
 			$this->Session->setFlash(sprintf(__('Invalid id for %s', true), 'review'));
 			$this->redirect(array('action'=>'index'));
-		} elseif ($this->_owner($id)) {
+		} elseif (!$this->_owner($id)) {
 			$this->Session->setFlash(sprintf(__('You aren\'t the owner of this %s', true), 'review'));
 			$this->redirect(array('action'=>'index'));
 		}
@@ -105,7 +105,7 @@ class ReviewsController extends AppController {
 		if (!$id) {
 			$this->Session->setFlash(sprintf(__('Invalid id for %s', true), 'review'));
 			$this->redirect(array('action'=>'index'));
-		} elseif ($this->_owner($id)) {
+		} elseif (!$this->_owner($id)) {
 			$this->Session->setFlash(sprintf(__('You aren\'t the owner of this %s', true), 'review'));
 			$this->redirect(array('action'=>'index'));
 		}
