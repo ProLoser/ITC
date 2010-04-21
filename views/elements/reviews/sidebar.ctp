@@ -4,12 +4,12 @@
 	<ul>
 	<?php
 		$i = 0;
-		foreach ($source['Comment'] as $comment):?>
-		<li>
+		foreach ($source['Comment'] as $slot => $comment):?>
+		<li<?php if (isset($this->params['named']['comment']) && $slot == $this->params['named']['comment']) echo ' class="highlighted"'; ?>>
 			<div class="top">
 				<?php echo $this->Html->link($comment['User']['username'], array('controller' => 'users', 'action' => 'view', $comment['User']['id']));?>
 				[<?php echo $comment['User']['Rank']['title']?>]
-				<span>Lines <?php echo $comment['line_start'];?>:<?php echo $comment['line_end'];?></span>
+				<?php echo $this->Html->link('Lines '.$comment['line_start'].'-'.$comment['line_end'], array($comment['source_id'],'comment'=>$slot)); ?>
 			</div>
 			<div class="content"><?php echo $comment['content'];?></div>
 			<div class="bottom">

@@ -19,13 +19,19 @@
 </div>
 <?php endif; ?>
 <div class="sources view">
+	<h4>To comment, simply click and drag the mouse across the lines you wish to comment and let go</h4>
+	<h4>You can also review commented lines by click on the comment's line numbers to the left</h4>
 	<?php echo $this->ProCode->subscribe('Review', $source['Review']['id']); ?>
 	<h3><?php echo $this->Html->link($source['Review']['name'], array('controller' => 'reviews', 'action' => 'view', $source['Review']['id']));	?> </h3>
 	<p><?php echo $source['Source']['description']; ?></p>
 	<div id="geshi">
 		<?php
-			$header = $source['Source']['filename'].' <span>Uploaded:'.$this->Time->timeAgoInWords($source['Source']['created']).' Updated:'.$this->Time->timeAgoInWords($source['Source']['modified'].'</span>');
-			echo $geshi->parse($source['Source']['content'], $source['Language']['key'], $header);
+			$params['header'] = $source['Source']['filename'].' <span>Uploaded:'.$this->Time->timeAgoInWords($source['Source']['created']).' Updated:'.$this->Time->timeAgoInWords($source['Source']['modified'].'</span>');
+			if (isset($this->params['named']['comment'])) {
+				$params['start'] = $source['Comment'][$this->params['named']['comment']]['line_start'];
+				$params['end'] = $source['Comment'][$this->params['named']['comment']]['line_end'];
+			}
+			echo $geshi->parse($source['Source']['content'], $source['Language']['key'], $params);
 		?>
 	</div>
 </div>
